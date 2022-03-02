@@ -42,7 +42,7 @@ page.open(url, function (status) {
         phantom.exit(1);
     }
 
-    console.log("Test succeeded.");
+    console.log("Tests finished");
     phantom.exit(0);
 });
 

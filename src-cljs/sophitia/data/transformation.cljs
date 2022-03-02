@@ -32,6 +32,6 @@
   [sophitia-form]
   (let [pre-form (map (fn [field] (s-field->reagent-field field))
                       (:fields sophitia-form))]
-    (reduce (fn [field acc] (conj acc field))
+    (reduce (fn [acc field] (conj acc field))
             [:div]
             pre-form)))

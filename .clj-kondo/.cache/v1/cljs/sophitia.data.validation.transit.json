@@ -1,1 +1,0 @@
-["^ ","~$SCHEMA-TYPE",["^ ","~:row",7,"~:col",1,"~:name","^0","~:ns","~$sophitia.data.validation","~:top-ns","^5"],"~$validate-form-schema",["^ ","^1",9,"^2",1,"~:fixed-arities",["~#set",[1]],"^3","^7","^4","^5","^6","^5"],"~:filename","/Users/enyertvinas/Projects/flexiana/sophitia/src-cljs/sophitia/data/validation.cljs"]

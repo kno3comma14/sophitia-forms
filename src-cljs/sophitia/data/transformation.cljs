@@ -17,21 +17,19 @@
    :type (:type field)})
 
 (defn create-input
- [field]
+  [field]
   (let [attrs (collect-html-attrs field)]
     [:input attrs]))
 
 (defn s-field->reagent-field
   [field]
-    [:div
-     (create-field-title field)
-     (create-input field)
-     (create-field-error field)])
+  [:div
+   (create-field-title field)
+   (create-input field)
+   (create-field-error field)])
 
 (defn s-form->reagent-form
   [sophitia-form]
-  (let [pre-form (map (fn [field] (s-field->reagent-field field))
-                      (:fields sophitia-form))]
-    (reduce (fn [acc field] (conj acc field))
-            [:div]
-            pre-form)))
+  (reduce (fn [acc field] (conj acc (s-field->reagent-field field)))
+          [:div]
+          (:fields sophitia-form)))

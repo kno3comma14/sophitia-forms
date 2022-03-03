@@ -22,6 +22,17 @@
    :type "text"
    :validation-group "g2"})
 
+(def reagent-expected-form-result
+  [:div
+   [:div
+    [:label "name1"]
+    [:input {:id "id1", :class "class1", :type "text"}]
+    [:label "Field not valid."]]
+   [:div
+    [:label "name2"]
+    [:input {:id "id2", :class "class2", :type "text"}]
+    [:label "Field not valid."]]])
+
 (def valid-malli-form
   {:fields [valid-malli-field valid-malli-field2]
    :validation-behavior "on-change"
@@ -69,15 +80,7 @@
   (testing "s-form->reagent-form is working properly with a valid field"
     (let [sophitia-form valid-malli-form
           actual-reagent-form (t/s-form->reagent-form sophitia-form)
-          expected-reagent-form [:div
-                                 [:div
-                                  [:label "name1"]
-                                  [:input {:id "id1", :class "class1", :type "text"}]
-                                  [:label "Field not valid."]]
-                                 [:div
-                                  [:label "name2"]
-                                  [:input {:id "id2", :class "class2", :type "text"}]
-                                  [:label "Field not valid."]]]]
+          expected-reagent-form reagent-expected-form-result]
       (is (= actual-reagent-form expected-reagent-form)))))
 
 (run-tests)

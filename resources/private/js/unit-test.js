@@ -48548,134 +48548,1341 @@ malli.core._instrument.cljs$core$IFn$_invoke$arity$3 = function(p__9682, f, opti
   }
 };
 malli.core._instrument.cljs$lang$maxFixedArity = 3;
-goog.provide("goog.string.format");
-goog.require("goog.string");
-goog.string.format = function(formatString, var_args) {
-  var args = Array.prototype.slice.call(arguments);
-  var template = args.shift();
-  if (typeof template == "undefined") {
-    throw Error("[goog.string.format] Template required");
+goog.provide("malli.util");
+goog.require("cljs.core");
+goog.require("cljs.core");
+goog.require("malli.core");
+malli.util.equals = function malli$util$equals(var_args) {
+  var G__9871 = arguments.length;
+  switch(G__9871) {
+    case 2:
+      return malli.util.equals.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.equals.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
   }
-  var formatRe = /%([0\- \+]*)(\d+)?(\.(\d+))?([%sfdiu])/g;
-  function replacerDemuxer(match, flags, width, dotp, precision, type, offset, wholeString) {
-    if (type == "%") {
-      return "%";
-    }
-    var value = args.shift();
-    if (typeof value == "undefined") {
-      throw Error("[goog.string.format] Not enough arguments");
-    }
-    arguments[0] = value;
-    return goog.string.format.demuxes_[type].apply(null, arguments);
-  }
-  return template.replace(formatRe, replacerDemuxer);
 };
-goog.string.format.demuxes_ = {};
-goog.string.format.demuxes_["s"] = function(value, flags, width, dotp, precision, type, offset, wholeString) {
-  var replacement = value;
-  if (isNaN(width) || width == "" || replacement.length >= Number(width)) {
-    return replacement;
-  }
-  if (flags.indexOf("-", 0) > -1) {
-    replacement = replacement + goog.string.repeat(" ", Number(width) - replacement.length);
-  } else {
-    replacement = goog.string.repeat(" ", Number(width) - replacement.length) + replacement;
-  }
-  return replacement;
+malli.util.equals.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema1, _QMARK_schema2) {
+  return malli.util.equals.call(null, _QMARK_schema1, _QMARK_schema2, null);
 };
-goog.string.format.demuxes_["f"] = function(value, flags, width, dotp, precision, type, offset, wholeString) {
-  var replacement = value.toString();
-  if (!(isNaN(precision) || precision == "")) {
-    replacement = parseFloat(value).toFixed(precision);
-  }
-  var sign;
-  if (Number(value) < 0) {
-    sign = "-";
+malli.util.equals.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema1, _QMARK_schema2, options) {
+  return cljs.core._EQ_.call(null, malli.core.form.call(null, _QMARK_schema1, options), malli.core.form.call(null, _QMARK_schema2, options));
+};
+malli.util.equals.cljs$lang$maxFixedArity = 3;
+malli.util._simplify_map_entry = function malli$util$_simplify_map_entry(p__9873) {
+  var vec__9874 = p__9873;
+  var k = cljs.core.nth.call(null, vec__9874, 0, null);
+  var _QMARK_p = cljs.core.nth.call(null, vec__9874, 1, null);
+  var s = cljs.core.nth.call(null, vec__9874, 2, null);
+  if (cljs.core.not.call(null, s)) {
+    return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [k, _QMARK_p], null);
   } else {
-    if (flags.indexOf("+") >= 0) {
-      sign = "+";
-    } else {
-      if (flags.indexOf(" ") >= 0) {
-        sign = " ";
+    if (cljs.core.truth_(function() {
+      var and__4174__auto__ = _QMARK_p;
+      if (cljs.core.truth_(and__4174__auto__)) {
+        return (new cljs.core.Keyword(null, "optional", "optional", 2053951509)).cljs$core$IFn$_invoke$arity$1(_QMARK_p) === false && cljs.core._EQ_.call(null, 1, cljs.core.count.call(null, _QMARK_p));
       } else {
-        sign = "";
+        return and__4174__auto__;
+      }
+    }())) {
+      return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [k, s], null);
+    } else {
+      if (cljs.core.not.call(null, cljs.core.seq.call(null, _QMARK_p))) {
+        return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [k, s], null);
+      } else {
+        if ((new cljs.core.Keyword(null, "optional", "optional", 2053951509)).cljs$core$IFn$_invoke$arity$1(_QMARK_p) === false) {
+          return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [k, cljs.core.dissoc.call(null, _QMARK_p, new cljs.core.Keyword(null, "optional", "optional", 2053951509)), s], null);
+        } else {
+          return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [k, _QMARK_p, s], null);
+        }
       }
     }
   }
-  if (Number(value) >= 0) {
-    replacement = sign + replacement;
+};
+malli.util._required_map_entry_QMARK_ = function malli$util$_required_map_entry_QMARK_(p__9877) {
+  var vec__9878 = p__9877;
+  var _ = cljs.core.nth.call(null, vec__9878, 0, null);
+  var _QMARK_p = cljs.core.nth.call(null, vec__9878, 1, null);
+  return !(cljs.core.map_QMARK_.call(null, _QMARK_p) && (new cljs.core.Keyword(null, "optional", "optional", 2053951509)).cljs$core$IFn$_invoke$arity$1(_QMARK_p) === true);
+};
+malli.util._entry = function malli$util$_entry(p__9881, p__9882, merge_required, merge, options) {
+  var vec__9883 = p__9881;
+  var k = cljs.core.nth.call(null, vec__9883, 0, null);
+  var _QMARK_p1 = cljs.core.nth.call(null, vec__9883, 1, null);
+  var s1 = cljs.core.nth.call(null, vec__9883, 2, null);
+  var e1 = vec__9883;
+  var vec__9886 = p__9882;
+  var _ = cljs.core.nth.call(null, vec__9886, 0, null);
+  var _QMARK_p2 = cljs.core.nth.call(null, vec__9886, 1, null);
+  var s2 = cljs.core.nth.call(null, vec__9886, 2, null);
+  var e2 = vec__9886;
+  var required = merge_required.call(null, malli.util._required_map_entry_QMARK_.call(null, e1), malli.util._required_map_entry_QMARK_.call(null, e2));
+  var p = cljs.core.merge.call(null, _QMARK_p1, _QMARK_p2);
+  return malli.util._simplify_map_entry.call(null, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [k, cljs.core.assoc.call(null, p, new cljs.core.Keyword(null, "optional", "optional", 2053951509), cljs.core.not.call(null, required)), merge.call(null, s1, s2, options)], null));
+};
+malli.util._open_map_QMARK_ = function malli$util$_open_map_QMARK_(schema, options) {
+  return cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "map", "map", 1371690461), malli.core.type.call(null, schema, options)) && !((new cljs.core.Keyword(null, "closed", "closed", -919675359)).cljs$core$IFn$_invoke$arity$1(malli.core.properties.call(null, schema)) === false);
+};
+malli.util.find_first = function malli$util$find_first(var_args) {
+  var G__9890 = arguments.length;
+  switch(G__9890) {
+    case 2:
+      return malli.util.find_first.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.find_first.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
   }
-  if (isNaN(width) || replacement.length >= Number(width)) {
-    return replacement;
+};
+malli.util.find_first.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, f) {
+  return malli.util.find_first.call(null, _QMARK_schema, f, null);
+};
+malli.util.find_first.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, f, options) {
+  var result = cljs.core.atom.call(null, null);
+  malli.core._walk.call(null, malli.core.schema.call(null, _QMARK_schema, options), function() {
+    if (typeof malli !== "undefined" && typeof malli.util !== "undefined" && typeof malli.util.t_malli$util9891 !== "undefined") {
+    } else {
+      malli.util.t_malli$util9891 = function(_QMARK_schema, f, options, result, meta9892) {
+        this._QMARK_schema = _QMARK_schema;
+        this.f = f;
+        this.options = options;
+        this.result = result;
+        this.meta9892 = meta9892;
+        this.cljs$lang$protocol_mask$partition0$ = 393216;
+        this.cljs$lang$protocol_mask$partition1$ = 0;
+      };
+      malli.util.t_malli$util9891.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(_9893, meta9892__$1) {
+        var self__ = this;
+        var _9893__$1 = this;
+        return new malli.util.t_malli$util9891(self__._QMARK_schema, self__.f, self__.options, self__.result, meta9892__$1);
+      };
+      malli.util.t_malli$util9891.prototype.cljs$core$IMeta$_meta$arity$1 = function(_9893) {
+        var self__ = this;
+        var _9893__$1 = this;
+        return self__.meta9892;
+      };
+      malli.util.t_malli$util9891.prototype.malli$core$Walker$ = cljs.core.PROTOCOL_SENTINEL;
+      malli.util.t_malli$util9891.prototype.malli$core$Walker$_accept$arity$4 = function(_, s, path, options__$1) {
+        var self__ = this;
+        var ___$1 = this;
+        return cljs.core.not.call(null, function() {
+          var or__4185__auto__ = cljs.core.deref.call(null, self__.result);
+          if (cljs.core.truth_(or__4185__auto__)) {
+            return or__4185__auto__;
+          } else {
+            return cljs.core.reset_BANG_.call(null, self__.result, self__.f.call(null, s, path, options__$1));
+          }
+        }());
+      };
+      malli.util.t_malli$util9891.prototype.malli$core$Walker$_inner$arity$4 = function(this$, s, path, options__$1) {
+        var self__ = this;
+        var this$__$1 = this;
+        if (cljs.core.truth_(cljs.core.deref.call(null, self__.result))) {
+          return null;
+        } else {
+          return malli.core._walk.call(null, s, this$__$1, path, options__$1);
+        }
+      };
+      malli.util.t_malli$util9891.prototype.malli$core$Walker$_outer$arity$5 = function(_, ___$1, ___$2, ___$3, ___$4) {
+        var self__ = this;
+        var ___$5 = this;
+        return null;
+      };
+      malli.util.t_malli$util9891.getBasis = function() {
+        return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null, "?schema", "?schema", -271534072, null), new cljs.core.Symbol(null, "f", "f", 43394975, null), new cljs.core.Symbol(null, "options", "options", 1740170016, null), new cljs.core.Symbol(null, "result", "result", -1239343558, null), new cljs.core.Symbol(null, "meta9892", "meta9892", 483024702, null)], null);
+      };
+      malli.util.t_malli$util9891.cljs$lang$type = true;
+      malli.util.t_malli$util9891.cljs$lang$ctorStr = "malli.util/t_malli$util9891";
+      malli.util.t_malli$util9891.cljs$lang$ctorPrWriter = function(this__4428__auto__, writer__4429__auto__, opt__4430__auto__) {
+        return cljs.core._write.call(null, writer__4429__auto__, "malli.util/t_malli$util9891");
+      };
+      malli.util.__GT_t_malli$util9891 = function malli$util$__GT_t_malli$util9891(_QMARK_schema__$1, f__$1, options__$1, result__$1, meta9892) {
+        return new malli.util.t_malli$util9891(_QMARK_schema__$1, f__$1, options__$1, result__$1, meta9892);
+      };
+    }
+    return new malli.util.t_malli$util9891(_QMARK_schema, f, options, result, cljs.core.PersistentArrayMap.EMPTY);
+  }(), cljs.core.PersistentVector.EMPTY, options);
+  return cljs.core.deref.call(null, result);
+};
+malli.util.find_first.cljs$lang$maxFixedArity = 3;
+malli.util.merge = function malli$util$merge(var_args) {
+  var G__9896 = arguments.length;
+  switch(G__9896) {
+    case 2:
+      return malli.util.merge.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.merge.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
   }
-  replacement = isNaN(precision) ? Math.abs(Number(value)).toString() : Math.abs(Number(value)).toFixed(precision);
-  var padCount = Number(width) - replacement.length - sign.length;
-  if (flags.indexOf("-", 0) >= 0) {
-    replacement = sign + replacement + goog.string.repeat(" ", padCount);
+};
+malli.util.merge.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema1, _QMARK_schema2) {
+  return malli.util.merge.call(null, _QMARK_schema1, _QMARK_schema2, null);
+};
+malli.util.merge.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema1, _QMARK_schema2, options) {
+  var s1 = cljs.core.truth_(_QMARK_schema1) ? malli.core.deref_all.call(null, malli.core.schema.call(null, _QMARK_schema1, options)) : null;
+  var s2 = cljs.core.truth_(_QMARK_schema2) ? malli.core.deref_all.call(null, malli.core.schema.call(null, _QMARK_schema2, options)) : null;
+  var t1 = cljs.core.truth_(s1) ? malli.core.type.call(null, s1) : null;
+  var t2 = cljs.core.truth_(s2) ? malli.core.type.call(null, s2) : null;
+  var map__9897 = options;
+  var map__9897__$1 = (!(map__9897 == null) ? map__9897.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__9897.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9897) : map__9897;
+  var merge_default = cljs.core.get.call(null, map__9897__$1, new cljs.core.Keyword(null, "merge-default", "merge-default", 1152742083), function(_, s2__$1, ___$1) {
+    return s2__$1;
+  });
+  var merge_required = cljs.core.get.call(null, map__9897__$1, new cljs.core.Keyword(null, "merge-required", "merge-required", 75277811), function(_, r2) {
+    return r2;
+  });
+  var bear = function(p1, p2) {
+    if (cljs.core.truth_(function() {
+      var and__4174__auto__ = p1;
+      if (cljs.core.truth_(and__4174__auto__)) {
+        return p2;
+      } else {
+        return and__4174__auto__;
+      }
+    }())) {
+      return cljs.core.merge.call(null, p1, p2);
+    } else {
+      var or__4185__auto__ = p1;
+      if (cljs.core.truth_(or__4185__auto__)) {
+        return or__4185__auto__;
+      } else {
+        return p2;
+      }
+    }
+  };
+  var tear = function(t, s) {
+    if (cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "map", "map", 1371690461), t)) {
+      return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [null, s], null);
+    } else {
+      return cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [malli.core.properties.call(null, s)], null), malli.core.children.call(null, s));
+    }
+  };
+  var join = function(p__9899, p__9900) {
+    var vec__9901 = p__9899;
+    var seq__9902 = cljs.core.seq.call(null, vec__9901);
+    var first__9903 = cljs.core.first.call(null, seq__9902);
+    var seq__9902__$1 = cljs.core.next.call(null, seq__9902);
+    var p1 = first__9903;
+    var first__9903__$1 = cljs.core.first.call(null, seq__9902__$1);
+    var seq__9902__$2 = cljs.core.next.call(null, seq__9902__$1);
+    var c1 = first__9903__$1;
+    var cs1 = seq__9902__$2;
+    var vec__9904 = p__9900;
+    var seq__9905 = cljs.core.seq.call(null, vec__9904);
+    var first__9906 = cljs.core.first.call(null, seq__9905);
+    var seq__9905__$1 = cljs.core.next.call(null, seq__9905);
+    var p2 = first__9906;
+    var first__9906__$1 = cljs.core.first.call(null, seq__9905__$1);
+    var seq__9905__$2 = cljs.core.next.call(null, seq__9905__$1);
+    var c2 = first__9906__$1;
+    var cs2 = seq__9905__$2;
+    return malli.core.into_schema.call(null, new cljs.core.Keyword(null, "and", "and", -971899817), bear.call(null, p1, p2), cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [malli.util.merge.call(null, c1, c2, options)], null), cs1, cs2), options);
+  };
+  if (s1 == null) {
+    return s2;
   } else {
-    var paddingChar = flags.indexOf("0", 0) >= 0 ? "0" : " ";
-    replacement = sign + goog.string.repeat(paddingChar, padCount) + replacement;
+    if (s2 == null) {
+      return s1;
+    } else {
+      if (cljs.core.not.call(null, function() {
+        var and__4174__auto__ = (new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "and", "and", -971899817), null, new cljs.core.Keyword(null, "map", "map", 1371690461), null], null), null)).call(null, t1);
+        if (cljs.core.truth_(and__4174__auto__)) {
+          return (new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "and", "and", -971899817), null, new cljs.core.Keyword(null, "map", "map", 1371690461), null], null), null)).call(null, t2);
+        } else {
+          return and__4174__auto__;
+        }
+      }())) {
+        return merge_default.call(null, s1, s2, options);
+      } else {
+        if (!(cljs.core._EQ_.call(null, t1, new cljs.core.Keyword(null, "map", "map", 1371690461)) && cljs.core._EQ_.call(null, t2, new cljs.core.Keyword(null, "map", "map", 1371690461)))) {
+          return join.call(null, tear.call(null, t1, s1), tear.call(null, t2, s2));
+        } else {
+          var p = bear.call(null, malli.core._properties.call(null, s1), malli.core._properties.call(null, s2));
+          var ks = cljs.core.atom.call(null, cljs.core.PersistentHashSet.EMPTY);
+          var children = cljs.core.reduce.call(null, function(form, p__9907) {
+            var vec__9908 = p__9907;
+            var k2 = cljs.core.nth.call(null, vec__9908, 0, null);
+            var e2 = vec__9908;
+            if (cljs.core.truth_(cljs.core.deref.call(null, ks).call(null, k2))) {
+              return cljs.core.reduce.call(null, function(acc_SINGLEQUOTE_, p__9911) {
+                var vec__9912 = p__9911;
+                var k1 = cljs.core.nth.call(null, vec__9912, 0, null);
+                var e1 = vec__9912;
+                return cljs.core.conj.call(null, acc_SINGLEQUOTE_, cljs.core._EQ_.call(null, k1, k2) ? malli.util._entry.call(null, e1, e2, merge_required, malli.util.merge, options) : e1);
+              }, cljs.core.PersistentVector.EMPTY, form);
+            } else {
+              cljs.core.swap_BANG_.call(null, ks, cljs.core.conj, k2);
+              return cljs.core.conj.call(null, form, e2);
+            }
+          }, cljs.core.PersistentVector.EMPTY, cljs.core.into.call(null, malli.core._children.call(null, s1), malli.core._children.call(null, s2)));
+          return malli.core.into_schema.call(null, new cljs.core.Keyword(null, "map", "map", 1371690461), p, children, options);
+        }
+      }
+    }
   }
-  return replacement;
 };
-goog.string.format.demuxes_["d"] = function(value, flags, width, dotp, precision, type, offset, wholeString) {
-  return goog.string.format.demuxes_["f"](parseInt(value, 10), flags, width, dotp, 0, type, offset, wholeString);
+malli.util.merge.cljs$lang$maxFixedArity = 3;
+malli.util.union = function malli$util$union(var_args) {
+  var G__9917 = arguments.length;
+  switch(G__9917) {
+    case 2:
+      return malli.util.union.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.union.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
 };
-goog.string.format.demuxes_["i"] = goog.string.format.demuxes_["d"];
-goog.string.format.demuxes_["u"] = goog.string.format.demuxes_["d"];
-goog.provide("sophitia.data.schema");
-goog.require("cljs.core");
-goog.require("malli.core");
-goog.require("goog.string");
-goog.require("goog.string.format");
-sophitia.data.schema.MalliField = new cljs.core.PersistentVector(null, 10, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "map", "map", 1371690461), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "closed", "closed", -919675359), true], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "id", "id", -1388402092), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, 
-[new cljs.core.Keyword(null, "string", "string", -1989541586), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "min", "min", 444991522), 1], null)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "string", "string", -1989541586), new cljs.core.PersistentArrayMap(null, 
-1, [new cljs.core.Keyword(null, "min", "min", 444991522), 1], null)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "class", "class", -2030961996), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "string", "string", -1989541586), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "min", "min", 444991522), 1], null)], null)], null), new cljs.core.PersistentVector(null, 
-2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "description", "description", -1428560544), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "string", "string", -1989541586)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "error-message", "error-message", 1756021561), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, 
-[new cljs.core.Keyword(null, "or", "or", 235744169), new cljs.core.Keyword(null, "string", "string", -1989541586), new cljs.core.Keyword(null, "nil", "nil", 99600501)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "default-error-mesage", "default-error-mesage", 963160337), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "or", "or", 235744169), new cljs.core.Keyword(null, 
-"string", "string", -1989541586), new cljs.core.Keyword(null, "nil", "nil", 99600501)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.PersistentVector(null, 11, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "enum", "enum", 1679018432), "text", "password", "checkbox", "email", "number", "file", "radio", "button", "color", "image"], null)], null), new cljs.core.PersistentVector(null, 
-2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "validation-group", "validation-group", -591747153), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "string", "string", -1989541586)], null)], null)], null);
-sophitia.data.schema.valid_malli_field_QMARK_ = function sophitia$data$schema$valid_malli_field_QMARK_(field) {
-  var result = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "validity", "validity", 890377214), malli.core.validate.call(null, sophitia.data.schema.MalliField, field), new cljs.core.Keyword(null, "error-message", "error-message", 1756021561), goog.string.format(function() {
-    var or__4185__auto__ = (new cljs.core.Keyword(null, "default-error-mesage", "default-error-mesage", 963160337)).cljs$core$IFn$_invoke$arity$1(field);
+malli.util.union.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema1, _QMARK_schema2) {
+  return malli.util.union.call(null, _QMARK_schema1, _QMARK_schema2, null);
+};
+malli.util.union.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema1, _QMARK_schema2, options) {
+  var merge_default = function(s1, s2, options__$1) {
+    if (cljs.core.truth_(malli.util.equals.call(null, s1, s2))) {
+      return s1;
+    } else {
+      return malli.core.schema.call(null, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "or", "or", 235744169), s1, s2], null), options__$1);
+    }
+  };
+  var merge_required = function(r1, r2) {
+    var and__4174__auto__ = r1;
+    if (cljs.core.truth_(and__4174__auto__)) {
+      return r2;
+    } else {
+      return and__4174__auto__;
+    }
+  };
+  return malli.util.merge.call(null, _QMARK_schema1, _QMARK_schema2, cljs.core.update.call(null, cljs.core.update.call(null, options, new cljs.core.Keyword(null, "merge-default", "merge-default", 1152742083), cljs.core.fnil.call(null, cljs.core.identity, merge_default)), new cljs.core.Keyword(null, "merge-required", "merge-required", 75277811), cljs.core.fnil.call(null, cljs.core.identity, merge_required)));
+};
+malli.util.union.cljs$lang$maxFixedArity = 3;
+malli.util.update_properties = function malli$util$update_properties(var_args) {
+  var args__4795__auto__ = [];
+  var len__4789__auto___9922 = arguments.length;
+  var i__4790__auto___9923 = 0;
+  while (true) {
+    if (i__4790__auto___9923 < len__4789__auto___9922) {
+      args__4795__auto__.push(arguments[i__4790__auto___9923]);
+      var G__9924 = i__4790__auto___9923 + 1;
+      i__4790__auto___9923 = G__9924;
+      continue;
+    } else {
+    }
+    break;
+  }
+  var argseq__4796__auto__ = 2 < args__4795__auto__.length ? new cljs.core.IndexedSeq(args__4795__auto__.slice(2), 0, null) : null;
+  return malli.util.update_properties.cljs$core$IFn$_invoke$arity$variadic(arguments[0], arguments[1], argseq__4796__auto__);
+};
+malli.util.update_properties.cljs$core$IFn$_invoke$arity$variadic = function(_QMARK_schema, f, args) {
+  var schema = malli.core.schema.call(null, _QMARK_schema);
+  return malli.core._set_properties.call(null, schema, cljs.core.not_empty.call(null, cljs.core.apply.call(null, f, malli.core._properties.call(null, schema), args)));
+};
+malli.util.update_properties.cljs$lang$maxFixedArity = 2;
+malli.util.update_properties.cljs$lang$applyTo = function(seq9919) {
+  var G__9920 = cljs.core.first.call(null, seq9919);
+  var seq9919__$1 = cljs.core.next.call(null, seq9919);
+  var G__9921 = cljs.core.first.call(null, seq9919__$1);
+  var seq9919__$2 = cljs.core.next.call(null, seq9919__$1);
+  var self__4776__auto__ = this;
+  return self__4776__auto__.cljs$core$IFn$_invoke$arity$variadic(G__9920, G__9921, seq9919__$2);
+};
+malli.util.closed_schema = function malli$util$closed_schema(var_args) {
+  var G__9926 = arguments.length;
+  switch(G__9926) {
+    case 1:
+      return malli.util.closed_schema.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.util.closed_schema.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.closed_schema.cljs$core$IFn$_invoke$arity$1 = function(_QMARK_schema) {
+  return malli.util.closed_schema.call(null, _QMARK_schema, null);
+};
+malli.util.closed_schema.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, options) {
+  return malli.core.walk.call(null, _QMARK_schema, malli.core.schema_walker.call(null, function(schema) {
+    if (malli.util._open_map_QMARK_.call(null, schema, options)) {
+      return malli.util.update_properties.call(null, schema, cljs.core.assoc, new cljs.core.Keyword(null, "closed", "closed", -919675359), true);
+    } else {
+      return schema;
+    }
+  }), options);
+};
+malli.util.closed_schema.cljs$lang$maxFixedArity = 2;
+malli.util.open_schema = function malli$util$open_schema(var_args) {
+  var G__9929 = arguments.length;
+  switch(G__9929) {
+    case 1:
+      return malli.util.open_schema.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.util.open_schema.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.open_schema.cljs$core$IFn$_invoke$arity$1 = function(_QMARK_schema) {
+  return malli.util.open_schema.call(null, _QMARK_schema, null);
+};
+malli.util.open_schema.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, options) {
+  return malli.core.walk.call(null, _QMARK_schema, malli.core.schema_walker.call(null, function(schema) {
+    if (malli.util._open_map_QMARK_.call(null, schema, options)) {
+      return malli.util.update_properties.call(null, schema, cljs.core.dissoc, new cljs.core.Keyword(null, "closed", "closed", -919675359));
+    } else {
+      return schema;
+    }
+  }), options);
+};
+malli.util.open_schema.cljs$lang$maxFixedArity = 2;
+malli.util.subschemas = function malli$util$subschemas(var_args) {
+  var G__9933 = arguments.length;
+  switch(G__9933) {
+    case 1:
+      return malli.util.subschemas.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.util.subschemas.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.subschemas.cljs$core$IFn$_invoke$arity$1 = function(_QMARK_schema) {
+  return malli.util.subschemas.call(null, _QMARK_schema, null);
+};
+malli.util.subschemas.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, options) {
+  var schema = malli.core.schema.call(null, _QMARK_schema, options);
+  var options__$1 = function() {
+    var ref = cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "ref", "ref", 1289896967), malli.core.type.call(null, schema)) ? malli.core._ref.call(null, schema) : false;
+    return cljs.core.update.call(null, cljs.core.update.call(null, options, new cljs.core.Keyword("malli.core", "walk-schema-refs", "malli.core/walk-schema-refs", -1140065954), cljs.core.fnil.call(null, cljs.core.identity, true)), new cljs.core.Keyword("malli.core", "walk-refs", "malli.core/walk-refs", 755904802), function(f) {
+      return function(p1__9931_SHARP_) {
+        var or__4185__auto__ = cljs.core._EQ_.call(null, ref, p1__9931_SHARP_);
+        if (or__4185__auto__) {
+          return or__4185__auto__;
+        } else {
+          return malli.core._boolean_fn.call(null, f).call(null, p1__9931_SHARP_);
+        }
+      };
+    });
+  }();
+  var state = cljs.core.atom.call(null, cljs.core.PersistentVector.EMPTY);
+  malli.util.find_first.call(null, schema, function(s, p, _) {
+    cljs.core.swap_BANG_.call(null, state, cljs.core.conj, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "path", "path", -188191168), p, new cljs.core.Keyword(null, "in", "in", -1531184865), malli.util.path__GT_in.call(null, schema, p), new cljs.core.Keyword(null, "schema", "schema", -1582001791), s], null));
+    return null;
+  }, options__$1);
+  return cljs.core.deref.call(null, state);
+};
+malli.util.subschemas.cljs$lang$maxFixedArity = 2;
+malli.util.distinct_by = function malli$util$distinct_by(f, coll) {
+  var seen = cljs.core.atom.call(null, cljs.core.PersistentHashSet.EMPTY);
+  return cljs.core.filter.call(null, function(x) {
+    var v = f.call(null, x);
+    if (cljs.core.truth_(cljs.core.deref.call(null, seen).call(null, v))) {
+      return null;
+    } else {
+      return cljs.core.swap_BANG_.call(null, seen, cljs.core.conj, v);
+    }
+  }, coll);
+};
+malli.util.path__GT_in = function malli$util$path__GT_in(schema, path) {
+  var i = 0;
+  var s = schema;
+  var acc = cljs.core.PersistentVector.EMPTY;
+  while (true) {
+    var or__4185__auto__ = i >= cljs.core.count.call(null, path) ? acc : false;
     if (cljs.core.truth_(or__4185__auto__)) {
       return or__4185__auto__;
     } else {
-      return (new cljs.core.Keyword(null, "error-message", "error-message", 1756021561)).cljs$core$IFn$_invoke$arity$1(field);
+      var G__9937 = i + 1;
+      var G__9938 = malli.core._get.call(null, s, path.call(null, i), null);
+      var G__9939 = function() {
+        var G__9936 = acc;
+        if (cljs.core.truth_(malli.core._keep.call(null, s))) {
+          return cljs.core.conj.call(null, G__9936, path.call(null, i));
+        } else {
+          return G__9936;
+        }
+      }();
+      i = G__9937;
+      s = G__9938;
+      acc = G__9939;
+      continue;
     }
-  }(), (new cljs.core.Keyword(null, "name", "name", 1843675177)).cljs$core$IFn$_invoke$arity$1(field))], null);
-  return result;
-};
-sophitia.data.schema.MalliForm = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "and", "and", -971899817), new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "map", "map", 1371690461), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "closed", "closed", -919675359), true], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, 
-[new cljs.core.Keyword(null, "fields", "fields", -1932066230), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "vector", "vector", 1902966158), new cljs.core.Keyword(null, "any", "any", 1705907423)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "validation-behavior", "validation-behavior", 219743720), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
-[new cljs.core.Keyword(null, "enum", "enum", 1679018432), "on-change", "grouped", "on-submit"], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "schema", "schema", -1582001791), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "vector", "vector", 1902966158), new cljs.core.Keyword(null, "any", "any", 1705907423)], null)], null), new cljs.core.PersistentVector(null, 
-2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "validation-group-order", "validation-group-order", 139870265), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "vector", "vector", 1902966158), new cljs.core.Keyword(null, "any", "any", 1705907423)], null)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "fn", "fn", -1175266204), function(p__9449) {
-  var map__9450 = p__9449;
-  var map__9450__$1 = (!(map__9450 == null) ? map__9450.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__9450.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9450) : map__9450;
-  var fields = cljs.core.get.call(null, map__9450__$1, new cljs.core.Keyword(null, "fields", "fields", -1932066230));
-  return cljs.core.every_QMARK_.call(null, function(p1__9448_SHARP_) {
-    return (new cljs.core.Keyword(null, "validity", "validity", 890377214)).cljs$core$IFn$_invoke$arity$1(sophitia.data.schema.valid_malli_field_QMARK_.call(null, p1__9448_SHARP_));
-  }, fields);
-}], null)], null);
-sophitia.data.schema.provide_malli_field_schema = function sophitia$data$schema$provide_malli_field_schema() {
-  return sophitia.data.schema.MalliField;
-};
-sophitia.data.schema.provide_malli_form_schema = function sophitia$data$schema$provide_malli_form_schema() {
-  return sophitia.data.schema.MalliForm;
-};
-sophitia.data.schema.SpecField = cljs.core.PersistentVector.EMPTY;
-sophitia.data.schema.SpecForm = cljs.core.PersistentVector.EMPTY;
-goog.provide("sophitia.data.validation");
-goog.require("cljs.core");
-goog.require("sophitia.data.schema");
-goog.require("malli.core");
-sophitia.data.validation.SCHEMA_TYPE = "MALLI";
-sophitia.data.validation.validate_internal_form_schema = function sophitia$data$validation$validate_internal_form_schema(form_schema) {
-  if (cljs.core._EQ_.call(null, sophitia.data.validation.SCHEMA_TYPE, "MALLI")) {
-    return malli.core.validate.call(null, sophitia.data.schema.provide_malli_form_schema.call(null), form_schema);
-  } else {
-    return false;
+    break;
   }
+};
+malli.util.in__GT_paths = function malli$util$in__GT_paths(schema, in$) {
+  var state = cljs.core.atom.call(null, cljs.core.PersistentVector.EMPTY);
+  var in_equals = function(p__9941, p__9942) {
+    while (true) {
+      var vec__9943 = p__9941;
+      var seq__9944 = cljs.core.seq.call(null, vec__9943);
+      var first__9945 = cljs.core.first.call(null, seq__9944);
+      var seq__9944__$1 = cljs.core.next.call(null, seq__9944);
+      var x = first__9945;
+      var xs = seq__9944__$1;
+      var vec__9946 = p__9942;
+      var seq__9947 = cljs.core.seq.call(null, vec__9946);
+      var first__9948 = cljs.core.first.call(null, seq__9947);
+      var seq__9947__$1 = cljs.core.next.call(null, seq__9947);
+      var y = first__9948;
+      var ys = seq__9947__$1;
+      if (cljs.core.truth_(function() {
+        var and__4174__auto__ = x;
+        if (cljs.core.truth_(and__4174__auto__)) {
+          return cljs.core._EQ_.call(null, x, y);
+        } else {
+          return and__4174__auto__;
+        }
+      }())) {
+        var G__9949 = xs;
+        var G__9950 = ys;
+        p__9941 = G__9949;
+        p__9942 = G__9950;
+        continue;
+      } else {
+        if (cljs.core._EQ_.call(null, x, y)) {
+          return true;
+        } else {
+          if (cljs.core._EQ_.call(null, new cljs.core.Keyword("malli.core", "in", "malli.core/in", -1208578537), x)) {
+            var G__9951 = xs;
+            var G__9952 = ys;
+            p__9941 = G__9951;
+            p__9942 = G__9952;
+            continue;
+          } else {
+            return null;
+          }
+        }
+      }
+      break;
+    }
+  };
+  var parent_exists = function(v1, v2) {
+    var i = function() {
+      var x__4276__auto__ = cljs.core.count.call(null, v1);
+      var y__4277__auto__ = cljs.core.count.call(null, v2);
+      return x__4276__auto__ < y__4277__auto__ ? x__4276__auto__ : y__4277__auto__;
+    }();
+    return cljs.core._EQ_.call(null, cljs.core.subvec.call(null, v1, 0, i), cljs.core.subvec.call(null, v2, 0, i));
+  };
+  malli.util.find_first.call(null, schema, function(_, path, ___$1) {
+    if (cljs.core.truth_(function() {
+      var and__4174__auto__ = in_equals.call(null, malli.util.path__GT_in.call(null, schema, path), in$);
+      if (cljs.core.truth_(and__4174__auto__)) {
+        return cljs.core.not.call(null, cljs.core.some.call(null, function(p1__9940_SHARP_) {
+          return parent_exists.call(null, path, p1__9940_SHARP_);
+        }, cljs.core.deref.call(null, state)));
+      } else {
+        return and__4174__auto__;
+      }
+    }())) {
+      cljs.core.swap_BANG_.call(null, state, cljs.core.conj, path);
+      return null;
+    } else {
+      return null;
+    }
+  });
+  return cljs.core.deref.call(null, state);
+};
+malli.util.transform_entries = function malli$util$transform_entries(var_args) {
+  var G__9954 = arguments.length;
+  switch(G__9954) {
+    case 2:
+      return malli.util.transform_entries.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.transform_entries.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.transform_entries.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, f) {
+  return malli.util.transform_entries.call(null, _QMARK_schema, f, null);
+};
+malli.util.transform_entries.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, f, options) {
+  var schema = malli.core.deref_all.call(null, malli.core.schema.call(null, _QMARK_schema, options));
+  return malli.core.into_schema.call(null, malli.core._parent.call(null, schema), malli.core._properties.call(null, schema), f.call(null, malli.core._children.call(null, schema)), function() {
+    var or__4185__auto__ = malli.core.options.call(null, schema);
+    if (cljs.core.truth_(or__4185__auto__)) {
+      return or__4185__auto__;
+    } else {
+      return options;
+    }
+  }());
+};
+malli.util.transform_entries.cljs$lang$maxFixedArity = 3;
+malli.util.optional_keys = function malli$util$optional_keys(var_args) {
+  var G__9958 = arguments.length;
+  switch(G__9958) {
+    case 1:
+      return malli.util.optional_keys.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.util.optional_keys.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.optional_keys.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.optional_keys.cljs$core$IFn$_invoke$arity$1 = function(_QMARK_schema) {
+  return malli.util.optional_keys.call(null, _QMARK_schema, null, null);
+};
+malli.util.optional_keys.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, _QMARK_keys) {
+  var vec__9959 = cljs.core.map_QMARK_.call(null, _QMARK_keys) ? new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [null, _QMARK_keys], null) : new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [_QMARK_keys, null], null);
+  var keys = cljs.core.nth.call(null, vec__9959, 0, null);
+  var options = cljs.core.nth.call(null, vec__9959, 1, null);
+  return malli.util.optional_keys.call(null, _QMARK_schema, keys, options);
+};
+malli.util.optional_keys.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, keys, options) {
+  var accept = cljs.core.truth_(keys) ? cljs.core.set.call(null, keys) : cljs.core.constantly.call(null, true);
+  var mapper = function(p__9962) {
+    var vec__9963 = p__9962;
+    var k = cljs.core.nth.call(null, vec__9963, 0, null);
+    var e = vec__9963;
+    if (cljs.core.truth_(accept.call(null, k))) {
+      return cljs.core.update.call(null, e, 1, cljs.core.assoc, new cljs.core.Keyword(null, "optional", "optional", 2053951509), true);
+    } else {
+      return e;
+    }
+  };
+  return malli.util.transform_entries.call(null, _QMARK_schema, function(p1__9956_SHARP_) {
+    return cljs.core.map.call(null, mapper, p1__9956_SHARP_);
+  }, options);
+};
+malli.util.optional_keys.cljs$lang$maxFixedArity = 3;
+malli.util.required_keys = function malli$util$required_keys(var_args) {
+  var G__9969 = arguments.length;
+  switch(G__9969) {
+    case 1:
+      return malli.util.required_keys.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.util.required_keys.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.required_keys.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.required_keys.cljs$core$IFn$_invoke$arity$1 = function(_QMARK_schema) {
+  return malli.util.required_keys.call(null, _QMARK_schema, null, null);
+};
+malli.util.required_keys.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, _QMARK_keys) {
+  var vec__9970 = cljs.core.map_QMARK_.call(null, _QMARK_keys) ? new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [null, _QMARK_keys], null) : new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [_QMARK_keys, null], null);
+  var keys = cljs.core.nth.call(null, vec__9970, 0, null);
+  var options = cljs.core.nth.call(null, vec__9970, 1, null);
+  return malli.util.required_keys.call(null, _QMARK_schema, keys, options);
+};
+malli.util.required_keys.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, keys, options) {
+  var accept = cljs.core.truth_(keys) ? cljs.core.set.call(null, keys) : cljs.core.constantly.call(null, true);
+  var required = function(p) {
+    var p_SINGLEQUOTE_ = cljs.core.dissoc.call(null, p, new cljs.core.Keyword(null, "optional", "optional", 2053951509));
+    if (cljs.core.seq.call(null, p_SINGLEQUOTE_)) {
+      return p_SINGLEQUOTE_;
+    } else {
+      return null;
+    }
+  };
+  var mapper = function(p__9973) {
+    var vec__9974 = p__9973;
+    var k = cljs.core.nth.call(null, vec__9974, 0, null);
+    var e = vec__9974;
+    if (cljs.core.truth_(accept.call(null, k))) {
+      return cljs.core.update.call(null, e, 1, required);
+    } else {
+      return e;
+    }
+  };
+  return malli.util.transform_entries.call(null, _QMARK_schema, function(p1__9967_SHARP_) {
+    return cljs.core.map.call(null, mapper, p1__9967_SHARP_);
+  }, options);
+};
+malli.util.required_keys.cljs$lang$maxFixedArity = 3;
+malli.util.select_keys = function malli$util$select_keys(var_args) {
+  var G__9980 = arguments.length;
+  switch(G__9980) {
+    case 2:
+      return malli.util.select_keys.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.select_keys.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.select_keys.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, keys) {
+  return malli.util.select_keys.call(null, _QMARK_schema, keys, null);
+};
+malli.util.select_keys.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, keys, options) {
+  var key_set = cljs.core.set.call(null, keys);
+  return malli.util.transform_entries.call(null, _QMARK_schema, function(p1__9978_SHARP_) {
+    return cljs.core.filter.call(null, function(p__9981) {
+      var vec__9982 = p__9981;
+      var k = cljs.core.nth.call(null, vec__9982, 0, null);
+      return key_set.call(null, k);
+    }, p1__9978_SHARP_);
+  }, options);
+};
+malli.util.select_keys.cljs$lang$maxFixedArity = 3;
+malli.util.rename_keys = function malli$util$rename_keys(var_args) {
+  var G__9987 = arguments.length;
+  switch(G__9987) {
+    case 2:
+      return malli.util.rename_keys.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.rename_keys.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.rename_keys.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, kmap) {
+  return malli.util.rename_keys.call(null, _QMARK_schema, kmap, null);
+};
+malli.util.rename_keys.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, kmap, options) {
+  return malli.util.transform_entries.call(null, _QMARK_schema, function(entries) {
+    var source_keys = cljs.core.set.call(null, cljs.core.keys.call(null, kmap));
+    var target_keys = cljs.core.set.call(null, cljs.core.vals.call(null, kmap));
+    var remove_conflicts = function(p__9988) {
+      var vec__9989 = p__9988;
+      var k = cljs.core.nth.call(null, vec__9989, 0, null);
+      var or__4185__auto__ = source_keys.call(null, k);
+      if (cljs.core.truth_(or__4185__auto__)) {
+        return or__4185__auto__;
+      } else {
+        return cljs.core.not.call(null, target_keys.call(null, k));
+      }
+    };
+    var alter_keys = function(p__9992) {
+      var vec__9993 = p__9992;
+      var k = cljs.core.nth.call(null, vec__9993, 0, null);
+      var m = cljs.core.nth.call(null, vec__9993, 1, null);
+      var v = cljs.core.nth.call(null, vec__9993, 2, null);
+      return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.get.call(null, kmap, k, k), m, v], null);
+    };
+    return cljs.core.map.call(null, alter_keys, cljs.core.filter.call(null, remove_conflicts, entries));
+  }, options);
+};
+malli.util.rename_keys.cljs$lang$maxFixedArity = 3;
+malli.util.dissoc = function malli$util$dissoc(var_args) {
+  var G__9999 = arguments.length;
+  switch(G__9999) {
+    case 2:
+      return malli.util.dissoc.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.dissoc.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.dissoc.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, key) {
+  return malli.util.dissoc.call(null, _QMARK_schema, key, null);
+};
+malli.util.dissoc.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, key, options) {
+  return malli.util.transform_entries.call(null, _QMARK_schema, function(p1__9997_SHARP_) {
+    return cljs.core.remove.call(null, function(p__10000) {
+      var vec__10001 = p__10000;
+      var k = cljs.core.nth.call(null, vec__10001, 0, null);
+      return cljs.core._EQ_.call(null, key, k);
+    }, p1__9997_SHARP_);
+  }, options);
+};
+malli.util.dissoc.cljs$lang$maxFixedArity = 3;
+malli.util.find = function malli$util$find(var_args) {
+  var G__10006 = arguments.length;
+  switch(G__10006) {
+    case 2:
+      return malli.util.find.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.find.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.find.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, k) {
+  return malli.util.find.call(null, _QMARK_schema, k, null);
+};
+malli.util.find.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, k, options) {
+  var schema = malli.core.schema.call(null, function() {
+    var or__4185__auto__ = _QMARK_schema;
+    if (cljs.core.truth_(or__4185__auto__)) {
+      return or__4185__auto__;
+    } else {
+      return new cljs.core.Keyword(null, "map", "map", 1371690461);
+    }
+  }(), options);
+  if (cljs.core.truth_(schema)) {
+    return malli.core._get.call(null, schema, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("malli.core", "find", "malli.core/find", 163301512), k], null), null);
+  } else {
+    return null;
+  }
+};
+malli.util.find.cljs$lang$maxFixedArity = 3;
+malli.util.get = function malli$util$get(var_args) {
+  var G__10009 = arguments.length;
+  switch(G__10009) {
+    case 2:
+      return malli.util.get.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.get.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    case 4:
+      return malli.util.get.cljs$core$IFn$_invoke$arity$4(arguments[0], arguments[1], arguments[2], arguments[3]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.get.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, k) {
+  return malli.util.get.call(null, _QMARK_schema, k, null, null);
+};
+malli.util.get.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, k, default$) {
+  return malli.util.get.call(null, _QMARK_schema, k, default$, null);
+};
+malli.util.get.cljs$core$IFn$_invoke$arity$4 = function(_QMARK_schema, k, default$, options) {
+  var schema = malli.core.schema.call(null, function() {
+    var or__4185__auto__ = _QMARK_schema;
+    if (cljs.core.truth_(or__4185__auto__)) {
+      return or__4185__auto__;
+    } else {
+      return new cljs.core.Keyword(null, "map", "map", 1371690461);
+    }
+  }(), options);
+  if (cljs.core.truth_(schema)) {
+    return malli.core._get.call(null, schema, k, default$);
+  } else {
+    return null;
+  }
+};
+malli.util.get.cljs$lang$maxFixedArity = 4;
+malli.util.assoc = function malli$util$assoc(var_args) {
+  var G__10012 = arguments.length;
+  switch(G__10012) {
+    case 3:
+      return malli.util.assoc.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    case 4:
+      return malli.util.assoc.cljs$core$IFn$_invoke$arity$4(arguments[0], arguments[1], arguments[2], arguments[3]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.assoc.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, key, value) {
+  return malli.util.assoc.call(null, _QMARK_schema, key, value, null);
+};
+malli.util.assoc.cljs$core$IFn$_invoke$arity$4 = function(_QMARK_schema, key, value, options) {
+  return malli.core._set.call(null, malli.core.schema.call(null, _QMARK_schema, options), key, value);
+};
+malli.util.assoc.cljs$lang$maxFixedArity = 4;
+malli.util.update = function malli$util$update(var_args) {
+  var args__4795__auto__ = [];
+  var len__4789__auto___10018 = arguments.length;
+  var i__4790__auto___10019 = 0;
+  while (true) {
+    if (i__4790__auto___10019 < len__4789__auto___10018) {
+      args__4795__auto__.push(arguments[i__4790__auto___10019]);
+      var G__10020 = i__4790__auto___10019 + 1;
+      i__4790__auto___10019 = G__10020;
+      continue;
+    } else {
+    }
+    break;
+  }
+  var argseq__4796__auto__ = 3 < args__4795__auto__.length ? new cljs.core.IndexedSeq(args__4795__auto__.slice(3), 0, null) : null;
+  return malli.util.update.cljs$core$IFn$_invoke$arity$variadic(arguments[0], arguments[1], arguments[2], argseq__4796__auto__);
+};
+malli.util.update.cljs$core$IFn$_invoke$arity$variadic = function(schema, key, f, args) {
+  return malli.core._set.call(null, malli.core.schema.call(null, schema), key, cljs.core.apply.call(null, f, malli.util.get.call(null, schema, key), args));
+};
+malli.util.update.cljs$lang$maxFixedArity = 3;
+malli.util.update.cljs$lang$applyTo = function(seq10014) {
+  var G__10015 = cljs.core.first.call(null, seq10014);
+  var seq10014__$1 = cljs.core.next.call(null, seq10014);
+  var G__10016 = cljs.core.first.call(null, seq10014__$1);
+  var seq10014__$2 = cljs.core.next.call(null, seq10014__$1);
+  var G__10017 = cljs.core.first.call(null, seq10014__$2);
+  var seq10014__$3 = cljs.core.next.call(null, seq10014__$2);
+  var self__4776__auto__ = this;
+  return self__4776__auto__.cljs$core$IFn$_invoke$arity$variadic(G__10015, G__10016, G__10017, seq10014__$3);
+};
+malli.util.get_in = function malli$util$get_in(var_args) {
+  var G__10022 = arguments.length;
+  switch(G__10022) {
+    case 2:
+      return malli.util.get_in.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    case 3:
+      return malli.util.get_in.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    case 4:
+      return malli.util.get_in.cljs$core$IFn$_invoke$arity$4(arguments[0], arguments[1], arguments[2], arguments[3]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.get_in.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, ks) {
+  return malli.util.get_in.call(null, _QMARK_schema, ks, null, null);
+};
+malli.util.get_in.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, ks, default$) {
+  return malli.util.get_in.call(null, _QMARK_schema, ks, default$, null);
+};
+malli.util.get_in.cljs$core$IFn$_invoke$arity$4 = function(_QMARK_schema, p__10023, default$, options) {
+  var vec__10024 = p__10023;
+  var seq__10025 = cljs.core.seq.call(null, vec__10024);
+  var first__10026 = cljs.core.first.call(null, seq__10025);
+  var seq__10025__$1 = cljs.core.next.call(null, seq__10025);
+  var k = first__10026;
+  var ks = seq__10025__$1;
+  var schema = malli.core.schema.call(null, function() {
+    var or__4185__auto__ = _QMARK_schema;
+    if (cljs.core.truth_(or__4185__auto__)) {
+      return or__4185__auto__;
+    } else {
+      return new cljs.core.Keyword(null, "map", "map", 1371690461);
+    }
+  }(), options);
+  if (cljs.core.not.call(null, k)) {
+    return schema;
+  } else {
+    var sentinel = {};
+    var schema__$1 = malli.util.get.call(null, schema, k, sentinel);
+    if (schema__$1 === sentinel) {
+      return default$;
+    } else {
+      if (ks) {
+        return malli.util.get_in.call(null, schema__$1, ks, default$);
+      } else {
+        return schema__$1;
+      }
+    }
+  }
+};
+malli.util.get_in.cljs$lang$maxFixedArity = 4;
+malli.util.assoc_in = function malli$util$assoc_in(var_args) {
+  var G__10031 = arguments.length;
+  switch(G__10031) {
+    case 3:
+      return malli.util.assoc_in.cljs$core$IFn$_invoke$arity$3(arguments[0], arguments[1], arguments[2]);
+      break;
+    case 4:
+      return malli.util.assoc_in.cljs$core$IFn$_invoke$arity$4(arguments[0], arguments[1], arguments[2], arguments[3]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.assoc_in.cljs$core$IFn$_invoke$arity$3 = function(_QMARK_schema, ks, value) {
+  return malli.util.assoc_in.call(null, _QMARK_schema, ks, value, null);
+};
+malli.util.assoc_in.cljs$core$IFn$_invoke$arity$4 = function(_QMARK_schema, p__10032, value, options) {
+  var vec__10033 = p__10032;
+  var seq__10034 = cljs.core.seq.call(null, vec__10033);
+  var first__10035 = cljs.core.first.call(null, seq__10034);
+  var seq__10034__$1 = cljs.core.next.call(null, seq__10034);
+  var k = first__10035;
+  var ks = seq__10034__$1;
+  var schema = malli.core.schema.call(null, _QMARK_schema, options);
+  return malli.util.assoc.call(null, schema, k, ks ? malli.util.assoc_in.call(null, malli.util.get.call(null, schema, k, malli.core.schema.call(null, new cljs.core.Keyword(null, "map", "map", 1371690461), malli.core.options.call(null, schema))), ks, value) : value);
+};
+malli.util.assoc_in.cljs$lang$maxFixedArity = 4;
+malli.util.update_in = function malli$util$update_in(var_args) {
+  var args__4795__auto__ = [];
+  var len__4789__auto___10049 = arguments.length;
+  var i__4790__auto___10050 = 0;
+  while (true) {
+    if (i__4790__auto___10050 < len__4789__auto___10049) {
+      args__4795__auto__.push(arguments[i__4790__auto___10050]);
+      var G__10051 = i__4790__auto___10050 + 1;
+      i__4790__auto___10050 = G__10051;
+      continue;
+    } else {
+    }
+    break;
+  }
+  var argseq__4796__auto__ = 3 < args__4795__auto__.length ? new cljs.core.IndexedSeq(args__4795__auto__.slice(3), 0, null) : null;
+  return malli.util.update_in.cljs$core$IFn$_invoke$arity$variadic(arguments[0], arguments[1], arguments[2], argseq__4796__auto__);
+};
+malli.util.update_in.cljs$core$IFn$_invoke$arity$variadic = function(schema, ks, f, args) {
+  var up = function malli$util$up(s, p__10045, f__$1, args__$1) {
+    var vec__10046 = p__10045;
+    var seq__10047 = cljs.core.seq.call(null, vec__10046);
+    var first__10048 = cljs.core.first.call(null, seq__10047);
+    var seq__10047__$1 = cljs.core.next.call(null, seq__10047);
+    var k = first__10048;
+    var ks__$1 = seq__10047__$1;
+    return malli.util.assoc.call(null, s, k, ks__$1 ? malli$util$up.call(null, malli.util.get.call(null, s, k, malli.core.schema.call(null, new cljs.core.Keyword(null, "map", "map", 1371690461), malli.core.options.call(null, schema))), ks__$1, f__$1, args__$1) : cljs.core.apply.call(null, f__$1, malli.util.get.call(null, s, k), args__$1));
+  };
+  return up.call(null, schema, ks, f, args);
+};
+malli.util.update_in.cljs$lang$maxFixedArity = 3;
+malli.util.update_in.cljs$lang$applyTo = function(seq10037) {
+  var G__10038 = cljs.core.first.call(null, seq10037);
+  var seq10037__$1 = cljs.core.next.call(null, seq10037);
+  var G__10039 = cljs.core.first.call(null, seq10037__$1);
+  var seq10037__$2 = cljs.core.next.call(null, seq10037__$1);
+  var G__10040 = cljs.core.first.call(null, seq10037__$2);
+  var seq10037__$3 = cljs.core.next.call(null, seq10037__$2);
+  var self__4776__auto__ = this;
+  return self__4776__auto__.cljs$core$IFn$_invoke$arity$variadic(G__10038, G__10039, G__10040, seq10037__$3);
+};
+malli.util._map_syntax_walker = function malli$util$_map_syntax_walker(schema, _, children, ___$1) {
+  var properties = malli.core.properties.call(null, schema);
+  var options = malli.core.options.call(null, schema);
+  var r = cljs.core.truth_(properties) ? properties.call(null, new cljs.core.Keyword(null, "registry", "registry", 1021159018)) : null;
+  var properties__$1 = cljs.core.truth_(r) ? cljs.core.assoc.call(null, properties, new cljs.core.Keyword(null, "registry", "registry", 1021159018), malli.core._property_registry.call(null, r, options, malli.core._form)) : properties;
+  var G__10052 = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "type", "type", 1174270348), malli.core.type.call(null, schema)], null);
+  var G__10052__$1 = cljs.core.seq.call(null, properties__$1) ? cljs.core.assoc.call(null, G__10052, new cljs.core.Keyword(null, "properties", "properties", 685819552), properties__$1) : G__10052;
+  if (cljs.core.seq.call(null, children)) {
+    return cljs.core.assoc.call(null, G__10052__$1, new cljs.core.Keyword(null, "children", "children", -940561982), children);
+  } else {
+    return G__10052__$1;
+  }
+};
+malli.util.to_map_syntax = function malli$util$to_map_syntax(var_args) {
+  var G__10054 = arguments.length;
+  switch(G__10054) {
+    case 1:
+      return malli.util.to_map_syntax.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.util.to_map_syntax.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.to_map_syntax.cljs$core$IFn$_invoke$arity$1 = function(_QMARK_schema) {
+  return malli.util.to_map_syntax.call(null, _QMARK_schema, null);
+};
+malli.util.to_map_syntax.cljs$core$IFn$_invoke$arity$2 = function(_QMARK_schema, options) {
+  return malli.core.walk.call(null, _QMARK_schema, malli.util._map_syntax_walker, options);
+};
+malli.util.to_map_syntax.cljs$lang$maxFixedArity = 2;
+malli.util.from_map_syntax = function malli$util$from_map_syntax(var_args) {
+  var G__10059 = arguments.length;
+  switch(G__10059) {
+    case 1:
+      return malli.util.from_map_syntax.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.util.from_map_syntax.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.util.from_map_syntax.cljs$core$IFn$_invoke$arity$1 = function(m) {
+  return malli.util.from_map_syntax.call(null, m, null);
+};
+malli.util.from_map_syntax.cljs$core$IFn$_invoke$arity$2 = function(p__10060, options) {
+  var map__10061 = p__10060;
+  var map__10061__$1 = (!(map__10061 == null) ? map__10061.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10061.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10061) : map__10061;
+  var m = map__10061__$1;
+  var type = cljs.core.get.call(null, map__10061__$1, new cljs.core.Keyword(null, "type", "type", 1174270348));
+  var properties = cljs.core.get.call(null, map__10061__$1, new cljs.core.Keyword(null, "properties", "properties", 685819552));
+  var children = cljs.core.get.call(null, map__10061__$1, new cljs.core.Keyword(null, "children", "children", -940561982));
+  if (cljs.core.map_QMARK_.call(null, m)) {
+    var _LT__child = cljs.core.vector_QMARK_.call(null, cljs.core.first.call(null, children)) ? function(f) {
+      return function(p1__10056_SHARP_) {
+        return cljs.core.update.call(null, p1__10056_SHARP_, 2, f);
+      };
+    } : cljs.core.identity;
+    var vec__10063 = malli.core._properties_and_options.call(null, properties, options, malli.core._form);
+    var properties__$1 = cljs.core.nth.call(null, vec__10063, 0, null);
+    var options__$1 = cljs.core.nth.call(null, vec__10063, 1, null);
+    return malli.core.into_schema.call(null, type, properties__$1, cljs.core.mapv.call(null, _LT__child.call(null, function(p1__10057_SHARP_) {
+      return malli.util.from_map_syntax.call(null, p1__10057_SHARP_, options__$1);
+    }), children), options__$1);
+  } else {
+    return m;
+  }
+};
+malli.util.from_map_syntax.cljs$lang$maxFixedArity = 2;
+malli.util._reducing = function malli$util$_reducing(f) {
+  return function(_, p__10070, options) {
+    var vec__10071 = p__10070;
+    var seq__10072 = cljs.core.seq.call(null, vec__10071);
+    var first__10073 = cljs.core.first.call(null, seq__10072);
+    var seq__10072__$1 = cljs.core.next.call(null, seq__10072);
+    var first = first__10073;
+    var rest = seq__10072__$1;
+    var children = vec__10071;
+    var children__$1 = cljs.core.mapv.call(null, function(p1__10067_SHARP_) {
+      return malli.core.schema.call(null, p1__10067_SHARP_, options);
+    }, children);
+    return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [children__$1, cljs.core.mapv.call(null, malli.core.form, children__$1), cljs.core.reduce.call(null, function(p1__10068_SHARP_, p2__10069_SHARP_) {
+      return f.call(null, p1__10068_SHARP_, p2__10069_SHARP_, options);
+    }, first, rest)], null);
+  };
+};
+malli.util._applying = function malli$util$_applying(f) {
+  return function(_, children, options) {
+    return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.update.call(null, children, 0, function(p1__10074_SHARP_) {
+      return malli.core.schema.call(null, p1__10074_SHARP_, options);
+    }), cljs.core.update.call(null, children, 0, function(p1__10075_SHARP_) {
+      return malli.core.form.call(null, p1__10075_SHARP_, options);
+    }), cljs.core.apply.call(null, f, cljs.core.conj.call(null, children, options))], null);
+  };
+};
+malli.util._util_schema = function malli$util$_util_schema(p__10076) {
+  var map__10077 = p__10076;
+  var map__10077__$1 = (!(map__10077 == null) ? map__10077.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10077.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10077) : map__10077;
+  var type = cljs.core.get.call(null, map__10077__$1, new cljs.core.Keyword(null, "type", "type", 1174270348));
+  var min = cljs.core.get.call(null, map__10077__$1, new cljs.core.Keyword(null, "min", "min", 444991522));
+  var max = cljs.core.get.call(null, map__10077__$1, new cljs.core.Keyword(null, "max", "max", 61366548));
+  var childs = cljs.core.get.call(null, map__10077__$1, new cljs.core.Keyword(null, "childs", "childs", -1293201887));
+  var type_properties = cljs.core.get.call(null, map__10077__$1, new cljs.core.Keyword(null, "type-properties", "type-properties", -1728352126));
+  var fn = cljs.core.get.call(null, map__10077__$1, new cljs.core.Keyword(null, "fn", "fn", -1175266204));
+  if (typeof malli !== "undefined" && typeof malli.util !== "undefined" && typeof malli.util.t_malli$util10079 !== "undefined") {
+  } else {
+    malli.util.t_malli$util10079 = function(p__10076, map__10077, type, min, max, childs, type_properties, fn, meta10080) {
+      this.p__10076 = p__10076;
+      this.map__10077 = map__10077;
+      this.type = type;
+      this.min = min;
+      this.max = max;
+      this.childs = childs;
+      this.type_properties = type_properties;
+      this.fn = fn;
+      this.meta10080 = meta10080;
+      this.cljs$lang$protocol_mask$partition0$ = 393216;
+      this.cljs$lang$protocol_mask$partition1$ = 0;
+    };
+    malli.util.t_malli$util10079.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(_10081, meta10080__$1) {
+      var self__ = this;
+      var _10081__$1 = this;
+      return new malli.util.t_malli$util10079(self__.p__10076, self__.map__10077, self__.type, self__.min, self__.max, self__.childs, self__.type_properties, self__.fn, meta10080__$1);
+    };
+    malli.util.t_malli$util10079.prototype.cljs$core$IMeta$_meta$arity$1 = function(_10081) {
+      var self__ = this;
+      var _10081__$1 = this;
+      return self__.meta10080;
+    };
+    malli.util.t_malli$util10079.prototype.malli$core$IntoSchema$ = cljs.core.PROTOCOL_SENTINEL;
+    malli.util.t_malli$util10079.prototype.malli$core$IntoSchema$_type$arity$1 = function(_) {
+      var self__ = this;
+      var ___$1 = this;
+      return self__.type;
+    };
+    malli.util.t_malli$util10079.prototype.malli$core$IntoSchema$_type_properties$arity$1 = function(_) {
+      var self__ = this;
+      var ___$1 = this;
+      return self__.type_properties;
+    };
+    malli.util.t_malli$util10079.prototype.malli$core$IntoSchema$_properties_schema$arity$2 = function(_, ___$1) {
+      var self__ = this;
+      var ___$2 = this;
+      return null;
+    };
+    malli.util.t_malli$util10079.prototype.malli$core$IntoSchema$_children_schema$arity$2 = function(_, ___$1) {
+      var self__ = this;
+      var ___$2 = this;
+      return null;
+    };
+    malli.util.t_malli$util10079.prototype.malli$core$IntoSchema$_into_schema$arity$4 = function(parent, properties, children, options) {
+      var self__ = this;
+      var parent__$1 = this;
+      malli.core._check_children_BANG_.call(null, self__.type, properties, children, self__.min, self__.max);
+      var vec__10082 = self__.fn.call(null, properties, cljs.core.vec.call(null, children), options);
+      var children__$1 = cljs.core.nth.call(null, vec__10082, 0, null);
+      var forms = cljs.core.nth.call(null, vec__10082, 1, null);
+      var schema = cljs.core.nth.call(null, vec__10082, 2, null);
+      var form = new cljs.core.Delay(function() {
+        return malli.core._create_form.call(null, self__.type, properties, forms, options);
+      }, null);
+      var cache = malli.core._create_cache.call(null, options);
+      if (typeof malli !== "undefined" && typeof malli.util !== "undefined" && typeof malli.util.t_malli$util10085 !== "undefined") {
+      } else {
+        malli.util.t_malli$util10085 = function(form, options, meta10080, forms, properties, childs, vec__10082, schema, children, min, type_properties, fn, parent, map__10077, type, p__10076, cache, max, meta10086) {
+          this.form = form;
+          this.options = options;
+          this.meta10080 = meta10080;
+          this.forms = forms;
+          this.properties = properties;
+          this.childs = childs;
+          this.vec__10082 = vec__10082;
+          this.schema = schema;
+          this.children = children;
+          this.min = min;
+          this.type_properties = type_properties;
+          this.fn = fn;
+          this.parent = parent;
+          this.map__10077 = map__10077;
+          this.type = type;
+          this.p__10076 = p__10076;
+          this.cache = cache;
+          this.max = max;
+          this.meta10086 = meta10086;
+          this.cljs$lang$protocol_mask$partition0$ = 393216;
+          this.cljs$lang$protocol_mask$partition1$ = 0;
+        };
+        malli.util.t_malli$util10085.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(_10087, meta10086__$1) {
+          var self__ = this;
+          var _10087__$1 = this;
+          return new malli.util.t_malli$util10085(self__.form, self__.options, self__.meta10080, self__.forms, self__.properties, self__.childs, self__.vec__10082, self__.schema, self__.children, self__.min, self__.type_properties, self__.fn, self__.parent, self__.map__10077, self__.type, self__.p__10076, self__.cache, self__.max, meta10086__$1);
+        };
+        malli.util.t_malli$util10085.prototype.cljs$core$IMeta$_meta$arity$1 = function(_10087) {
+          var self__ = this;
+          var _10087__$1 = this;
+          return self__.meta10086;
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$Schema$ = cljs.core.PROTOCOL_SENTINEL;
+        malli.util.t_malli$util10085.prototype.malli$core$Schema$_validator$arity$1 = function(_) {
+          var self__ = this;
+          var ___$1 = this;
+          return malli.core._validator.call(null, self__.schema);
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$Schema$_options$arity$1 = function(_) {
+          var self__ = this;
+          var ___$1 = this;
+          return self__.options;
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$Schema$_transformer$arity$4 = function(this$, transformer, method, options__$1) {
+          var self__ = this;
+          var this$__$1 = this;
+          return malli.core._parent_children_transformer.call(null, this$__$1, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [self__.schema], null), transformer, method, options__$1);
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$Schema$_walk$arity$4 = function(this$, walker, path, options__$1) {
+          var self__ = this;
+          var this$__$1 = this;
+          var children__$1 = cljs.core.truth_(self__.childs) ? cljs.core.subvec.call(null, self__.children, 0, self__.childs) : self__.children;
+          if (cljs.core.truth_(malli.core._accept.call(null, walker, this$__$1, path, options__$1))) {
+            return malli.core._outer.call(null, walker, this$__$1, path, malli.core._inner_indexed.call(null, walker, path, children__$1, options__$1), options__$1);
+          } else {
+            return null;
+          }
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$Schema$_properties$arity$1 = function(_) {
+          var self__ = this;
+          var ___$1 = this;
+          return self__.properties;
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$Schema$_children$arity$1 = function(_) {
+          var self__ = this;
+          var ___$1 = this;
+          return self__.children;
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$Schema$_form$arity$1 = function(_) {
+          var self__ = this;
+          var ___$1 = this;
+          return cljs.core.deref.call(null, self__.form);
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$Schema$_explainer$arity$2 = function(_, path) {
+          var self__ = this;
+          var ___$1 = this;
+          return malli.core._explainer.call(null, self__.schema, path);
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$Schema$_parent$arity$1 = function(_) {
+          var self__ = this;
+          var ___$1 = this;
+          return self__.parent;
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$Cached$ = cljs.core.PROTOCOL_SENTINEL;
+        malli.util.t_malli$util10085.prototype.malli$core$Cached$_cache$arity$1 = function(_) {
+          var self__ = this;
+          var ___$1 = this;
+          return self__.cache;
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$LensSchema$ = cljs.core.PROTOCOL_SENTINEL;
+        malli.util.t_malli$util10085.prototype.malli$core$LensSchema$_keep$arity$1 = function(_) {
+          var self__ = this;
+          var ___$1 = this;
+          return null;
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$LensSchema$_get$arity$3 = function(_, key, default$) {
+          var self__ = this;
+          var ___$1 = this;
+          return cljs.core.get.call(null, self__.children, key, default$);
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$LensSchema$_set$arity$3 = function(_, key, value) {
+          var self__ = this;
+          var ___$1 = this;
+          return malli.core.into_schema.call(null, self__.type, self__.properties, cljs.core.assoc.call(null, self__.children, key, value));
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$RefSchema$ = cljs.core.PROTOCOL_SENTINEL;
+        malli.util.t_malli$util10085.prototype.malli$core$RefSchema$_ref$arity$1 = function(_) {
+          var self__ = this;
+          var ___$1 = this;
+          return null;
+        };
+        malli.util.t_malli$util10085.prototype.malli$core$RefSchema$_deref$arity$1 = function(_) {
+          var self__ = this;
+          var ___$1 = this;
+          return self__.schema;
+        };
+        malli.util.t_malli$util10085.getBasis = function() {
+          return new cljs.core.PersistentVector(null, 19, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null, "form", "form", 16469056, null), new cljs.core.Symbol(null, "options", "options", 1740170016, null), new cljs.core.Symbol(null, "meta10080", "meta10080", -469537727, null), new cljs.core.Symbol(null, "forms", "forms", -608443419, null), new cljs.core.Symbol(null, "properties", "properties", -1968616217, null), new cljs.core.Symbol(null, "childs", "childs", 347329640, null), 
+          new cljs.core.Symbol(null, "vec__10082", "vec__10082", -364811608, null), new cljs.core.Symbol(null, "schema", "schema", 58529736, null), new cljs.core.Symbol(null, "children", "children", 699969545, null), new cljs.core.Symbol(null, "min", "min", 2085523049, null), new cljs.core.Symbol(null, "type-properties", "type-properties", -87820599, null), new cljs.core.Symbol(null, "fn", "fn", 465265323, null), cljs.core.with_meta(new cljs.core.Symbol(null, "parent", "parent", 761652748, null), 
+          new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Symbol("malli.util", "t_malli$util10079", "malli.util/t_malli$util10079", 1023624646, null)], null)), new cljs.core.Symbol(null, "map__10077", "map__10077", 1853556878, null), new cljs.core.Symbol(null, "type", "type", -1480165421, null), new cljs.core.Symbol(null, "p__10076", "p__10076", -1202537257, null), new cljs.core.Symbol(null, "cache", "cache", 403508473, null), new cljs.core.Symbol(null, 
+          "max", "max", 1701898075, null), new cljs.core.Symbol(null, "meta10086", "meta10086", -2141334641, null)], null);
+        };
+        malli.util.t_malli$util10085.cljs$lang$type = true;
+        malli.util.t_malli$util10085.cljs$lang$ctorStr = "malli.util/t_malli$util10085";
+        malli.util.t_malli$util10085.cljs$lang$ctorPrWriter = function(this__4428__auto__, writer__4429__auto__, opt__4430__auto__) {
+          return cljs.core._write.call(null, writer__4429__auto__, "malli.util/t_malli$util10085");
+        };
+        malli.util.__GT_t_malli$util10085 = function malli$util$_util_schema_$___GT_t_malli$util10085(form__$1, options__$1, meta10080__$1, forms__$1, properties__$1, childs__$1, vec__10082__$1, schema__$1, children__$2, min__$1, type_properties__$1, fn__$1, parent__$2, map__10077__$1, type__$1, p__10076__$1, cache__$1, max__$1, meta10086) {
+          return new malli.util.t_malli$util10085(form__$1, options__$1, meta10080__$1, forms__$1, properties__$1, childs__$1, vec__10082__$1, schema__$1, children__$2, min__$1, type_properties__$1, fn__$1, parent__$2, map__10077__$1, type__$1, p__10076__$1, cache__$1, max__$1, meta10086);
+        };
+      }
+      return new malli.util.t_malli$util10085(form, options, self__.meta10080, forms, properties, self__.childs, vec__10082, schema, children__$1, self__.min, self__.type_properties, self__.fn, parent__$1, self__.map__10077, self__.type, self__.p__10076, cache, self__.max, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword("malli.core", "schema", "malli.core/schema", -1780373863)], null));
+    };
+    malli.util.t_malli$util10079.getBasis = function() {
+      return new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null, "p__10076", "p__10076", -1202537257, null), new cljs.core.Symbol(null, "map__10077", "map__10077", 1853556878, null), new cljs.core.Symbol(null, "type", "type", -1480165421, null), new cljs.core.Symbol(null, "min", "min", 2085523049, null), new cljs.core.Symbol(null, "max", "max", 1701898075, null), new cljs.core.Symbol(null, "childs", "childs", 347329640, null), new cljs.core.Symbol(null, 
+      "type-properties", "type-properties", -87820599, null), new cljs.core.Symbol(null, "fn", "fn", 465265323, null), new cljs.core.Symbol(null, "meta10080", "meta10080", -469537727, null)], null);
+    };
+    malli.util.t_malli$util10079.cljs$lang$type = true;
+    malli.util.t_malli$util10079.cljs$lang$ctorStr = "malli.util/t_malli$util10079";
+    malli.util.t_malli$util10079.cljs$lang$ctorPrWriter = function(this__4428__auto__, writer__4429__auto__, opt__4430__auto__) {
+      return cljs.core._write.call(null, writer__4429__auto__, "malli.util/t_malli$util10079");
+    };
+    malli.util.__GT_t_malli$util10079 = function malli$util$_util_schema_$___GT_t_malli$util10079(p__10076__$1, map__10077__$2, type__$1, min__$1, max__$1, childs__$1, type_properties__$1, fn__$1, meta10080) {
+      return new malli.util.t_malli$util10079(p__10076__$1, map__10077__$2, type__$1, min__$1, max__$1, childs__$1, type_properties__$1, fn__$1, meta10080);
+    };
+  }
+  return new malli.util.t_malli$util10079(p__10076, map__10077__$1, type, min, max, childs, type_properties, fn, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword("malli.core", "into-schema", "malli.core/into-schema", 1522165759)], null));
+};
+malli.util._merge = function malli$util$_merge() {
+  return malli.util._util_schema.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "merge", "merge", -1804319409), new cljs.core.Keyword(null, "fn", "fn", -1175266204), malli.util._reducing.call(null, malli.util.merge)], null));
+};
+malli.util._union = function malli$util$_union() {
+  return malli.util._util_schema.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "union", "union", 2142937499), new cljs.core.Keyword(null, "fn", "fn", -1175266204), malli.util._reducing.call(null, malli.util.union)], null));
+};
+malli.util._select_keys = function malli$util$_select_keys() {
+  return malli.util._util_schema.call(null, new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "select-keys", "select-keys", 1945879180), new cljs.core.Keyword(null, "childs", "childs", -1293201887), 1, new cljs.core.Keyword(null, "min", "min", 444991522), 2, new cljs.core.Keyword(null, "max", "max", 61366548), 2, new cljs.core.Keyword(null, "fn", "fn", -1175266204), malli.util._applying.call(null, malli.util.select_keys)], 
+  null));
+};
+malli.util.schemas = function malli$util$schemas() {
+  return new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "merge", "merge", -1804319409), malli.util._merge.call(null), new cljs.core.Keyword(null, "union", "union", 2142937499), malli.util._union.call(null), new cljs.core.Keyword(null, "select-keys", "select-keys", 1945879180), malli.util._select_keys.call(null)], null);
 };
 goog.provide("clojure.string");
 goog.require("cljs.core");
@@ -49016,6 +50223,875 @@ clojure.string.ends_with_QMARK_ = function clojure$string$ends_with_QMARK_(s, su
 };
 clojure.string.includes_QMARK_ = function clojure$string$includes_QMARK_(s, substr) {
   return goog.string.contains(s, substr);
+};
+goog.provide("malli.error");
+goog.require("cljs.core");
+goog.require("clojure.string");
+goog.require("malli.core");
+goog.require("malli.util");
+malli.error._pred_min_max_error_fn = function malli$error$_pred_min_max_error_fn(p__10102) {
+  var map__10103 = p__10102;
+  var map__10103__$1 = (!(map__10103 == null) ? map__10103.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10103.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10103) : map__10103;
+  var pred = cljs.core.get.call(null, map__10103__$1, new cljs.core.Keyword(null, "pred", "pred", 1927423397));
+  var message = cljs.core.get.call(null, map__10103__$1, new cljs.core.Keyword(null, "message", "message", -406056002));
+  return function(p__10105, _) {
+    var map__10106 = p__10105;
+    var map__10106__$1 = (!(map__10106 == null) ? map__10106.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10106.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10106) : map__10106;
+    var schema = cljs.core.get.call(null, map__10106__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+    var value = cljs.core.get.call(null, map__10106__$1, new cljs.core.Keyword(null, "value", "value", 305978217));
+    var map__10108 = malli.core.properties.call(null, schema);
+    var map__10108__$1 = (!(map__10108 == null) ? map__10108.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10108.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10108) : map__10108;
+    var min = cljs.core.get.call(null, map__10108__$1, new cljs.core.Keyword(null, "min", "min", 444991522));
+    var max = cljs.core.get.call(null, map__10108__$1, new cljs.core.Keyword(null, "max", "max", 61366548));
+    if (cljs.core.not.call(null, pred.call(null, value))) {
+      return message;
+    } else {
+      if (cljs.core.truth_(function() {
+        var and__4174__auto__ = min;
+        if (cljs.core.truth_(and__4174__auto__)) {
+          return cljs.core._EQ_.call(null, min, max);
+        } else {
+          return and__4174__auto__;
+        }
+      }())) {
+        return ["should be ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(min)].join("");
+      } else {
+        if (cljs.core.truth_(function() {
+          var and__4174__auto__ = min;
+          if (cljs.core.truth_(and__4174__auto__)) {
+            return max;
+          } else {
+            return and__4174__auto__;
+          }
+        }())) {
+          return ["should be between ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(min), " and ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(max)].join("");
+        } else {
+          if (cljs.core.truth_(min)) {
+            return ["should be at least ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(min)].join("");
+          } else {
+            if (cljs.core.truth_(max)) {
+              return ["should be at most ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(max)].join("");
+            } else {
+              return null;
+            }
+          }
+        }
+      }
+    }
+  };
+};
+malli.error.default_errors = cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword("malli.core", "extra-key", "malli.core/extra-key", 574816512), new cljs.core.Symbol(null, "true?", "true?", -1600332395, null), new cljs.core.Keyword(null, "enum", "enum", 1679018432), new cljs.core.Keyword(null, "qualified-symbol", "qualified-symbol", -665513695), new cljs.core.Symbol(null, "uri?", "uri?", 2029475116, null), new cljs.core.Symbol(null, "simple-keyword?", "simple-keyword?", -367134735, null), 
+new cljs.core.Keyword(null, "\x3c\x3d", "\x3c\x3d", -395636158), new cljs.core.Keyword(null, "double", "double", 884886883), new cljs.core.Symbol(null, "uuid?", "uuid?", 400077689, null), new cljs.core.Symbol(null, "inst?", "inst?", 1614698981, null), new cljs.core.Symbol(null, "simple-ident?", "simple-ident?", 194189851, null), new cljs.core.Keyword(null, "not\x3d", "not\x3d", -173995323), new cljs.core.Symbol(null, "int?", "int?", 1799729645, null), new cljs.core.Symbol(null, "nil?", "nil?", 1612038930, 
+null), new cljs.core.Keyword(null, "int", "int", -1741416922), new cljs.core.Keyword(null, "\x3e", "\x3e", -555517146), new cljs.core.Symbol(null, "float?", "float?", 673884616, null), new cljs.core.Symbol(null, "ifn?", "ifn?", -2106461064, null), new cljs.core.Symbol(null, "map?", "map?", -1780568534, null), new cljs.core.Symbol(null, "vector?", "vector?", -61367869, null), new cljs.core.Symbol(null, "any?", "any?", -318999933, null), new cljs.core.Keyword(null, "symbol", "symbol", -1038572696), 
+new cljs.core.Symbol(null, "false?", "false?", -1522377573, null), new cljs.core.Symbol(null, "associative?", "associative?", -141666771, null), new cljs.core.Keyword(null, "re", "re", 228676202), new cljs.core.Symbol(null, "ident?", "ident?", -2061359468, null), new cljs.core.Keyword(null, "qualified-keyword", "qualified-keyword", 736041675), new cljs.core.Symbol(null, "char?", "char?", -1072221244, null), new cljs.core.Symbol(null, "neg-int?", "neg-int?", -1610409390, null), new cljs.core.Keyword(null, 
+"string", "string", -1989541586), new cljs.core.Symbol(null, "symbol?", "symbol?", 1820680511, null), new cljs.core.Keyword(null, "\x3e\x3d", "\x3e\x3d", -623615505), new cljs.core.Symbol(null, "list?", "list?", -1494629, null), new cljs.core.Keyword("malli.error", "misspelled-value", "malli.error/misspelled-value", -1135752848), new cljs.core.Symbol(null, "qualified-ident?", "qualified-ident?", -928894763, null), new cljs.core.Symbol(null, "coll?", "coll?", -1874821441, null), new cljs.core.Keyword(null, 
+"\x3d\x3e", "\x3d\x3e", 1841166128), new cljs.core.Symbol(null, "keyword?", "keyword?", 1917797069, null), new cljs.core.Keyword("malli.core", "limits", "malli.core/limits", -1343466863), new cljs.core.Symbol(null, "simple-symbol?", "simple-symbol?", 1408454822, null), new cljs.core.Symbol(null, "empty?", "empty?", 76408555, null), new cljs.core.Symbol(null, "integer?", "integer?", 1303791671, null), new cljs.core.Keyword("malli.core", "missing-key", "malli.core/missing-key", 1439107666), new cljs.core.Keyword("malli.core", 
+"tuple-size", "malli.core/tuple-size", -1004468077), new cljs.core.Symbol(null, "zero?", "zero?", 325758897, null), new cljs.core.Keyword(null, "keyword", "keyword", 811389747), new cljs.core.Keyword(null, "nil", "nil", 99600501), new cljs.core.Symbol(null, "qualified-keyword?", "qualified-keyword?", 375456001, null), new cljs.core.Symbol(null, "string?", "string?", -1129175764, null), new cljs.core.Keyword("malli.core", "end-of-input", "malli.core/end-of-input", -491237771), new cljs.core.Symbol(null, 
+"qualified-symbol?", "qualified-symbol?", 98763807, null), new cljs.core.Keyword("malli.core", "input-remaining", "malli.core/input-remaining", 372310422), new cljs.core.Symbol(null, "seq?", "seq?", -1951934719, null), new cljs.core.Symbol(null, "nat-int?", "nat-int?", -1879663400, null), new cljs.core.Symbol(null, "set?", "set?", 1636014792, null), new cljs.core.Symbol(null, "some?", "some?", 234752293, null), new cljs.core.Symbol(null, "pos?", "pos?", -244377722, null), new cljs.core.Symbol(null, 
+"boolean?", "boolean?", 1790940868, null), new cljs.core.Symbol(null, "fn?", "fn?", 1820990818, null), new cljs.core.Symbol(null, "sequential?", "sequential?", 1102351463, null), new cljs.core.Keyword(null, "uuid", "uuid", -2145095719), new cljs.core.Keyword("malli.error", "unknown", "malli.error/unknown", 594142330), new cljs.core.Symbol(null, "number?", "number?", -1747282210, null), new cljs.core.Keyword("malli.core", "invalid-dispatch-value", "malli.core/invalid-dispatch-value", 516707675), new cljs.core.Symbol(null, 
+"double?", "double?", -2146564276, null), new cljs.core.Symbol(null, "seqable?", "seqable?", 72462495, null), new cljs.core.Keyword(null, "\x3d", "\x3d", 1152933628), new cljs.core.Keyword(null, "boolean", "boolean", -1919418404), new cljs.core.Keyword(null, "\x3c", "\x3c", -646864291), new cljs.core.Symbol(null, "neg?", "neg?", -1902175577, null), new cljs.core.Keyword("malli.error", "misspelled-key", "malli.error/misspelled-key", 616486174), new cljs.core.Keyword("malli.core", "invalid-type", "malli.core/invalid-type", 
+-1367388450), new cljs.core.Symbol(null, "pos-int?", "pos-int?", -1205815015, null), new cljs.core.Keyword(null, "any", "any", 1705907423), new cljs.core.Symbol(null, "indexed?", "indexed?", 1234610384, null)], [new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "disallowed key"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", 
+"message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be true"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), function(p__10110, _) {
+  var map__10111 = p__10110;
+  var map__10111__$1 = (!(map__10111 == null) ? map__10111.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10111.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10111) : map__10111;
+  var schema = cljs.core.get.call(null, map__10111__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  return ["should be ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core._EQ_.call(null, 1, cljs.core.count.call(null, malli.core.children.call(null, schema))) ? cljs.core.first.call(null, malli.core.children.call(null, schema)) : ["either ", clojure.string.join.call(null, ", ", cljs.core.butlast.call(null, malli.core.children.call(null, schema))), " or ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.last.call(null, malli.core.children.call(null, schema)))].join(""))].join("");
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a qualified symbol"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a uri"], 
+null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a simple keyword"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), function(p__10113, _) {
+  var map__10114 = p__10113;
+  var map__10114__$1 = (!(map__10114 == null) ? map__10114.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10114.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10114) : map__10114;
+  var schema = cljs.core.get.call(null, map__10114__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  var value = cljs.core.get.call(null, map__10114__$1, new cljs.core.Keyword(null, "value", "value", 305978217));
+  if (typeof value === "number") {
+    return ["should be at most ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null, malli.core.children.call(null, schema)))].join("");
+  } else {
+    return "should be a number";
+  }
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), malli.error._pred_min_max_error_fn.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "pred", "pred", 1927423397), cljs.core.double_QMARK_, new cljs.core.Keyword(null, "message", "message", -406056002), "should be a double"], null))], null)], null), new cljs.core.PersistentArrayMap(null, 
+1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a uuid"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be an inst"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", 
+"message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a simple ident"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), function(p__10116, _) {
+  var map__10117 = p__10116;
+  var map__10117__$1 = (!(map__10117 == null) ? map__10117.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10117.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10117) : map__10117;
+  var schema = cljs.core.get.call(null, map__10117__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  return ["should not be ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null, malli.core.children.call(null, schema)))].join("");
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be an int"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be nil"], null)], null), 
+new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), malli.error._pred_min_max_error_fn.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "pred", "pred", 1927423397), cljs.core.int_QMARK_, new cljs.core.Keyword(null, "message", "message", -406056002), "should be an integer"], null))], null)], null), new cljs.core.PersistentArrayMap(null, 
+1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), function(p__10119, _) {
+  var map__10120 = p__10119;
+  var map__10120__$1 = (!(map__10120 == null) ? map__10120.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10120.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10120) : map__10120;
+  var schema = cljs.core.get.call(null, map__10120__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  var value = cljs.core.get.call(null, map__10120__$1, new cljs.core.Keyword(null, "value", "value", 305978217));
+  if (typeof value === "number") {
+    return ["should be larger than ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null, malli.core.children.call(null, schema)))].join("");
+  } else {
+    return "should be a number";
+  }
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a float"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be an ifn"], null)], 
+null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a map"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a vector"], null)], null), new cljs.core.PersistentArrayMap(null, 
+1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be any"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a symbol"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", 
+"message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be false"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be an associative"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", 
+"error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should match regex"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be an ident"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", 
+-502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a qualified keyword"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a char"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", 
+-502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a negative int"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), function(p__10122, _) {
+  var map__10123 = p__10122;
+  var map__10123__$1 = (!(map__10123 == null) ? map__10123.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10123.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10123) : map__10123;
+  var schema = cljs.core.get.call(null, map__10123__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  var value = cljs.core.get.call(null, map__10123__$1, new cljs.core.Keyword(null, "value", "value", 305978217));
+  var map__10125 = malli.core.properties.call(null, schema);
+  var map__10125__$1 = (!(map__10125 == null) ? map__10125.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10125.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10125) : map__10125;
+  var min = cljs.core.get.call(null, map__10125__$1, new cljs.core.Keyword(null, "min", "min", 444991522));
+  var max = cljs.core.get.call(null, map__10125__$1, new cljs.core.Keyword(null, "max", "max", 61366548));
+  if (!(typeof value === "string")) {
+    return "should be a string";
+  } else {
+    if (cljs.core.truth_(function() {
+      var and__4174__auto__ = min;
+      if (cljs.core.truth_(and__4174__auto__)) {
+        return cljs.core._EQ_.call(null, min, max);
+      } else {
+        return and__4174__auto__;
+      }
+    }())) {
+      return ["should be ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(min), " characters"].join("");
+    } else {
+      if (cljs.core.truth_(function() {
+        var and__4174__auto__ = min;
+        if (cljs.core.truth_(and__4174__auto__)) {
+          return max;
+        } else {
+          return and__4174__auto__;
+        }
+      }())) {
+        return ["should be between ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(min), " and ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(max), " characters"].join("");
+      } else {
+        if (cljs.core.truth_(min)) {
+          return ["should be at least ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(min), " characters"].join("");
+        } else {
+          if (cljs.core.truth_(max)) {
+            return ["should be at most ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(max), " characters"].join("");
+          } else {
+            return null;
+          }
+        }
+      }
+    }
+  }
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a symbol"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), function(p__10127, _) {
+  var map__10128 = p__10127;
+  var map__10128__$1 = (!(map__10128 == null) ? map__10128.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10128.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10128) : map__10128;
+  var schema = cljs.core.get.call(null, map__10128__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  var value = cljs.core.get.call(null, map__10128__$1, new cljs.core.Keyword(null, "value", "value", 305978217));
+  if (typeof value === "number") {
+    return ["should be at least ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null, malli.core.children.call(null, schema)))].join("");
+  } else {
+    return "should be a number";
+  }
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a list"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), function(p__10130, _) {
+  var map__10131 = p__10130;
+  var map__10131__$1 = (!(map__10131 == null) ? map__10131.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10131.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10131) : map__10131;
+  var likely_misspelling_of = cljs.core.get.call(null, map__10131__$1, new cljs.core.Keyword("malli.error", "likely-misspelling-of", "malli.error/likely-misspelling-of", 1504085033));
+  return ["did you mean ", clojure.string.join.call(null, " or ", cljs.core.map.call(null, cljs.core.last, likely_misspelling_of))].join("");
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a qualified ident"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a coll"], 
+null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "invalid function"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a keyword"], null)], 
+null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), function(p__10133, _) {
+  var map__10134 = p__10133;
+  var map__10134__$1 = (!(map__10134 == null) ? map__10134.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10134.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10134) : map__10134;
+  var schema = cljs.core.get.call(null, map__10134__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  var _value = cljs.core.get.call(null, map__10134__$1, new cljs.core.Keyword(null, "_value", "_value", 1295875052));
+  var map__10136 = malli.core.properties.call(null, schema);
+  var map__10136__$1 = (!(map__10136 == null) ? map__10136.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10136.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10136) : map__10136;
+  var min = cljs.core.get.call(null, map__10136__$1, new cljs.core.Keyword(null, "min", "min", 444991522));
+  var max = cljs.core.get.call(null, map__10136__$1, new cljs.core.Keyword(null, "max", "max", 61366548));
+  if (cljs.core.truth_(function() {
+    var and__4174__auto__ = min;
+    if (cljs.core.truth_(and__4174__auto__)) {
+      return cljs.core._EQ_.call(null, min, max);
+    } else {
+      return and__4174__auto__;
+    }
+  }())) {
+    return ["should have ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(min), " elements"].join("");
+  } else {
+    if (cljs.core.truth_(function() {
+      var and__4174__auto__ = min;
+      if (cljs.core.truth_(and__4174__auto__)) {
+        return max;
+      } else {
+        return and__4174__auto__;
+      }
+    }())) {
+      return ["should have between ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(min), " and ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(max), " elements"].join("");
+    } else {
+      if (cljs.core.truth_(min)) {
+        return ["should have at least ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(min), " elements"].join("");
+      } else {
+        if (cljs.core.truth_(max)) {
+          return ["should have at most ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(max), " elements"].join("");
+        } else {
+          return null;
+        }
+      }
+    }
+  }
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a simple symbol"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be empty"], 
+null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be an integer"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "missing required key"], null)], 
+null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), function(p__10138, _) {
+  var map__10139 = p__10138;
+  var map__10139__$1 = (!(map__10139 == null) ? map__10139.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10139.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10139) : map__10139;
+  var schema = cljs.core.get.call(null, map__10139__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  var value = cljs.core.get.call(null, map__10139__$1, new cljs.core.Keyword(null, "value", "value", 305978217));
+  var size = cljs.core.count.call(null, malli.core.children.call(null, schema));
+  return ["invalid tuple size ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.count.call(null, value)), ", expected ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(size)].join("");
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be zero"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a keyword"], null)], 
+null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be nil"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a qualified keyword"], null)], null), 
+new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a string"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "end of input"], null)], null), new cljs.core.PersistentArrayMap(null, 
+1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a qualified symbol"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "input remaining"], null)], null), new cljs.core.PersistentArrayMap(null, 
+1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a seq"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a non-negative int"], null)], null), new cljs.core.PersistentArrayMap(null, 
+1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a set"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be some"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", 
+"message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be positive"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a boolean"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", 
+"error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be an fn"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a sequential"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", 
+-502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a uuid"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "unknown error"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 
+1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a number"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "invalid dispatch value"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, 
+[new cljs.core.Keyword(null, "en", "en", 88457073), "should be a double"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a seqable"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, 
+"en", "en", 88457073), function(p__10141, _) {
+  var map__10142 = p__10141;
+  var map__10142__$1 = (!(map__10142 == null) ? map__10142.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10142.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10142) : map__10142;
+  var schema = cljs.core.get.call(null, map__10142__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  return ["should be ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null, malli.core.children.call(null, schema)))].join("");
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a boolean"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), function(p__10144, _) {
+  var map__10145 = p__10144;
+  var map__10145__$1 = (!(map__10145 == null) ? map__10145.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10145.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10145) : map__10145;
+  var schema = cljs.core.get.call(null, map__10145__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  var value = cljs.core.get.call(null, map__10145__$1, new cljs.core.Keyword(null, "value", "value", 305978217));
+  if (typeof value === "number") {
+    return ["should be smaller than ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null, malli.core.children.call(null, schema)))].join("");
+  } else {
+    return "should be a number";
+  }
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be negative"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "fn", "error/fn", -1263293860), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), function(p__10147, _) {
+  var map__10148 = p__10147;
+  var map__10148__$1 = (!(map__10148 == null) ? map__10148.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10148.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10148) : map__10148;
+  var likely_misspelling_of = cljs.core.get.call(null, map__10148__$1, new cljs.core.Keyword("malli.error", "likely-misspelling-of", "malli.error/likely-misspelling-of", 1504085033));
+  return ["should be spelled ", clojure.string.join.call(null, " or ", cljs.core.map.call(null, cljs.core.last, likely_misspelling_of))].join("");
+}], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "invalid type"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be a positive int"], null)], 
+null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be any"], null)], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("error", "message", "error/message", -502809098), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "en", "en", 88457073), "should be an indexed"], null)], null)]);
+malli.error._maybe_localized = function malli$error$_maybe_localized(x, locale) {
+  if (cljs.core.map_QMARK_.call(null, x)) {
+    return cljs.core.get.call(null, x, locale);
+  } else {
+    return x;
+  }
+};
+malli.error._message = function malli$error$_message(error, props, locale, options) {
+  var options__$1 = function() {
+    var or__4185__auto__ = options;
+    if (cljs.core.truth_(or__4185__auto__)) {
+      return or__4185__auto__;
+    } else {
+      return malli.core.options.call(null, (new cljs.core.Keyword(null, "schema", "schema", -1582001791)).cljs$core$IFn$_invoke$arity$1(error));
+    }
+  }();
+  if (cljs.core.truth_(props)) {
+    var or__4185__auto__ = function() {
+      var temp__5753__auto__ = malli.error._maybe_localized.call(null, (new cljs.core.Keyword("error", "fn", "error/fn", -1263293860)).cljs$core$IFn$_invoke$arity$1(props), locale);
+      if (cljs.core.truth_(temp__5753__auto__)) {
+        var fn = temp__5753__auto__;
+        return malli.core.eval.call(null, fn, options__$1).call(null, error, options__$1);
+      } else {
+        return null;
+      }
+    }();
+    if (cljs.core.truth_(or__4185__auto__)) {
+      return or__4185__auto__;
+    } else {
+      return malli.error._maybe_localized.call(null, (new cljs.core.Keyword("error", "message", "error/message", -502809098)).cljs$core$IFn$_invoke$arity$1(props), locale);
+    }
+  } else {
+    return null;
+  }
+};
+malli.error._error = function malli$error$_error(e) {
+  return cljs.core.with_meta(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [e], null), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("malli.error", "error", "malli.error/error", -522553785), true], null));
+};
+malli.error._error_QMARK_ = function malli$error$_error_QMARK_(x) {
+  return (new cljs.core.Keyword("malli.error", "error", "malli.error/error", -522553785)).cljs$core$IFn$_invoke$arity$1(cljs.core.meta.call(null, x));
+};
+malli.error._get = function malli$error$_get(x, k) {
+  if (cljs.core.set_QMARK_.call(null, x) || cljs.core.associative_QMARK_.call(null, x)) {
+    return cljs.core.get.call(null, x, k);
+  } else {
+    return null;
+  }
+};
+malli.error._push = function malli$error$_push(x, k, v) {
+  var x_SINGLEQUOTE_ = function() {
+    var temp__5751__auto__ = typeof k === "number" && (cljs.core.set_QMARK_.call(null, x) || cljs.core.sequential_QMARK_.call(null, x)) ? cljs.core.vec.call(null, x) : null;
+    if (cljs.core.truth_(temp__5751__auto__)) {
+      var x_SINGLEQUOTE_ = temp__5751__auto__;
+      var size_SINGLEQUOTE_ = cljs.core.count.call(null, x_SINGLEQUOTE_);
+      if (k > size_SINGLEQUOTE_) {
+        return cljs.core.into.call(null, x, cljs.core.repeat.call(null, k + 1 - size_SINGLEQUOTE_, null));
+      } else {
+        return x;
+      }
+    } else {
+      return x;
+    }
+  }();
+  if (cljs.core.set_QMARK_.call(null, x_SINGLEQUOTE_)) {
+    return cljs.core.conj.call(null, x_SINGLEQUOTE_, v);
+  } else {
+    return cljs.core.assoc.call(null, x_SINGLEQUOTE_, k, v);
+  }
+};
+malli.error._assoc_in = function malli$error$_assoc_in(a, v, p__10150, e) {
+  var vec__10151 = p__10150;
+  var seq__10152 = cljs.core.seq.call(null, vec__10151);
+  var first__10153 = cljs.core.first.call(null, seq__10152);
+  var seq__10152__$1 = cljs.core.next.call(null, seq__10152);
+  var p = first__10153;
+  var ps = seq__10152__$1;
+  var v_SINGLEQUOTE_ = malli.error._get.call(null, v, p);
+  var a_SINGLEQUOTE_ = function() {
+    var or__4185__auto__ = a;
+    if (cljs.core.truth_(or__4185__auto__)) {
+      return or__4185__auto__;
+    } else {
+      if (cljs.core.sequential_QMARK_.call(null, v)) {
+        return cljs.core.PersistentVector.EMPTY;
+      } else {
+        if (cljs.core.record_QMARK_.call(null, v)) {
+          return cljs.core.PersistentArrayMap.EMPTY;
+        } else {
+          return cljs.core.empty.call(null, v);
+        }
+      }
+    }
+  }();
+  if (cljs.core.truth_(function() {
+    var and__4174__auto__ = p;
+    if (cljs.core.truth_(and__4174__auto__)) {
+      return malli.error._error_QMARK_.call(null, a_SINGLEQUOTE_);
+    } else {
+      return and__4174__auto__;
+    }
+  }())) {
+    return a;
+  } else {
+    if (cljs.core.truth_(p)) {
+      return malli.error._push.call(null, a_SINGLEQUOTE_, p, malli.error._assoc_in.call(null, malli.error._get.call(null, a_SINGLEQUOTE_, p), v_SINGLEQUOTE_, ps, e));
+    } else {
+      if (cljs.core.map_QMARK_.call(null, a)) {
+        return malli.error._assoc_in.call(null, a_SINGLEQUOTE_, v, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("malli", "error", "malli/error", -1152359159)], null), e);
+      } else {
+        if (cljs.core.truth_(malli.error._error_QMARK_.call(null, a_SINGLEQUOTE_))) {
+          return cljs.core.conj.call(null, a_SINGLEQUOTE_, e);
+        } else {
+          if (cljs.core.vector_QMARK_.call(null, cljs.core.not_empty.call(null, a_SINGLEQUOTE_))) {
+            return a_SINGLEQUOTE_;
+          } else {
+            return malli.error._error.call(null, e);
+          }
+        }
+      }
+    }
+  }
+};
+malli.error._path = function malli$error$_path(p__10154, p__10155) {
+  var map__10156 = p__10154;
+  var map__10156__$1 = (!(map__10156 == null) ? map__10156.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10156.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10156) : map__10156;
+  var schema = cljs.core.get.call(null, map__10156__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  var map__10157 = p__10155;
+  var map__10157__$1 = (!(map__10157 == null) ? map__10157.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10157.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10157) : map__10157;
+  var locale = cljs.core.get.call(null, map__10157__$1, new cljs.core.Keyword(null, "locale", "locale", -2115712697));
+  var default_locale = cljs.core.get.call(null, map__10157__$1, new cljs.core.Keyword(null, "default-locale", "default-locale", -677515761), new cljs.core.Keyword(null, "en", "en", 88457073));
+  var properties = malli.core.properties.call(null, schema);
+  var or__4185__auto__ = malli.error._maybe_localized.call(null, (new cljs.core.Keyword("error", "path", "error/path", -419192760)).cljs$core$IFn$_invoke$arity$1(properties), locale);
+  if (cljs.core.truth_(or__4185__auto__)) {
+    return or__4185__auto__;
+  } else {
+    return malli.error._maybe_localized.call(null, (new cljs.core.Keyword("error", "path", "error/path", -419192760)).cljs$core$IFn$_invoke$arity$1(properties), default_locale);
+  }
+};
+malli.error._length__GT_threshold = function malli$error$_length__GT_threshold(len) {
+  var pred__10162 = function(p1__10161_SHARP_, p2__10160_SHARP_) {
+    return p2__10160_SHARP_ <= p1__10161_SHARP_;
+  };
+  var expr__10163 = len;
+  if (pred__10162.call(null, 4, expr__10163)) {
+    return 0;
+  } else {
+    if (pred__10162.call(null, 5, expr__10163)) {
+      return 1;
+    } else {
+      if (pred__10162.call(null, 6, expr__10163)) {
+        return 2;
+      } else {
+        if (pred__10162.call(null, 11, expr__10163)) {
+          return 3;
+        } else {
+          if (pred__10162.call(null, 20, expr__10163)) {
+            return 4;
+          } else {
+            return 0.2 * len | 0;
+          }
+        }
+      }
+    }
+  }
+};
+malli.error._next_row = function malli$error$_next_row(previous, current, other_seq) {
+  return cljs.core.reduce.call(null, function(row, p__10165) {
+    var vec__10166 = p__10165;
+    var diagonal = cljs.core.nth.call(null, vec__10166, 0, null);
+    var above = cljs.core.nth.call(null, vec__10166, 1, null);
+    var other = cljs.core.nth.call(null, vec__10166, 2, null);
+    var update_val = cljs.core._EQ_.call(null, other, current) ? diagonal : function() {
+      var x__4276__auto__ = function() {
+        var x__4276__auto__ = diagonal;
+        var y__4277__auto__ = above;
+        return x__4276__auto__ < y__4277__auto__ ? x__4276__auto__ : y__4277__auto__;
+      }();
+      var y__4277__auto__ = cljs.core.peek.call(null, row);
+      return x__4276__auto__ < y__4277__auto__ ? x__4276__auto__ : y__4277__auto__;
+    }() + 1;
+    return cljs.core.conj.call(null, row, update_val);
+  }, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.first.call(null, previous) + 1], null), cljs.core.map.call(null, cljs.core.vector, previous, cljs.core.next.call(null, previous), other_seq));
+};
+malli.error._levenshtein = function malli$error$_levenshtein(sequence1, sequence2) {
+  return cljs.core.peek.call(null, cljs.core.reduce.call(null, function(previous, current) {
+    return malli.error._next_row.call(null, previous, current, sequence2);
+  }, cljs.core.map.call(null, function(p1__10170_SHARP_, p2__10169_SHARP_) {
+    return cljs.core.identity.call(null, p2__10169_SHARP_);
+  }, cljs.core.cons.call(null, null, sequence2), cljs.core.range.call(null)), sequence1));
+};
+malli.error._similar_key = function malli$error$_similar_key(ky, ky2) {
+  var min_len = cljs.core.apply.call(null, cljs.core.min, cljs.core.map.call(null, malli.core._comp.call(null, cljs.core.count, function(p1__10171_SHARP_) {
+    if (clojure.string.starts_with_QMARK_.call(null, p1__10171_SHARP_, ":")) {
+      return cljs.core.subs.call(null, p1__10171_SHARP_, 1);
+    } else {
+      return p1__10171_SHARP_;
+    }
+  }, cljs.core.str), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [ky, ky2], null)));
+  var dist = malli.error._levenshtein.call(null, cljs.core.str.cljs$core$IFn$_invoke$arity$1(ky), cljs.core.str.cljs$core$IFn$_invoke$arity$1(ky2));
+  if (dist <= malli.error._length__GT_threshold.call(null, min_len)) {
+    return dist;
+  } else {
+    return null;
+  }
+};
+malli.error._likely_misspelled = function malli$error$_likely_misspelled(keys, known_keys, key) {
+  if (cljs.core.truth_(known_keys.call(null, key))) {
+    return null;
+  } else {
+    return cljs.core.not_empty.call(null, cljs.core.remove.call(null, keys, cljs.core.filter.call(null, function(p1__10172_SHARP_) {
+      return malli.error._similar_key.call(null, p1__10172_SHARP_, key);
+    }, known_keys)));
+  }
+};
+malli.error._most_similar_to = function malli$error$_most_similar_to(keys, key, known_keys) {
+  return cljs.core.not_empty.call(null, cljs.core.map.call(null, cljs.core.second, cljs.core.sort_by.call(null, cljs.core.first, cljs.core.filter.call(null, cljs.core.first, cljs.core.map.call(null, cljs.core.juxt.call(null, function(p1__10173_SHARP_) {
+    return malli.error._levenshtein.call(null, cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__10173_SHARP_), cljs.core.str.cljs$core$IFn$_invoke$arity$1(key));
+  }, cljs.core.identity), malli.error._likely_misspelled.call(null, keys, known_keys, key))))));
+};
+malli.error.error_path = function malli$error$error_path(var_args) {
+  var G__10175 = arguments.length;
+  switch(G__10175) {
+    case 1:
+      return malli.error.error_path.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.error.error_path.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.error.error_path.cljs$core$IFn$_invoke$arity$1 = function(error) {
+  return malli.error.error_path.call(null, error, null);
+};
+malli.error.error_path.cljs$core$IFn$_invoke$arity$2 = function(error, options) {
+  return cljs.core.into.call(null, (new cljs.core.Keyword(null, "in", "in", -1531184865)).cljs$core$IFn$_invoke$arity$1(error), malli.error._path.call(null, error, options));
+};
+malli.error.error_path.cljs$lang$maxFixedArity = 2;
+malli.error.error_message = function malli$error$error_message(var_args) {
+  var G__10178 = arguments.length;
+  switch(G__10178) {
+    case 1:
+      return malli.error.error_message.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.error.error_message.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.error.error_message.cljs$core$IFn$_invoke$arity$1 = function(error) {
+  return malli.error.error_message.call(null, error, null);
+};
+malli.error.error_message.cljs$core$IFn$_invoke$arity$2 = function(p__10179, p__10180) {
+  var map__10181 = p__10179;
+  var map__10181__$1 = (!(map__10181 == null) ? map__10181.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10181.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10181) : map__10181;
+  var error = map__10181__$1;
+  var schema = cljs.core.get.call(null, map__10181__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  var type = cljs.core.get.call(null, map__10181__$1, new cljs.core.Keyword(null, "type", "type", 1174270348));
+  var map__10182 = p__10180;
+  var map__10182__$1 = (!(map__10182 == null) ? map__10182.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10182.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10182) : map__10182;
+  var options = map__10182__$1;
+  var errors = cljs.core.get.call(null, map__10182__$1, new cljs.core.Keyword(null, "errors", "errors", -908790718), malli.error.default_errors);
+  var unknown = cljs.core.get.call(null, map__10182__$1, new cljs.core.Keyword(null, "unknown", "unknown", -935977881), true);
+  var locale = cljs.core.get.call(null, map__10182__$1, new cljs.core.Keyword(null, "locale", "locale", -2115712697));
+  var default_locale = cljs.core.get.call(null, map__10182__$1, new cljs.core.Keyword(null, "default-locale", "default-locale", -677515761), new cljs.core.Keyword(null, "en", "en", 88457073));
+  var or__4185__auto__ = malli.error._message.call(null, error, malli.core.properties.call(null, schema), locale, options);
+  if (cljs.core.truth_(or__4185__auto__)) {
+    return or__4185__auto__;
+  } else {
+    var or__4185__auto____$1 = malli.error._message.call(null, error, malli.core.type_properties.call(null, schema), locale, options);
+    if (cljs.core.truth_(or__4185__auto____$1)) {
+      return or__4185__auto____$1;
+    } else {
+      var or__4185__auto____$2 = malli.error._message.call(null, error, errors.call(null, type), locale, options);
+      if (cljs.core.truth_(or__4185__auto____$2)) {
+        return or__4185__auto____$2;
+      } else {
+        var or__4185__auto____$3 = malli.error._message.call(null, error, errors.call(null, malli.core.type.call(null, schema)), locale, options);
+        if (cljs.core.truth_(or__4185__auto____$3)) {
+          return or__4185__auto____$3;
+        } else {
+          var or__4185__auto____$4 = malli.error._message.call(null, error, malli.core.properties.call(null, schema), default_locale, options);
+          if (cljs.core.truth_(or__4185__auto____$4)) {
+            return or__4185__auto____$4;
+          } else {
+            var or__4185__auto____$5 = malli.error._message.call(null, error, malli.core.type_properties.call(null, schema), default_locale, options);
+            if (cljs.core.truth_(or__4185__auto____$5)) {
+              return or__4185__auto____$5;
+            } else {
+              var or__4185__auto____$6 = malli.error._message.call(null, error, errors.call(null, type), default_locale, options);
+              if (cljs.core.truth_(or__4185__auto____$6)) {
+                return or__4185__auto____$6;
+              } else {
+                var or__4185__auto____$7 = malli.error._message.call(null, error, errors.call(null, malli.core.type.call(null, schema)), default_locale, options);
+                if (cljs.core.truth_(or__4185__auto____$7)) {
+                  return or__4185__auto____$7;
+                } else {
+                  var or__4185__auto____$8 = function() {
+                    var and__4174__auto__ = unknown;
+                    if (cljs.core.truth_(and__4174__auto__)) {
+                      return malli.error._message.call(null, error, errors.call(null, new cljs.core.Keyword("malli.error", "unknown", "malli.error/unknown", 594142330)), locale, options);
+                    } else {
+                      return and__4174__auto__;
+                    }
+                  }();
+                  if (cljs.core.truth_(or__4185__auto____$8)) {
+                    return or__4185__auto____$8;
+                  } else {
+                    var and__4174__auto__ = unknown;
+                    if (cljs.core.truth_(and__4174__auto__)) {
+                      return malli.error._message.call(null, error, errors.call(null, new cljs.core.Keyword("malli.error", "unknown", "malli.error/unknown", 594142330)), default_locale, options);
+                    } else {
+                      return and__4174__auto__;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+malli.error.error_message.cljs$lang$maxFixedArity = 2;
+malli.error._resolve_direct_error = function malli$error$_resolve_direct_error(_, error, options) {
+  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [malli.error.error_path.call(null, error, options), malli.error.error_message.call(null, error, options)], null);
+};
+malli.error._resolve_root_error = function malli$error$_resolve_root_error(p__10186, p__10187, options) {
+  var map__10188 = p__10186;
+  var map__10188__$1 = (!(map__10188 == null) ? map__10188.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10188.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10188) : map__10188;
+  var schema = cljs.core.get.call(null, map__10188__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+  var map__10189 = p__10187;
+  var map__10189__$1 = (!(map__10189 == null) ? map__10189.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10189.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10189) : map__10189;
+  var error = map__10189__$1;
+  var path = cljs.core.get.call(null, map__10189__$1, new cljs.core.Keyword(null, "path", "path", -188191168));
+  var in$ = cljs.core.get.call(null, map__10189__$1, new cljs.core.Keyword(null, "in", "in", -1531184865));
+  var options__$1 = cljs.core.assoc.call(null, options, new cljs.core.Keyword(null, "unknown", "unknown", -935977881), false);
+  var path__$1 = path;
+  var l = null;
+  var mp = path__$1;
+  var p = malli.core.properties.call(null, (new cljs.core.Keyword(null, "schema", "schema", -1582001791)).cljs$core$IFn$_invoke$arity$1(error));
+  var m = malli.error.error_message.call(null, error, options__$1);
+  while (true) {
+    var vec__10201 = function() {
+      var or__4185__auto__ = function() {
+        var schema__$1 = malli.util.get_in.call(null, schema, path__$1);
+        var temp__5753__auto__ = malli.error.error_message.call(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "schema", "schema", -1582001791), schema__$1], null), options__$1);
+        if (cljs.core.truth_(temp__5753__auto__)) {
+          var m_SINGLEQUOTE_ = temp__5753__auto__;
+          return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [path__$1, m_SINGLEQUOTE_, malli.core.properties.call(null, schema__$1)], null);
+        } else {
+          return null;
+        }
+      }();
+      if (cljs.core.truth_(or__4185__auto__)) {
+        return or__4185__auto__;
+      } else {
+        var or__4185__auto____$1 = function() {
+          var res = function() {
+            var and__4174__auto__ = l;
+            if (cljs.core.truth_(and__4174__auto__)) {
+              return malli.util.find.call(null, malli.util.get_in.call(null, schema, path__$1), l);
+            } else {
+              return and__4174__auto__;
+            }
+          }();
+          if (cljs.core.vector_QMARK_.call(null, res)) {
+            var vec__10207 = res;
+            var _ = cljs.core.nth.call(null, vec__10207, 0, null);
+            var props = cljs.core.nth.call(null, vec__10207, 1, null);
+            var schema__$1 = cljs.core.nth.call(null, vec__10207, 2, null);
+            var schema__$2 = malli.util.update_properties.call(null, schema__$1, cljs.core.merge, props);
+            var message = malli.error.error_message.call(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "schema", "schema", -1582001791), schema__$2], null), options__$1);
+            if (cljs.core.truth_(message)) {
+              return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.conj.call(null, path__$1, l), message, malli.core.properties.call(null, schema__$2)], null);
+            } else {
+              return null;
+            }
+          } else {
+            return null;
+          }
+        }();
+        if (cljs.core.truth_(or__4185__auto____$1)) {
+          return or__4185__auto____$1;
+        } else {
+          if (cljs.core.truth_(m)) {
+            return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mp, m, p], null);
+          } else {
+            return null;
+          }
+        }
+      }
+    }();
+    var path_SINGLEQUOTE_ = cljs.core.nth.call(null, vec__10201, 0, null);
+    var m_SINGLEQUOTE_ = cljs.core.nth.call(null, vec__10201, 1, null);
+    var p_SINGLEQUOTE_ = cljs.core.nth.call(null, vec__10201, 2, null);
+    if (cljs.core.seq.call(null, path__$1)) {
+      var G__10210 = cljs.core.pop.call(null, path__$1);
+      var G__10211 = cljs.core.last.call(null, path__$1);
+      var G__10212 = path_SINGLEQUOTE_;
+      var G__10213 = p_SINGLEQUOTE_;
+      var G__10214 = m_SINGLEQUOTE_;
+      path__$1 = G__10210;
+      l = G__10211;
+      mp = G__10212;
+      p = G__10213;
+      m = G__10214;
+      continue;
+    } else {
+      if (cljs.core.truth_(m)) {
+        return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.seq.call(null, in$) ? malli.util.path__GT_in.call(null, schema, path_SINGLEQUOTE_) : malli.error.error_path.call(null, error, options__$1), m_SINGLEQUOTE_, p_SINGLEQUOTE_], null);
+      } else {
+        return null;
+      }
+    }
+    break;
+  }
+};
+malli.error.with_error_message = function malli$error$with_error_message(var_args) {
+  var G__10216 = arguments.length;
+  switch(G__10216) {
+    case 1:
+      return malli.error.with_error_message.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.error.with_error_message.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.error.with_error_message.cljs$core$IFn$_invoke$arity$1 = function(error) {
+  return malli.error.with_error_message.call(null, error, null);
+};
+malli.error.with_error_message.cljs$core$IFn$_invoke$arity$2 = function(error, options) {
+  return cljs.core.assoc.call(null, error, new cljs.core.Keyword(null, "message", "message", -406056002), malli.error.error_message.call(null, error, options));
+};
+malli.error.with_error_message.cljs$lang$maxFixedArity = 2;
+malli.error.with_error_messages = function malli$error$with_error_messages(var_args) {
+  var G__10220 = arguments.length;
+  switch(G__10220) {
+    case 1:
+      return malli.error.with_error_messages.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.error.with_error_messages.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.error.with_error_messages.cljs$core$IFn$_invoke$arity$1 = function(explanation) {
+  return malli.error.with_error_messages.call(null, explanation, null);
+};
+malli.error.with_error_messages.cljs$core$IFn$_invoke$arity$2 = function(explanation, p__10221) {
+  var map__10222 = p__10221;
+  var map__10222__$1 = (!(map__10222 == null) ? map__10222.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10222.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10222) : map__10222;
+  var options = map__10222__$1;
+  var f = cljs.core.get.call(null, map__10222__$1, new cljs.core.Keyword(null, "wrap", "wrap", 851669987), cljs.core.identity);
+  if (cljs.core.truth_(explanation)) {
+    return cljs.core.update.call(null, explanation, new cljs.core.Keyword(null, "errors", "errors", -908790718), function(errors) {
+      return cljs.core.doall.call(null, cljs.core.map.call(null, function(p1__10218_SHARP_) {
+        return f.call(null, malli.error.with_error_message.call(null, p1__10218_SHARP_, options));
+      }, errors));
+    });
+  } else {
+    return null;
+  }
+};
+malli.error.with_error_messages.cljs$lang$maxFixedArity = 2;
+malli.error.with_spell_checking = function malli$error$with_spell_checking(var_args) {
+  var G__10227 = arguments.length;
+  switch(G__10227) {
+    case 1:
+      return malli.error.with_spell_checking.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.error.with_spell_checking.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.error.with_spell_checking.cljs$core$IFn$_invoke$arity$1 = function(explanation) {
+  return malli.error.with_spell_checking.call(null, explanation, null);
+};
+malli.error.with_spell_checking.cljs$core$IFn$_invoke$arity$2 = function(explanation, p__10228) {
+  var map__10229 = p__10228;
+  var map__10229__$1 = (!(map__10229 == null) ? map__10229.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10229.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10229) : map__10229;
+  var keep_likely_misspelled_of = cljs.core.get.call(null, map__10229__$1, new cljs.core.Keyword(null, "keep-likely-misspelled-of", "keep-likely-misspelled-of", 288878171));
+  if (cljs.core.truth_(explanation)) {
+    var _BANG_likely_misspelling_of = cljs.core.atom.call(null, cljs.core.PersistentHashSet.EMPTY);
+    var handle_invalid_value = function(schema, _, value) {
+      var dispatch = (new cljs.core.Keyword(null, "dispatch", "dispatch", 1319337009)).cljs$core$IFn$_invoke$arity$1(malli.core.properties.call(null, schema));
+      if (dispatch instanceof cljs.core.Keyword) {
+        var value__$1 = dispatch.cljs$core$IFn$_invoke$arity$1(value);
+        return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("malli.error", "misspelled-value", "malli.error/misspelled-value", -1135752848), value__$1, cljs.core.PersistentHashSet.createAsIfByAssoc([value__$1])], null);
+      } else {
+        return null;
+      }
+    };
+    var types = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("malli.core", "extra-key", "malli.core/extra-key", 574816512), function(_, path, value) {
+      return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("malli.error", "misspelled-key", "malli.error/misspelled-key", 616486174), cljs.core.last.call(null, path), function() {
+        var or__4185__auto__ = cljs.core.set.call(null, cljs.core.keys.call(null, value));
+        if (cljs.core.truth_(or__4185__auto__)) {
+          return or__4185__auto__;
+        } else {
+          return cljs.core.PersistentHashSet.EMPTY;
+        }
+      }()], null);
+    }, new cljs.core.Keyword("malli.core", "invalid-dispatch-value", "malli.core/invalid-dispatch-value", 516707675), handle_invalid_value], null);
+    return cljs.core.update.call(null, explanation, new cljs.core.Keyword(null, "errors", "errors", -908790718), function(errors) {
+      var $ = errors;
+      var $__$1 = cljs.core.mapv.call(null, function(p__10231) {
+        var map__10232 = p__10231;
+        var map__10232__$1 = (!(map__10232 == null) ? map__10232.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10232.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10232) : map__10232;
+        var error = map__10232__$1;
+        var schema = cljs.core.get.call(null, map__10232__$1, new cljs.core.Keyword(null, "schema", "schema", -1582001791));
+        var path = cljs.core.get.call(null, map__10232__$1, new cljs.core.Keyword(null, "path", "path", -188191168));
+        var type = cljs.core.get.call(null, map__10232__$1, new cljs.core.Keyword(null, "type", "type", 1174270348));
+        var temp__5751__auto__ = types.call(null, type);
+        if (cljs.core.truth_(temp__5751__auto__)) {
+          var get_keys = temp__5751__auto__;
+          var known_keys = cljs.core.set.call(null, cljs.core.map.call(null, cljs.core.first, malli.core.entries.call(null, schema)));
+          var value = cljs.core.get_in.call(null, (new cljs.core.Keyword(null, "value", "value", 305978217)).cljs$core$IFn$_invoke$arity$1(explanation), cljs.core.butlast.call(null, path));
+          var vec__10234 = get_keys.call(null, schema, path, value);
+          var error_type = cljs.core.nth.call(null, vec__10234, 0, null);
+          var key = cljs.core.nth.call(null, vec__10234, 1, null);
+          var keys = cljs.core.nth.call(null, vec__10234, 2, null);
+          var similar = malli.error._most_similar_to.call(null, keys, key, known_keys);
+          var likely_misspelling_of = cljs.core.mapv.call(null, function(p1__10225_SHARP_) {
+            return cljs.core.conj.call(null, cljs.core.vec.call(null, cljs.core.butlast.call(null, path)), p1__10225_SHARP_);
+          }, cljs.core.vec.call(null, similar));
+          cljs.core.swap_BANG_.call(null, _BANG_likely_misspelling_of, cljs.core.into, likely_misspelling_of);
+          var G__10237 = error;
+          if (cljs.core.truth_(similar)) {
+            return cljs.core.assoc.call(null, G__10237, new cljs.core.Keyword(null, "type", "type", 1174270348), error_type, new cljs.core.Keyword("malli.error", "likely-misspelling-of", "malli.error/likely-misspelling-of", 1504085033), likely_misspelling_of);
+          } else {
+            return G__10237;
+          }
+        } else {
+          return error;
+        }
+      }, $);
+      if (cljs.core.not.call(null, keep_likely_misspelled_of)) {
+        return cljs.core.remove.call(null, function(p__10238) {
+          var map__10239 = p__10238;
+          var map__10239__$1 = (!(map__10239 == null) ? map__10239.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10239.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10239) : map__10239;
+          var path = cljs.core.get.call(null, map__10239__$1, new cljs.core.Keyword(null, "path", "path", -188191168));
+          var type = cljs.core.get.call(null, map__10239__$1, new cljs.core.Keyword(null, "type", "type", 1174270348));
+          var and__4174__auto__ = cljs.core.deref.call(null, _BANG_likely_misspelling_of).call(null, path);
+          if (cljs.core.truth_(and__4174__auto__)) {
+            return cljs.core._EQ_.call(null, type, new cljs.core.Keyword("malli.core", "missing-key", "malli.core/missing-key", 1439107666));
+          } else {
+            return and__4174__auto__;
+          }
+        }, $__$1);
+      } else {
+        return $__$1;
+      }
+    });
+  } else {
+    return null;
+  }
+};
+malli.error.with_spell_checking.cljs$lang$maxFixedArity = 2;
+malli.error.humanize = function malli$error$humanize(var_args) {
+  var G__10243 = arguments.length;
+  switch(G__10243) {
+    case 1:
+      return malli.error.humanize.cljs$core$IFn$_invoke$arity$1(arguments[0]);
+      break;
+    case 2:
+      return malli.error.humanize.cljs$core$IFn$_invoke$arity$2(arguments[0], arguments[1]);
+      break;
+    default:
+      throw new Error(["Invalid arity: ", cljs.core.str.cljs$core$IFn$_invoke$arity$1(arguments.length)].join(""));
+  }
+};
+malli.error.humanize.cljs$core$IFn$_invoke$arity$1 = function(explanation) {
+  return malli.error.humanize.call(null, explanation, null);
+};
+malli.error.humanize.cljs$core$IFn$_invoke$arity$2 = function(p__10244, p__10245) {
+  var map__10246 = p__10244;
+  var map__10246__$1 = (!(map__10246 == null) ? map__10246.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10246.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10246) : map__10246;
+  var explanation = map__10246__$1;
+  var value = cljs.core.get.call(null, map__10246__$1, new cljs.core.Keyword(null, "value", "value", 305978217));
+  var errors = cljs.core.get.call(null, map__10246__$1, new cljs.core.Keyword(null, "errors", "errors", -908790718));
+  var map__10247 = p__10245;
+  var map__10247__$1 = (!(map__10247 == null) ? map__10247.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__10247.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__10247) : map__10247;
+  var options = map__10247__$1;
+  var wrap = cljs.core.get.call(null, map__10247__$1, new cljs.core.Keyword(null, "wrap", "wrap", 851669987), new cljs.core.Keyword(null, "message", "message", -406056002));
+  var resolve = cljs.core.get.call(null, map__10247__$1, new cljs.core.Keyword(null, "resolve", "resolve", -1584445482), malli.error._resolve_direct_error);
+  if (cljs.core.truth_(errors)) {
+    return cljs.core.reduce.call(null, function(acc, error) {
+      var vec__10250 = resolve.call(null, explanation, error, options);
+      var path = cljs.core.nth.call(null, vec__10250, 0, null);
+      var message = cljs.core.nth.call(null, vec__10250, 1, null);
+      return malli.error._assoc_in.call(null, acc, value, path, wrap.call(null, cljs.core.assoc.call(null, error, new cljs.core.Keyword(null, "message", "message", -406056002), message)));
+    }, null, errors);
+  } else {
+    return null;
+  }
+};
+malli.error.humanize.cljs$lang$maxFixedArity = 2;
+goog.provide("sophitia.data.error_collector");
+goog.require("cljs.core");
+goog.require("malli.core");
+goog.require("malli.error");
+sophitia.data.error_collector.extract_errors = function sophitia$data$error_collector$extract_errors(sophitia_form, target) {
+  var schema = (new cljs.core.Keyword(null, "schema", "schema", -1582001791)).cljs$core$IFn$_invoke$arity$1(sophitia_form);
+  var malli_errors = cljs.core.not.call(null, malli.core.validate.call(null, schema, target)) ? malli.core.explain.call(null, schema, target) : null;
+  return malli.error.humanize.call(null, malli_errors);
 };
 goog.provide("cljs.pprint");
 goog.require("cljs.core");
@@ -56820,73 +58896,58 @@ cljs.test.test_vars = function cljs$test$test_vars(vars) {
 cljs.test.successful_QMARK_ = function cljs$test$successful_QMARK_(summary) {
   return (new cljs.core.Keyword(null, "fail", "fail", 1706214930)).cljs$core$IFn$_invoke$arity$2(summary, 0) === 0 && (new cljs.core.Keyword(null, "error", "error", -978969032)).cljs$core$IFn$_invoke$arity$2(summary, 0) === 0;
 };
-goog.provide("sophitia.test.data.validation_test");
+goog.provide("sophitia.test.data.error_collector_test");
 goog.require("cljs.core");
 goog.require("cljs.test");
-goog.require("sophitia.data.validation");
-sophitia.test.data.validation_test.valid_malli_field1 = new cljs.core.PersistentArrayMap(null, 8, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id1", new cljs.core.Keyword(null, "name", "name", 1843675177), "name1", new cljs.core.Keyword(null, "class", "class", -2030961996), "class1", new cljs.core.Keyword(null, "description", "description", -1428560544), "first class", new cljs.core.Keyword(null, "error-message", "error-message", 1756021561), null, new cljs.core.Keyword(null, "default-error-mesage", 
+goog.require("sophitia.data.error_collector");
+sophitia.test.data.error_collector_test.valid_malli_field = new cljs.core.PersistentArrayMap(null, 8, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id1", new cljs.core.Keyword(null, "name", "name", 1843675177), "name1", new cljs.core.Keyword(null, "class", "class", -2030961996), "class1", new cljs.core.Keyword(null, "description", "description", -1428560544), "first class", new cljs.core.Keyword(null, "error-message", "error-message", 1756021561), null, new cljs.core.Keyword(null, "default-error-mesage", 
 "default-error-mesage", 963160337), "Field not valid.", new cljs.core.Keyword(null, "type", "type", 1174270348), "text", new cljs.core.Keyword(null, "validation-group", "validation-group", -591747153), "g1"], null);
-sophitia.test.data.validation_test.valid_malli_field2 = new cljs.core.PersistentArrayMap(null, 8, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id2", new cljs.core.Keyword(null, "name", "name", 1843675177), "name2", new cljs.core.Keyword(null, "class", "class", -2030961996), "class2", new cljs.core.Keyword(null, "description", "description", -1428560544), "Second class", new cljs.core.Keyword(null, "error-message", "error-message", 1756021561), null, new cljs.core.Keyword(null, "default-error-mesage", 
+sophitia.test.data.error_collector_test.valid_malli_field2 = new cljs.core.PersistentArrayMap(null, 8, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id2", new cljs.core.Keyword(null, "name", "name", 1843675177), "name2", new cljs.core.Keyword(null, "class", "class", -2030961996), "class2", new cljs.core.Keyword(null, "description", "description", -1428560544), "Second class", new cljs.core.Keyword(null, "error-message", "error-message", 1756021561), null, new cljs.core.Keyword(null, "default-error-mesage", 
 "default-error-mesage", 963160337), "Field not valid.", new cljs.core.Keyword(null, "type", "type", 1174270348), "text", new cljs.core.Keyword(null, "validation-group", "validation-group", -591747153), "g2"], null);
-sophitia.test.data.validation_test.valid_malli_form = new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "fields", "fields", -1932066230), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sophitia.test.data.validation_test.valid_malli_field1, sophitia.test.data.validation_test.valid_malli_field2], null), new cljs.core.Keyword(null, "validation-behavior", "validation-behavior", 219743720), "on-change", new cljs.core.Keyword(null, "schema", "schema", 
--1582001791), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "map", "map", 1371690461), cljs.core.PersistentVector.EMPTY], null)], null), new cljs.core.Keyword(null, "validation-group-order", "validation-group-order", 139870265), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["g1", "g2"], null)], null);
-sophitia.test.data.validation_test.validate_internal_form_schema_test = function sophitia$test$data$validation_test$validate_internal_form_schema_test() {
-  return cljs.test.test_var.call(null, sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$var);
+sophitia.test.data.error_collector_test.valid_malli_form = new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "fields", "fields", -1932066230), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sophitia.test.data.error_collector_test.valid_malli_field, sophitia.test.data.error_collector_test.valid_malli_field2], null), new cljs.core.Keyword(null, "validation-behavior", "validation-behavior", 219743720), "on-change", new cljs.core.Keyword(null, 
+"schema", "schema", -1582001791), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "map", "map", 1371690461), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "email", "email", 1415816706), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "string", "string", -1989541586)], null)], null), new cljs.core.PersistentVector(null, 
+2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "password", "password", 417022471), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "string", "string", -1989541586)], null)], null)], null), new cljs.core.Keyword(null, "validation-group-order", "validation-group-order", 139870265), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["g1", "g2"], null)], null);
+sophitia.test.data.error_collector_test.extract_errors_test = function sophitia$test$data$error_collector_test$extract_errors_test() {
+  return cljs.test.test_var.call(null, sophitia.test.data.error_collector_test.extract_errors_test.cljs$lang$var);
 };
-sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$test = function() {
-  cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.conj, "Invalid schema for an empty map");
+sophitia.test.data.error_collector_test.extract_errors_test.cljs$lang$test = function() {
+  cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.conj, "extract-errors function is working properly");
   try {
+    var sophitia_form = sophitia.test.data.error_collector_test.valid_malli_form;
+    var target = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "email", "email", 1415816706), "", new cljs.core.Keyword(null, "password", "password", 417022471), null], null);
+    var actual_errors = sophitia.data.error_collector.extract_errors.call(null, sophitia_form, target);
+    var expected_errors = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "password", "password", 417022471), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["should be a string"], null)], null);
     try {
-      var values__2852__auto___7683 = new cljs.core.List(null, false, new cljs.core.List(null, sophitia.data.validation.validate_internal_form_schema.call(null, cljs.core.PersistentArrayMap.EMPTY), null, 1, null), 2, null);
-      var result__2853__auto___7684 = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto___7683);
-      if (cljs.core.truth_(result__2853__auto___7684)) {
-        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), cljs.core.PersistentArrayMap.EMPTY)), 
-        new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto___7683), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
-      } else {
-        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), cljs.core.PersistentArrayMap.EMPTY)), 
-        new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto___7683), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
-      }
-    } catch (e7681) {
-      var t__2897__auto___7685 = e7681;
-      cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), cljs.core.PersistentArrayMap.EMPTY)), 
-      new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto___7685, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
-    }
-  } finally {
-    cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
-  }
-  cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.conj, "Valid basic form schema");
-  try {
-    try {
-      var values__2852__auto__ = new cljs.core.List(null, true, new cljs.core.List(null, sophitia.data.validation.validate_internal_form_schema.call(null, sophitia.test.data.validation_test.valid_malli_form), null, 1, null), 2, null);
+      var values__2852__auto__ = new cljs.core.List(null, actual_errors, new cljs.core.List(null, expected_errors, null, 1, null), 2, null);
       var result__2853__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto__);
       if (cljs.core.truth_(result__2853__auto__)) {
-        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), new cljs.core.Symbol(null, "valid-malli-form", 
-        "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-errors", "actual-errors", 1983217809, null), new cljs.core.Symbol(null, "expected-errors", "expected-errors", -2065905476, null)), 
+        new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       } else {
-        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), new cljs.core.Symbol(null, "valid-malli-form", 
-        "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-errors", "actual-errors", 1983217809, null), new cljs.core.Symbol(null, "expected-errors", "expected-errors", -2065905476, null)), 
+        new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       }
       return result__2853__auto__;
-    } catch (e7682) {
-      var t__2897__auto__ = e7682;
-      return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), new cljs.core.Symbol(null, 
-      "valid-malli-form", "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+    } catch (e8000) {
+      var t__2897__auto__ = e8000;
+      return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-errors", "actual-errors", 1983217809, null), new cljs.core.Symbol(null, "expected-errors", "expected-errors", -2065905476, 
+      null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
     }
   } finally {
     cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
   }
 };
-sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$var = new cljs.core.Var(function() {
-  return sophitia.test.data.validation_test.validate_internal_form_schema_test;
-}, new cljs.core.Symbol("sophitia.test.data.validation-test", "validate-internal-form-schema-test", "sophitia.test.data.validation-test/validate-internal-form-schema-test", 361691241, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", 
-"column", 2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Symbol(null, "validate-internal-form-schema-test", 
-"validate-internal-form-schema-test", -1435824208, null), "test-cljs/sophitia/test/data/validation_test.cljs", 44, 1, 32, 32, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.validation_test.validate_internal_form_schema_test) ? sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$test : null]));
+sophitia.test.data.error_collector_test.extract_errors_test.cljs$lang$var = new cljs.core.Var(function() {
+  return sophitia.test.data.error_collector_test.extract_errors_test;
+}, new cljs.core.Symbol("sophitia.test.data.error-collector-test", "extract-errors-test", "sophitia.test.data.error-collector-test/extract-errors-test", 2084311804, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 2078222095), 
+new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.error-collector-test", "sophitia.test.data.error-collector-test", -1070760070, null), new cljs.core.Symbol(null, "extract-errors-test", "extract-errors-test", 
+-1243431342, null), "test-cljs/sophitia/test/data/error_collector_test.cljs", 29, 1, 33, 33, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.error_collector_test.extract_errors_test) ? sophitia.test.data.error_collector_test.extract_errors_test.cljs$lang$test : null]));
 cljs.test.run_block.call(null, function() {
-  var env7686 = cljs.test.empty_env.call(null);
-  var summary7687 = cljs.core.volatile_BANG_.call(null, new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "summary", "summary", 380847952), new cljs.core.Keyword(null, "fail", "fail", 1706214930), 0, new cljs.core.Keyword(null, "error", "error", -978969032), 0, new cljs.core.Keyword(null, "pass", "pass", 1574159993), 0, new cljs.core.Keyword(null, "test", "test", 577538877), 0], null));
+  var env8001 = cljs.test.empty_env.call(null);
+  var summary8002 = cljs.core.volatile_BANG_.call(null, new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "summary", "summary", 380847952), new cljs.core.Keyword(null, "fail", "fail", 1706214930), 0, new cljs.core.Keyword(null, "error", "error", -978969032), 0, new cljs.core.Keyword(null, "pass", "pass", 1574159993), 0, new cljs.core.Keyword(null, "test", "test", 577538877), 0], null));
   return cljs.core.concat.call(null, cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-    cljs.test.set_env_BANG_.call(null, env7686);
-    cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "begin-test-ns", "begin-test-ns", -1701237033)], null));
+    cljs.test.set_env_BANG_.call(null, env8001);
+    cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Symbol(null, "sophitia.test.data.error-collector-test", "sophitia.test.data.error-collector-test", -1070760070, null), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "begin-test-ns", "begin-test-ns", -1701237033)], null));
     return cljs.test.block.call(null, function() {
       var env__2965__auto__ = cljs.test.get_current_env.call(null);
       return cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
@@ -56896,10 +58957,10 @@ cljs.test.run_block.call(null, function() {
         }
         return null;
       }], null), cljs.test.test_vars_block.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Var(function() {
-        return sophitia.test.data.validation_test.validate_internal_form_schema_test;
-      }, new cljs.core.Symbol("sophitia.test.data.validation-test", "validate-internal-form-schema-test", "sophitia.test.data.validation-test/validate-internal-form-schema-test", 361691241, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, 
-      "column", "column", 2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Symbol(null, "validate-internal-form-schema-test", 
-      "validate-internal-form-schema-test", -1435824208, null), "test-cljs/sophitia/test/data/validation_test.cljs", 44, 1, 32, 32, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.validation_test.validate_internal_form_schema_test) ? sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$test : null]))], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
+        return sophitia.test.data.error_collector_test.extract_errors_test;
+      }, new cljs.core.Symbol("sophitia.test.data.error-collector-test", "extract-errors-test", "sophitia.test.data.error-collector-test/extract-errors-test", 2084311804, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 
+      2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.error-collector-test", "sophitia.test.data.error-collector-test", -1070760070, null), new cljs.core.Symbol(null, "extract-errors-test", 
+      "extract-errors-test", -1243431342, null), "test-cljs/sophitia/test/data/error_collector_test.cljs", 29, 1, 33, 33, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.error_collector_test.extract_errors_test) ? sophitia.test.data.error_collector_test.extract_errors_test.cljs$lang$test : null]))], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
         if (env__2965__auto__ == null) {
           return cljs.test.clear_env_BANG_.call(null);
         } else {
@@ -56908,13 +58969,13 @@ cljs.test.run_block.call(null, function() {
       }], null));
     }());
   }, function() {
-    return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-test-ns", "end-test-ns", 1620675645)], null));
+    return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Symbol(null, "sophitia.test.data.error-collector-test", "sophitia.test.data.error-collector-test", -1070760070, null), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-test-ns", "end-test-ns", 1620675645)], null));
   }], null), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-    return cljs.core._vreset_BANG_.call(null, summary7687, cljs.core.partial.call(null, cljs.core.merge_with, cljs.core._PLUS_).call(null, cljs.core._deref.call(null, summary7687), (new cljs.core.Keyword(null, "report-counters", "report-counters", -1702609242)).cljs$core$IFn$_invoke$arity$1(cljs.test.get_and_clear_env_BANG_.call(null))));
+    return cljs.core._vreset_BANG_.call(null, summary8002, cljs.core.partial.call(null, cljs.core.merge_with, cljs.core._PLUS_).call(null, cljs.core._deref.call(null, summary8002), (new cljs.core.Keyword(null, "report-counters", "report-counters", -1702609242)).cljs$core$IFn$_invoke$arity$1(cljs.test.get_and_clear_env_BANG_.call(null))));
   }], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-    cljs.test.set_env_BANG_.call(null, env7686);
-    cljs.test.do_report.call(null, cljs.core.deref.call(null, summary7687));
-    cljs.test.report.call(null, cljs.core.assoc.call(null, cljs.core.deref.call(null, summary7687), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-run-tests", "end-run-tests", 267300563)));
+    cljs.test.set_env_BANG_.call(null, env8001);
+    cljs.test.do_report.call(null, cljs.core.deref.call(null, summary8002));
+    cljs.test.report.call(null, cljs.core.assoc.call(null, cljs.core.deref.call(null, summary8002), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-run-tests", "end-run-tests", 267300563)));
     return cljs.test.clear_env_BANG_.call(null);
   }], null));
 }());
@@ -57832,7 +59893,234 @@ switch(goog.LOCALE) {
     goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_zu;
     break;
 }
-;goog.provide("goog.date.DateLike");
+;goog.provide("goog.string.format");
+goog.require("goog.string");
+goog.string.format = function(formatString, var_args) {
+  var args = Array.prototype.slice.call(arguments);
+  var template = args.shift();
+  if (typeof template == "undefined") {
+    throw Error("[goog.string.format] Template required");
+  }
+  var formatRe = /%([0\- \+]*)(\d+)?(\.(\d+))?([%sfdiu])/g;
+  function replacerDemuxer(match, flags, width, dotp, precision, type, offset, wholeString) {
+    if (type == "%") {
+      return "%";
+    }
+    var value = args.shift();
+    if (typeof value == "undefined") {
+      throw Error("[goog.string.format] Not enough arguments");
+    }
+    arguments[0] = value;
+    return goog.string.format.demuxes_[type].apply(null, arguments);
+  }
+  return template.replace(formatRe, replacerDemuxer);
+};
+goog.string.format.demuxes_ = {};
+goog.string.format.demuxes_["s"] = function(value, flags, width, dotp, precision, type, offset, wholeString) {
+  var replacement = value;
+  if (isNaN(width) || width == "" || replacement.length >= Number(width)) {
+    return replacement;
+  }
+  if (flags.indexOf("-", 0) > -1) {
+    replacement = replacement + goog.string.repeat(" ", Number(width) - replacement.length);
+  } else {
+    replacement = goog.string.repeat(" ", Number(width) - replacement.length) + replacement;
+  }
+  return replacement;
+};
+goog.string.format.demuxes_["f"] = function(value, flags, width, dotp, precision, type, offset, wholeString) {
+  var replacement = value.toString();
+  if (!(isNaN(precision) || precision == "")) {
+    replacement = parseFloat(value).toFixed(precision);
+  }
+  var sign;
+  if (Number(value) < 0) {
+    sign = "-";
+  } else {
+    if (flags.indexOf("+") >= 0) {
+      sign = "+";
+    } else {
+      if (flags.indexOf(" ") >= 0) {
+        sign = " ";
+      } else {
+        sign = "";
+      }
+    }
+  }
+  if (Number(value) >= 0) {
+    replacement = sign + replacement;
+  }
+  if (isNaN(width) || replacement.length >= Number(width)) {
+    return replacement;
+  }
+  replacement = isNaN(precision) ? Math.abs(Number(value)).toString() : Math.abs(Number(value)).toFixed(precision);
+  var padCount = Number(width) - replacement.length - sign.length;
+  if (flags.indexOf("-", 0) >= 0) {
+    replacement = sign + replacement + goog.string.repeat(" ", padCount);
+  } else {
+    var paddingChar = flags.indexOf("0", 0) >= 0 ? "0" : " ";
+    replacement = sign + goog.string.repeat(paddingChar, padCount) + replacement;
+  }
+  return replacement;
+};
+goog.string.format.demuxes_["d"] = function(value, flags, width, dotp, precision, type, offset, wholeString) {
+  return goog.string.format.demuxes_["f"](parseInt(value, 10), flags, width, dotp, 0, type, offset, wholeString);
+};
+goog.string.format.demuxes_["i"] = goog.string.format.demuxes_["d"];
+goog.string.format.demuxes_["u"] = goog.string.format.demuxes_["d"];
+goog.provide("sophitia.data.schema");
+goog.require("cljs.core");
+goog.require("malli.core");
+goog.require("goog.string");
+goog.require("goog.string.format");
+sophitia.data.schema.MalliField = new cljs.core.PersistentVector(null, 10, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "map", "map", 1371690461), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "closed", "closed", -919675359), true], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "id", "id", -1388402092), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+[new cljs.core.Keyword(null, "string", "string", -1989541586), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "min", "min", 444991522), 1], null)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "string", "string", -1989541586), new cljs.core.PersistentArrayMap(null, 
+1, [new cljs.core.Keyword(null, "min", "min", 444991522), 1], null)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "class", "class", -2030961996), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "string", "string", -1989541586), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "min", "min", 444991522), 1], null)], null)], null), new cljs.core.PersistentVector(null, 
+2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "description", "description", -1428560544), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "string", "string", -1989541586)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "error-message", "error-message", 1756021561), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+[new cljs.core.Keyword(null, "or", "or", 235744169), new cljs.core.Keyword(null, "string", "string", -1989541586), new cljs.core.Keyword(null, "nil", "nil", 99600501)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "default-error-mesage", "default-error-mesage", 963160337), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "or", "or", 235744169), new cljs.core.Keyword(null, 
+"string", "string", -1989541586), new cljs.core.Keyword(null, "nil", "nil", 99600501)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.PersistentVector(null, 11, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "enum", "enum", 1679018432), "text", "password", "checkbox", "email", "number", "file", "radio", "button", "color", "image"], null)], null), new cljs.core.PersistentVector(null, 
+2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "validation-group", "validation-group", -591747153), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "string", "string", -1989541586)], null)], null)], null);
+sophitia.data.schema.valid_malli_field_QMARK_ = function sophitia$data$schema$valid_malli_field_QMARK_(field) {
+  var result = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "validity", "validity", 890377214), malli.core.validate.call(null, sophitia.data.schema.MalliField, field), new cljs.core.Keyword(null, "error-message", "error-message", 1756021561), goog.string.format(function() {
+    var or__4185__auto__ = (new cljs.core.Keyword(null, "default-error-mesage", "default-error-mesage", 963160337)).cljs$core$IFn$_invoke$arity$1(field);
+    if (cljs.core.truth_(or__4185__auto__)) {
+      return or__4185__auto__;
+    } else {
+      return (new cljs.core.Keyword(null, "error-message", "error-message", 1756021561)).cljs$core$IFn$_invoke$arity$1(field);
+    }
+  }(), (new cljs.core.Keyword(null, "name", "name", 1843675177)).cljs$core$IFn$_invoke$arity$1(field))], null);
+  return result;
+};
+sophitia.data.schema.MalliForm = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "and", "and", -971899817), new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "map", "map", 1371690461), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "closed", "closed", -919675359), true], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+[new cljs.core.Keyword(null, "fields", "fields", -1932066230), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "vector", "vector", 1902966158), new cljs.core.Keyword(null, "any", "any", 1705907423)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "validation-behavior", "validation-behavior", 219743720), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+[new cljs.core.Keyword(null, "enum", "enum", 1679018432), "on-change", "grouped", "on-submit"], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "schema", "schema", -1582001791), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "vector", "vector", 1902966158), new cljs.core.Keyword(null, "any", "any", 1705907423)], null)], null), new cljs.core.PersistentVector(null, 
+2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "validation-group-order", "validation-group-order", 139870265), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "vector", "vector", 1902966158), new cljs.core.Keyword(null, "any", "any", 1705907423)], null)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "fn", "fn", -1175266204), function(p__9449) {
+  var map__9450 = p__9449;
+  var map__9450__$1 = (!(map__9450 == null) ? map__9450.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__9450.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9450) : map__9450;
+  var fields = cljs.core.get.call(null, map__9450__$1, new cljs.core.Keyword(null, "fields", "fields", -1932066230));
+  return cljs.core.every_QMARK_.call(null, function(p1__9448_SHARP_) {
+    return (new cljs.core.Keyword(null, "validity", "validity", 890377214)).cljs$core$IFn$_invoke$arity$1(sophitia.data.schema.valid_malli_field_QMARK_.call(null, p1__9448_SHARP_));
+  }, fields);
+}], null)], null);
+sophitia.data.schema.provide_malli_field_schema = function sophitia$data$schema$provide_malli_field_schema() {
+  return sophitia.data.schema.MalliField;
+};
+sophitia.data.schema.provide_malli_form_schema = function sophitia$data$schema$provide_malli_form_schema() {
+  return sophitia.data.schema.MalliForm;
+};
+sophitia.data.schema.SpecField = cljs.core.PersistentVector.EMPTY;
+sophitia.data.schema.SpecForm = cljs.core.PersistentVector.EMPTY;
+goog.provide("sophitia.data.validation");
+goog.require("cljs.core");
+goog.require("sophitia.data.schema");
+goog.require("malli.core");
+sophitia.data.validation.SCHEMA_TYPE = "MALLI";
+sophitia.data.validation.validate_internal_form_schema = function sophitia$data$validation$validate_internal_form_schema(form_schema) {
+  if (cljs.core._EQ_.call(null, sophitia.data.validation.SCHEMA_TYPE, "MALLI")) {
+    return malli.core.validate.call(null, sophitia.data.schema.provide_malli_form_schema.call(null), form_schema);
+  } else {
+    return false;
+  }
+};
+goog.provide("sophitia.test.data.validation_test");
+goog.require("cljs.core");
+goog.require("cljs.test");
+goog.require("sophitia.data.validation");
+sophitia.test.data.validation_test.valid_malli_field1 = new cljs.core.PersistentArrayMap(null, 8, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id1", new cljs.core.Keyword(null, "name", "name", 1843675177), "name1", new cljs.core.Keyword(null, "class", "class", -2030961996), "class1", new cljs.core.Keyword(null, "description", "description", -1428560544), "first class", new cljs.core.Keyword(null, "error-message", "error-message", 1756021561), null, new cljs.core.Keyword(null, "default-error-mesage", 
+"default-error-mesage", 963160337), "Field not valid.", new cljs.core.Keyword(null, "type", "type", 1174270348), "text", new cljs.core.Keyword(null, "validation-group", "validation-group", -591747153), "g1"], null);
+sophitia.test.data.validation_test.valid_malli_field2 = new cljs.core.PersistentArrayMap(null, 8, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id2", new cljs.core.Keyword(null, "name", "name", 1843675177), "name2", new cljs.core.Keyword(null, "class", "class", -2030961996), "class2", new cljs.core.Keyword(null, "description", "description", -1428560544), "Second class", new cljs.core.Keyword(null, "error-message", "error-message", 1756021561), null, new cljs.core.Keyword(null, "default-error-mesage", 
+"default-error-mesage", 963160337), "Field not valid.", new cljs.core.Keyword(null, "type", "type", 1174270348), "text", new cljs.core.Keyword(null, "validation-group", "validation-group", -591747153), "g2"], null);
+sophitia.test.data.validation_test.valid_malli_form = new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "fields", "fields", -1932066230), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sophitia.test.data.validation_test.valid_malli_field1, sophitia.test.data.validation_test.valid_malli_field2], null), new cljs.core.Keyword(null, "validation-behavior", "validation-behavior", 219743720), "on-change", new cljs.core.Keyword(null, "schema", "schema", 
+-1582001791), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "map", "map", 1371690461), cljs.core.PersistentVector.EMPTY], null)], null), new cljs.core.Keyword(null, "validation-group-order", "validation-group-order", 139870265), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["g1", "g2"], null)], null);
+sophitia.test.data.validation_test.validate_internal_form_schema_test = function sophitia$test$data$validation_test$validate_internal_form_schema_test() {
+  return cljs.test.test_var.call(null, sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$var);
+};
+sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$test = function() {
+  cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.conj, "Invalid schema for an empty map");
+  try {
+    try {
+      var values__2852__auto___7683 = new cljs.core.List(null, false, new cljs.core.List(null, sophitia.data.validation.validate_internal_form_schema.call(null, cljs.core.PersistentArrayMap.EMPTY), null, 1, null), 2, null);
+      var result__2853__auto___7684 = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto___7683);
+      if (cljs.core.truth_(result__2853__auto___7684)) {
+        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), cljs.core.PersistentArrayMap.EMPTY)), 
+        new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto___7683), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      } else {
+        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), cljs.core.PersistentArrayMap.EMPTY)), 
+        new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto___7683), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      }
+    } catch (e7681) {
+      var t__2897__auto___7685 = e7681;
+      cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), cljs.core.PersistentArrayMap.EMPTY)), 
+      new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto___7685, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+    }
+  } finally {
+    cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
+  }
+  cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.conj, "Valid basic form schema");
+  try {
+    try {
+      var values__2852__auto__ = new cljs.core.List(null, true, new cljs.core.List(null, sophitia.data.validation.validate_internal_form_schema.call(null, sophitia.test.data.validation_test.valid_malli_form), null, 1, null), 2, null);
+      var result__2853__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto__);
+      if (cljs.core.truth_(result__2853__auto__)) {
+        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), new cljs.core.Symbol(null, "valid-malli-form", 
+        "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      } else {
+        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), new cljs.core.Symbol(null, "valid-malli-form", 
+        "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      }
+      return result__2853__auto__;
+    } catch (e7682) {
+      var t__2897__auto__ = e7682;
+      return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), new cljs.core.Symbol(null, 
+      "valid-malli-form", "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+    }
+  } finally {
+    cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
+  }
+};
+sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$var = new cljs.core.Var(function() {
+  return sophitia.test.data.validation_test.validate_internal_form_schema_test;
+}, new cljs.core.Symbol("sophitia.test.data.validation-test", "validate-internal-form-schema-test", "sophitia.test.data.validation-test/validate-internal-form-schema-test", 361691241, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", 
+"column", 2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Symbol(null, "validate-internal-form-schema-test", 
+"validate-internal-form-schema-test", -1435824208, null), "test-cljs/sophitia/test/data/validation_test.cljs", 44, 1, 32, 32, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.validation_test.validate_internal_form_schema_test) ? sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$test : null]));
+cljs.test.run_block.call(null, function() {
+  var env7686 = cljs.test.empty_env.call(null);
+  var summary7687 = cljs.core.volatile_BANG_.call(null, new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "summary", "summary", 380847952), new cljs.core.Keyword(null, "fail", "fail", 1706214930), 0, new cljs.core.Keyword(null, "error", "error", -978969032), 0, new cljs.core.Keyword(null, "pass", "pass", 1574159993), 0, new cljs.core.Keyword(null, "test", "test", 577538877), 0], null));
+  return cljs.core.concat.call(null, cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
+    cljs.test.set_env_BANG_.call(null, env7686);
+    cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "begin-test-ns", "begin-test-ns", -1701237033)], null));
+    return cljs.test.block.call(null, function() {
+      var env__2965__auto__ = cljs.test.get_current_env.call(null);
+      return cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
+        if (env__2965__auto__ == null) {
+          cljs.test.set_env_BANG_.call(null, cljs.test.empty_env.call(null));
+        } else {
+        }
+        return null;
+      }], null), cljs.test.test_vars_block.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Var(function() {
+        return sophitia.test.data.validation_test.validate_internal_form_schema_test;
+      }, new cljs.core.Symbol("sophitia.test.data.validation-test", "validate-internal-form-schema-test", "sophitia.test.data.validation-test/validate-internal-form-schema-test", 361691241, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, 
+      "column", "column", 2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Symbol(null, "validate-internal-form-schema-test", 
+      "validate-internal-form-schema-test", -1435824208, null), "test-cljs/sophitia/test/data/validation_test.cljs", 44, 1, 32, 32, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.validation_test.validate_internal_form_schema_test) ? sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$test : null]))], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
+        if (env__2965__auto__ == null) {
+          return cljs.test.clear_env_BANG_.call(null);
+        } else {
+          return null;
+        }
+      }], null));
+    }());
+  }, function() {
+    return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-test-ns", "end-test-ns", 1620675645)], null));
+  }], null), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
+    return cljs.core._vreset_BANG_.call(null, summary7687, cljs.core.partial.call(null, cljs.core.merge_with, cljs.core._PLUS_).call(null, cljs.core._deref.call(null, summary7687), (new cljs.core.Keyword(null, "report-counters", "report-counters", -1702609242)).cljs$core$IFn$_invoke$arity$1(cljs.test.get_and_clear_env_BANG_.call(null))));
+  }], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
+    cljs.test.set_env_BANG_.call(null, env7686);
+    cljs.test.do_report.call(null, cljs.core.deref.call(null, summary7687));
+    cljs.test.report.call(null, cljs.core.assoc.call(null, cljs.core.deref.call(null, summary7687), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-run-tests", "end-run-tests", 267300563)));
+    return cljs.test.clear_env_BANG_.call(null);
+  }], null));
+}());
+goog.provide("goog.date.DateLike");
 goog.forwardDeclare("goog.date.Date");
 goog.date.DateLike;
 goog.provide("goog.date");

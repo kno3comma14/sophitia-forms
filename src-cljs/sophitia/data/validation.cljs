@@ -6,7 +6,7 @@
 
 (def SCHEMA-TYPE "MALLI") ;; This will change for a function to take SCHEMA-TYPE from configuration layer
 
-(defn validate-form-schema
+(defn validate-internal-form-schema
   [form-schema]
   (if (= SCHEMA-TYPE "MALLI")
     (m/validate (schema/provide-malli-form-schema) form-schema)

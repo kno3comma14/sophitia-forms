@@ -29,11 +29,12 @@
    :validation-group-order ["g1" "g2"]})
 
 
-(deftest validate-form-schema-test
+(deftest validate-internal-form-schema-test
   (testing "Invalid schema for an empty map"
-    (is (= false (v/validate-form-schema {}))))
+    (is (= false (v/validate-internal-form-schema {}))))
   (testing "Valid basic form schema"
-    (is (= true (v/validate-form-schema valid-malli-form)))))
+    (is (= true (v/validate-internal-form-schema valid-malli-form)))))
 
 (run-tests)
+
 

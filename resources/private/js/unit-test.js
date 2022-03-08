@@ -48649,12 +48649,12 @@ sophitia.data.schema.valid_malli_field_QMARK_ = function sophitia$data$schema$va
 sophitia.data.schema.MalliForm = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "and", "and", -971899817), new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "map", "map", 1371690461), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "closed", "closed", -919675359), true], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, 
 [new cljs.core.Keyword(null, "fields", "fields", -1932066230), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "vector", "vector", 1902966158), new cljs.core.Keyword(null, "any", "any", 1705907423)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "validation-behavior", "validation-behavior", 219743720), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
 [new cljs.core.Keyword(null, "enum", "enum", 1679018432), "on-change", "grouped", "on-submit"], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "schema", "schema", -1582001791), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "vector", "vector", 1902966158), new cljs.core.Keyword(null, "any", "any", 1705907423)], null)], null), new cljs.core.PersistentVector(null, 
-2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "validation-group-order", "validation-group-order", 139870265), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "vector", "vector", 1902966158), new cljs.core.Keyword(null, "any", "any", 1705907423)], null)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "fn", "fn", -1175266204), function(p__9521) {
-  var map__9522 = p__9521;
-  var map__9522__$1 = (!(map__9522 == null) ? map__9522.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__9522.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9522) : map__9522;
-  var fields = cljs.core.get.call(null, map__9522__$1, new cljs.core.Keyword(null, "fields", "fields", -1932066230));
-  return cljs.core.every_QMARK_.call(null, function(p1__9520_SHARP_) {
-    return (new cljs.core.Keyword(null, "validity", "validity", 890377214)).cljs$core$IFn$_invoke$arity$1(sophitia.data.schema.valid_malli_field_QMARK_.call(null, p1__9520_SHARP_));
+2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "validation-group-order", "validation-group-order", 139870265), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "vector", "vector", 1902966158), new cljs.core.Keyword(null, "any", "any", 1705907423)], null)], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "fn", "fn", -1175266204), function(p__9449) {
+  var map__9450 = p__9449;
+  var map__9450__$1 = (!(map__9450 == null) ? map__9450.cljs$lang$protocol_mask$partition0$ & 64 || cljs.core.PROTOCOL_SENTINEL === map__9450.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9450) : map__9450;
+  var fields = cljs.core.get.call(null, map__9450__$1, new cljs.core.Keyword(null, "fields", "fields", -1932066230));
+  return cljs.core.every_QMARK_.call(null, function(p1__9448_SHARP_) {
+    return (new cljs.core.Keyword(null, "validity", "validity", 890377214)).cljs$core$IFn$_invoke$arity$1(sophitia.data.schema.valid_malli_field_QMARK_.call(null, p1__9448_SHARP_));
   }, fields);
 }], null)], null);
 sophitia.data.schema.provide_malli_field_schema = function sophitia$data$schema$provide_malli_field_schema() {
@@ -48670,7 +48670,7 @@ goog.require("cljs.core");
 goog.require("sophitia.data.schema");
 goog.require("malli.core");
 sophitia.data.validation.SCHEMA_TYPE = "MALLI";
-sophitia.data.validation.validate_form_schema = function sophitia$data$validation$validate_form_schema(form_schema) {
+sophitia.data.validation.validate_internal_form_schema = function sophitia$data$validation$validate_internal_form_schema(form_schema) {
   if (cljs.core._EQ_.call(null, sophitia.data.validation.SCHEMA_TYPE, "MALLI")) {
     return malli.core.validate.call(null, sophitia.data.schema.provide_malli_form_schema.call(null), form_schema);
   } else {
@@ -56830,26 +56830,26 @@ sophitia.test.data.validation_test.valid_malli_field2 = new cljs.core.Persistent
 "default-error-mesage", 963160337), "Field not valid.", new cljs.core.Keyword(null, "type", "type", 1174270348), "text", new cljs.core.Keyword(null, "validation-group", "validation-group", -591747153), "g2"], null);
 sophitia.test.data.validation_test.valid_malli_form = new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "fields", "fields", -1932066230), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sophitia.test.data.validation_test.valid_malli_field1, sophitia.test.data.validation_test.valid_malli_field2], null), new cljs.core.Keyword(null, "validation-behavior", "validation-behavior", 219743720), "on-change", new cljs.core.Keyword(null, "schema", "schema", 
 -1582001791), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "map", "map", 1371690461), cljs.core.PersistentVector.EMPTY], null)], null), new cljs.core.Keyword(null, "validation-group-order", "validation-group-order", 139870265), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["g1", "g2"], null)], null);
-sophitia.test.data.validation_test.validate_form_schema_test = function sophitia$test$data$validation_test$validate_form_schema_test() {
-  return cljs.test.test_var.call(null, sophitia.test.data.validation_test.validate_form_schema_test.cljs$lang$var);
+sophitia.test.data.validation_test.validate_internal_form_schema_test = function sophitia$test$data$validation_test$validate_internal_form_schema_test() {
+  return cljs.test.test_var.call(null, sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$var);
 };
-sophitia.test.data.validation_test.validate_form_schema_test.cljs$lang$test = function() {
+sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$test = function() {
   cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.conj, "Invalid schema for an empty map");
   try {
     try {
-      var values__10386__auto___10605 = new cljs.core.List(null, false, new cljs.core.List(null, sophitia.data.validation.validate_form_schema.call(null, cljs.core.PersistentArrayMap.EMPTY), null, 1, null), 2, null);
-      var result__10387__auto___10606 = cljs.core.apply.call(null, cljs.core._EQ_, values__10386__auto___10605);
-      if (cljs.core.truth_(result__10387__auto___10606)) {
-        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-form-schema", "v/validate-form-schema", 1639394235, null), cljs.core.PersistentArrayMap.EMPTY)), new cljs.core.Keyword(null, 
-        "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__10386__auto___10605), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      var values__2852__auto___7683 = new cljs.core.List(null, false, new cljs.core.List(null, sophitia.data.validation.validate_internal_form_schema.call(null, cljs.core.PersistentArrayMap.EMPTY), null, 1, null), 2, null);
+      var result__2853__auto___7684 = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto___7683);
+      if (cljs.core.truth_(result__2853__auto___7684)) {
+        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), cljs.core.PersistentArrayMap.EMPTY)), 
+        new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto___7683), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       } else {
-        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-form-schema", "v/validate-form-schema", 1639394235, null), cljs.core.PersistentArrayMap.EMPTY)), new cljs.core.Keyword(null, 
-        "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__10386__auto___10605), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), cljs.core.PersistentArrayMap.EMPTY)), 
+        new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto___7683), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       }
-    } catch (e10603) {
-      var t__10431__auto___10607 = e10603;
-      cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-form-schema", "v/validate-form-schema", 1639394235, null), cljs.core.PersistentArrayMap.EMPTY)), new cljs.core.Keyword(null, 
-      "actual", "actual", 107306363), t__10431__auto___10607, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+    } catch (e7681) {
+      var t__2897__auto___7685 = e7681;
+      cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), false, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), cljs.core.PersistentArrayMap.EMPTY)), 
+      new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto___7685, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
     }
   } finally {
     cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
@@ -56857,50 +56857,50 @@ sophitia.test.data.validation_test.validate_form_schema_test.cljs$lang$test = fu
   cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.conj, "Valid basic form schema");
   try {
     try {
-      var values__10386__auto__ = new cljs.core.List(null, true, new cljs.core.List(null, sophitia.data.validation.validate_form_schema.call(null, sophitia.test.data.validation_test.valid_malli_form), null, 1, null), 2, null);
-      var result__10387__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__10386__auto__);
-      if (cljs.core.truth_(result__10387__auto__)) {
-        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-form-schema", "v/validate-form-schema", 1639394235, null), new cljs.core.Symbol(null, "valid-malli-form", 
-        "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__10386__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      var values__2852__auto__ = new cljs.core.List(null, true, new cljs.core.List(null, sophitia.data.validation.validate_internal_form_schema.call(null, sophitia.test.data.validation_test.valid_malli_form), null, 1, null), 2, null);
+      var result__2853__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto__);
+      if (cljs.core.truth_(result__2853__auto__)) {
+        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), new cljs.core.Symbol(null, "valid-malli-form", 
+        "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       } else {
-        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-form-schema", "v/validate-form-schema", 1639394235, null), new cljs.core.Symbol(null, "valid-malli-form", 
-        "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__10386__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), new cljs.core.Symbol(null, "valid-malli-form", 
+        "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       }
-      return result__10387__auto__;
-    } catch (e10604) {
-      var t__10431__auto__ = e10604;
-      return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-form-schema", "v/validate-form-schema", 1639394235, null), new cljs.core.Symbol(null, "valid-malli-form", 
-      "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), t__10431__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      return result__2853__auto__;
+    } catch (e7682) {
+      var t__2897__auto__ = e7682;
+      return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), true, cljs.core.list(new cljs.core.Symbol("v", "validate-internal-form-schema", "v/validate-internal-form-schema", 1818715534, null), new cljs.core.Symbol(null, 
+      "valid-malli-form", "valid-malli-form", -1255200911, null))), new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
     }
   } finally {
     cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
   }
 };
-sophitia.test.data.validation_test.validate_form_schema_test.cljs$lang$var = new cljs.core.Var(function() {
-  return sophitia.test.data.validation_test.validate_form_schema_test;
-}, new cljs.core.Symbol("sophitia.test.data.validation-test", "validate-form-schema-test", "sophitia.test.data.validation-test/validate-form-schema-test", -996502674, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 2078222095), 
-new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Symbol(null, "validate-form-schema-test", "validate-form-schema-test", 
-758523569, null), "test-cljs/sophitia/test/data/validation_test.cljs", 35, 1, 32, 32, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.validation_test.validate_form_schema_test) ? sophitia.test.data.validation_test.validate_form_schema_test.cljs$lang$test : null]));
+sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$var = new cljs.core.Var(function() {
+  return sophitia.test.data.validation_test.validate_internal_form_schema_test;
+}, new cljs.core.Symbol("sophitia.test.data.validation-test", "validate-internal-form-schema-test", "sophitia.test.data.validation-test/validate-internal-form-schema-test", 361691241, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", 
+"column", 2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Symbol(null, "validate-internal-form-schema-test", 
+"validate-internal-form-schema-test", -1435824208, null), "test-cljs/sophitia/test/data/validation_test.cljs", 44, 1, 32, 32, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.validation_test.validate_internal_form_schema_test) ? sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$test : null]));
 cljs.test.run_block.call(null, function() {
-  var env10608 = cljs.test.empty_env.call(null);
-  var summary10609 = cljs.core.volatile_BANG_.call(null, new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "summary", "summary", 380847952), new cljs.core.Keyword(null, "fail", "fail", 1706214930), 0, new cljs.core.Keyword(null, "error", "error", -978969032), 0, new cljs.core.Keyword(null, "pass", "pass", 1574159993), 0, new cljs.core.Keyword(null, "test", "test", 577538877), 0], null));
+  var env7686 = cljs.test.empty_env.call(null);
+  var summary7687 = cljs.core.volatile_BANG_.call(null, new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "summary", "summary", 380847952), new cljs.core.Keyword(null, "fail", "fail", 1706214930), 0, new cljs.core.Keyword(null, "error", "error", -978969032), 0, new cljs.core.Keyword(null, "pass", "pass", 1574159993), 0, new cljs.core.Keyword(null, "test", "test", 577538877), 0], null));
   return cljs.core.concat.call(null, cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-    cljs.test.set_env_BANG_.call(null, env10608);
+    cljs.test.set_env_BANG_.call(null, env7686);
     cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "begin-test-ns", "begin-test-ns", -1701237033)], null));
     return cljs.test.block.call(null, function() {
-      var env__10499__auto__ = cljs.test.get_current_env.call(null);
+      var env__2965__auto__ = cljs.test.get_current_env.call(null);
       return cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-        if (env__10499__auto__ == null) {
+        if (env__2965__auto__ == null) {
           cljs.test.set_env_BANG_.call(null, cljs.test.empty_env.call(null));
         } else {
         }
         return null;
       }], null), cljs.test.test_vars_block.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Var(function() {
-        return sophitia.test.data.validation_test.validate_form_schema_test;
-      }, new cljs.core.Symbol("sophitia.test.data.validation-test", "validate-form-schema-test", "sophitia.test.data.validation-test/validate-form-schema-test", -996502674, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 
-      2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Symbol(null, "validate-form-schema-test", "validate-form-schema-test", 
-      758523569, null), "test-cljs/sophitia/test/data/validation_test.cljs", 35, 1, 32, 32, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.validation_test.validate_form_schema_test) ? sophitia.test.data.validation_test.validate_form_schema_test.cljs$lang$test : null]))], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-        if (env__10499__auto__ == null) {
+        return sophitia.test.data.validation_test.validate_internal_form_schema_test;
+      }, new cljs.core.Symbol("sophitia.test.data.validation-test", "validate-internal-form-schema-test", "sophitia.test.data.validation-test/validate-internal-form-schema-test", 361691241, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, 
+      "column", "column", 2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Symbol(null, "validate-internal-form-schema-test", 
+      "validate-internal-form-schema-test", -1435824208, null), "test-cljs/sophitia/test/data/validation_test.cljs", 44, 1, 32, 32, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.validation_test.validate_internal_form_schema_test) ? sophitia.test.data.validation_test.validate_internal_form_schema_test.cljs$lang$test : null]))], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
+        if (env__2965__auto__ == null) {
           return cljs.test.clear_env_BANG_.call(null);
         } else {
           return null;
@@ -56910,11 +56910,11 @@ cljs.test.run_block.call(null, function() {
   }, function() {
     return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Symbol(null, "sophitia.test.data.validation-test", "sophitia.test.data.validation-test", -1188451718, null), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-test-ns", "end-test-ns", 1620675645)], null));
   }], null), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-    return cljs.core._vreset_BANG_.call(null, summary10609, cljs.core.partial.call(null, cljs.core.merge_with, cljs.core._PLUS_).call(null, cljs.core._deref.call(null, summary10609), (new cljs.core.Keyword(null, "report-counters", "report-counters", -1702609242)).cljs$core$IFn$_invoke$arity$1(cljs.test.get_and_clear_env_BANG_.call(null))));
+    return cljs.core._vreset_BANG_.call(null, summary7687, cljs.core.partial.call(null, cljs.core.merge_with, cljs.core._PLUS_).call(null, cljs.core._deref.call(null, summary7687), (new cljs.core.Keyword(null, "report-counters", "report-counters", -1702609242)).cljs$core$IFn$_invoke$arity$1(cljs.test.get_and_clear_env_BANG_.call(null))));
   }], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-    cljs.test.set_env_BANG_.call(null, env10608);
-    cljs.test.do_report.call(null, cljs.core.deref.call(null, summary10609));
-    cljs.test.report.call(null, cljs.core.assoc.call(null, cljs.core.deref.call(null, summary10609), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-run-tests", "end-run-tests", 267300563)));
+    cljs.test.set_env_BANG_.call(null, env7686);
+    cljs.test.do_report.call(null, cljs.core.deref.call(null, summary7687));
+    cljs.test.report.call(null, cljs.core.assoc.call(null, cljs.core.deref.call(null, summary7687), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-run-tests", "end-run-tests", 267300563)));
     return cljs.test.clear_env_BANG_.call(null);
   }], null));
 }());
@@ -59355,6 +59355,10 @@ sophitia.test.data.transformation.valid_malli_field = new cljs.core.PersistentAr
 "default-error-mesage", 963160337), "Field not valid.", new cljs.core.Keyword(null, "type", "type", 1174270348), "text", new cljs.core.Keyword(null, "validation-group", "validation-group", -591747153), "g1"], null);
 sophitia.test.data.transformation.valid_malli_field2 = new cljs.core.PersistentArrayMap(null, 8, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id2", new cljs.core.Keyword(null, "name", "name", 1843675177), "name2", new cljs.core.Keyword(null, "class", "class", -2030961996), "class2", new cljs.core.Keyword(null, "description", "description", -1428560544), "Second class", new cljs.core.Keyword(null, "error-message", "error-message", 1756021561), null, new cljs.core.Keyword(null, "default-error-mesage", 
 "default-error-mesage", 963160337), "Field not valid.", new cljs.core.Keyword(null, "type", "type", 1174270348), "text", new cljs.core.Keyword(null, "validation-group", "validation-group", -591747153), "g2"], null);
+sophitia.test.data.transformation.reagent_expected_form_result = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), "name1"], null), new cljs.core.PersistentVector(null, 
+2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input", "input", 556931961), new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id1", new cljs.core.Keyword(null, "class", "class", -2030961996), "class1", new cljs.core.Keyword(null, "type", "type", 1174270348), "text"], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), 
+"Field not valid."], null)], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), "name2"], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input", "input", 556931961), new cljs.core.PersistentArrayMap(null, 
+3, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id2", new cljs.core.Keyword(null, "class", "class", -2030961996), "class2", new cljs.core.Keyword(null, "type", "type", 1174270348), "text"], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), "Field not valid."], null)], null)], null);
 sophitia.test.data.transformation.valid_malli_form = new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "fields", "fields", -1932066230), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sophitia.test.data.transformation.valid_malli_field, sophitia.test.data.transformation.valid_malli_field2], null), new cljs.core.Keyword(null, "validation-behavior", "validation-behavior", 219743720), "on-change", new cljs.core.Keyword(null, "schema", "schema", 
 -1582001791), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "map", "map", 1371690461), cljs.core.PersistentVector.EMPTY], null)], null), new cljs.core.Keyword(null, "validation-group-order", "validation-group-order", 139870265), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["g1", "g2"], null)], null);
 sophitia.test.data.transformation.create_field_title_test = function sophitia$test$data$transformation$create_field_title_test() {
@@ -59367,20 +59371,20 @@ sophitia.test.data.transformation.create_field_title_test.cljs$lang$test = funct
     var actual_title = sophitia.data.transformation.create_field_title.call(null, input_field);
     var expected_title = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), "name1"], null);
     try {
-      var values__2852__auto__ = new cljs.core.List(null, actual_title, new cljs.core.List(null, expected_title, null, 1, null), 2, null);
-      var result__2853__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto__);
-      if (cljs.core.truth_(result__2853__auto__)) {
+      var values__10316__auto__ = new cljs.core.List(null, actual_title, new cljs.core.List(null, expected_title, null, 1, null), 2, null);
+      var result__10317__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__10316__auto__);
+      if (cljs.core.truth_(result__10317__auto__)) {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-title", "actual-title", 1711293683, null), new cljs.core.Symbol(null, "expected-title", "expected-title", -80767923, null)), new cljs.core.Keyword(null, 
-        "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__10316__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       } else {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-title", "actual-title", 1711293683, null), new cljs.core.Symbol(null, "expected-title", "expected-title", -80767923, null)), new cljs.core.Keyword(null, 
-        "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__10316__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       }
-      return result__2853__auto__;
-    } catch (e7745) {
-      var t__2897__auto__ = e7745;
+      return result__10317__auto__;
+    } catch (e10599) {
+      var t__10361__auto__ = e10599;
       return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-title", "actual-title", 1711293683, null), new cljs.core.Symbol(null, "expected-title", "expected-title", -80767923, null)), 
-      new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      new cljs.core.Keyword(null, "actual", "actual", 107306363), t__10361__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
     }
   } finally {
     cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
@@ -59390,7 +59394,7 @@ sophitia.test.data.transformation.create_field_title_test.cljs$lang$var = new cl
   return sophitia.test.data.transformation.create_field_title_test;
 }, new cljs.core.Symbol("sophitia.test.data.transformation", "create-field-title-test", "sophitia.test.data.transformation/create-field-title-test", -572290949, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 2078222095), 
 new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "create-field-title-test", "create-field-title-test", 
-883805075, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 31, 31, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_field_title_test) ? sophitia.test.data.transformation.create_field_title_test.cljs$lang$test : null]));
+883805075, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 42, 42, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_field_title_test) ? sophitia.test.data.transformation.create_field_title_test.cljs$lang$test : null]));
 sophitia.test.data.transformation.create_field_error_test = function sophitia$test$data$transformation$create_field_error_test() {
   return cljs.test.test_var.call(null, sophitia.test.data.transformation.create_field_error_test.cljs$lang$var);
 };
@@ -59401,20 +59405,20 @@ sophitia.test.data.transformation.create_field_error_test.cljs$lang$test = funct
     var actual_error = sophitia.data.transformation.create_field_error.call(null, input_field);
     var expected_error = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), "Field not valid."], null);
     try {
-      var values__2852__auto__ = new cljs.core.List(null, actual_error, new cljs.core.List(null, expected_error, null, 1, null), 2, null);
-      var result__2853__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto__);
-      if (cljs.core.truth_(result__2853__auto__)) {
+      var values__10316__auto__ = new cljs.core.List(null, actual_error, new cljs.core.List(null, expected_error, null, 1, null), 2, null);
+      var result__10317__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__10316__auto__);
+      if (cljs.core.truth_(result__10317__auto__)) {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-error", "actual-error", 2139923361, null), new cljs.core.Symbol(null, "expected-error", "expected-error", 1892149637, null)), new cljs.core.Keyword(null, 
-        "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__10316__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       } else {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-error", "actual-error", 2139923361, null), new cljs.core.Symbol(null, "expected-error", "expected-error", 1892149637, null)), new cljs.core.Keyword(null, 
-        "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__10316__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       }
-      return result__2853__auto__;
-    } catch (e7746) {
-      var t__2897__auto__ = e7746;
+      return result__10317__auto__;
+    } catch (e10600) {
+      var t__10361__auto__ = e10600;
       return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-error", "actual-error", 2139923361, null), new cljs.core.Symbol(null, "expected-error", "expected-error", 1892149637, null)), 
-      new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      new cljs.core.Keyword(null, "actual", "actual", 107306363), t__10361__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
     }
   } finally {
     cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
@@ -59424,7 +59428,7 @@ sophitia.test.data.transformation.create_field_error_test.cljs$lang$var = new cl
   return sophitia.test.data.transformation.create_field_error_test;
 }, new cljs.core.Symbol("sophitia.test.data.transformation", "create-field-error-test", "sophitia.test.data.transformation/create-field-error-test", 1626325082, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 2078222095), 
 new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "create-field-error-test", "create-field-error-test", 
-1176604194, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 38, 38, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_field_error_test) ? sophitia.test.data.transformation.create_field_error_test.cljs$lang$test : null]));
+1176604194, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 49, 49, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_field_error_test) ? sophitia.test.data.transformation.create_field_error_test.cljs$lang$test : null]));
 sophitia.test.data.transformation.collect_html_attrs_test = function sophitia$test$data$transformation$collect_html_attrs_test() {
   return cljs.test.test_var.call(null, sophitia.test.data.transformation.collect_html_attrs_test.cljs$lang$var);
 };
@@ -59435,20 +59439,20 @@ sophitia.test.data.transformation.collect_html_attrs_test.cljs$lang$test = funct
     var actual_attrs = sophitia.data.transformation.collect_html_attrs.call(null, input_field);
     var expected_attrs = new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id1", new cljs.core.Keyword(null, "class", "class", -2030961996), "class1", new cljs.core.Keyword(null, "type", "type", 1174270348), "text"], null);
     try {
-      var values__2852__auto__ = new cljs.core.List(null, actual_attrs, new cljs.core.List(null, expected_attrs, null, 1, null), 2, null);
-      var result__2853__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto__);
-      if (cljs.core.truth_(result__2853__auto__)) {
+      var values__10316__auto__ = new cljs.core.List(null, actual_attrs, new cljs.core.List(null, expected_attrs, null, 1, null), 2, null);
+      var result__10317__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__10316__auto__);
+      if (cljs.core.truth_(result__10317__auto__)) {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-attrs", "actual-attrs", -898884608, null), new cljs.core.Symbol(null, "expected-attrs", "expected-attrs", 1534364773, null)), new cljs.core.Keyword(null, 
-        "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__10316__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       } else {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-attrs", "actual-attrs", -898884608, null), new cljs.core.Symbol(null, "expected-attrs", "expected-attrs", 1534364773, null)), new cljs.core.Keyword(null, 
-        "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__10316__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       }
-      return result__2853__auto__;
-    } catch (e7747) {
-      var t__2897__auto__ = e7747;
+      return result__10317__auto__;
+    } catch (e10601) {
+      var t__10361__auto__ = e10601;
       return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-attrs", "actual-attrs", -898884608, null), new cljs.core.Symbol(null, "expected-attrs", "expected-attrs", 1534364773, null)), 
-      new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      new cljs.core.Keyword(null, "actual", "actual", 107306363), t__10361__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
     }
   } finally {
     cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
@@ -59458,7 +59462,7 @@ sophitia.test.data.transformation.collect_html_attrs_test.cljs$lang$var = new cl
   return sophitia.test.data.transformation.collect_html_attrs_test;
 }, new cljs.core.Symbol("sophitia.test.data.transformation", "collect-html-attrs-test", "sophitia.test.data.transformation/collect-html-attrs-test", 1382605158, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 2078222095), 
 new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "collect-html-attrs-test", "collect-html-attrs-test", 
-760292318, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 45, 45, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.collect_html_attrs_test) ? sophitia.test.data.transformation.collect_html_attrs_test.cljs$lang$test : null]));
+760292318, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 56, 56, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.collect_html_attrs_test) ? sophitia.test.data.transformation.collect_html_attrs_test.cljs$lang$test : null]));
 sophitia.test.data.transformation.create_input_test = function sophitia$test$data$transformation$create_input_test() {
   return cljs.test.test_var.call(null, sophitia.test.data.transformation.create_input_test.cljs$lang$var);
 };
@@ -59469,20 +59473,20 @@ sophitia.test.data.transformation.create_input_test.cljs$lang$test = function() 
     var actual_input = sophitia.data.transformation.create_input.call(null, input_field);
     var expected_input = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input", "input", 556931961), new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id1", new cljs.core.Keyword(null, "class", "class", -2030961996), "class1", new cljs.core.Keyword(null, "type", "type", 1174270348), "text"], null)], null);
     try {
-      var values__2852__auto__ = new cljs.core.List(null, actual_input, new cljs.core.List(null, expected_input, null, 1, null), 2, null);
-      var result__2853__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto__);
-      if (cljs.core.truth_(result__2853__auto__)) {
+      var values__10316__auto__ = new cljs.core.List(null, actual_input, new cljs.core.List(null, expected_input, null, 1, null), 2, null);
+      var result__10317__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__10316__auto__);
+      if (cljs.core.truth_(result__10317__auto__)) {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-input", "actual-input", -1894104550, null), new cljs.core.Symbol(null, "expected-input", "expected-input", -117457903, null)), 
-        new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__10316__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       } else {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-input", "actual-input", -1894104550, null), new cljs.core.Symbol(null, "expected-input", "expected-input", -117457903, null)), 
-        new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__10316__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       }
-      return result__2853__auto__;
-    } catch (e7748) {
-      var t__2897__auto__ = e7748;
+      return result__10317__auto__;
+    } catch (e10602) {
+      var t__10361__auto__ = e10602;
       return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-input", "actual-input", -1894104550, null), new cljs.core.Symbol(null, "expected-input", "expected-input", -117457903, null)), 
-      new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      new cljs.core.Keyword(null, "actual", "actual", 107306363), t__10361__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
     }
   } finally {
     cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
@@ -59492,7 +59496,7 @@ sophitia.test.data.transformation.create_input_test.cljs$lang$var = new cljs.cor
   return sophitia.test.data.transformation.create_input_test;
 }, new cljs.core.Symbol("sophitia.test.data.transformation", "create-input-test", "sophitia.test.data.transformation/create-input-test", 1931542980, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 2078222095), new cljs.core.Keyword(null, 
 "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "create-input-test", "create-input-test", 444319660, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 
-27, 1, 52, 52, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_input_test) ? sophitia.test.data.transformation.create_input_test.cljs$lang$test : null]));
+27, 1, 63, 63, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_input_test) ? sophitia.test.data.transformation.create_input_test.cljs$lang$test : null]));
 sophitia.test.data.transformation.s_field__GT_reagent_field_test = function sophitia$test$data$transformation$s_field__GT_reagent_field_test() {
   return cljs.test.test_var.call(null, sophitia.test.data.transformation.s_field__GT_reagent_field_test.cljs$lang$var);
 };
@@ -59504,20 +59508,20 @@ sophitia.test.data.transformation.s_field__GT_reagent_field_test.cljs$lang$test 
     var expected_reagent_field = new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), "name1"], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input", "input", 556931961), new cljs.core.PersistentArrayMap(null, 
     3, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id1", new cljs.core.Keyword(null, "class", "class", -2030961996), "class1", new cljs.core.Keyword(null, "type", "type", 1174270348), "text"], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), "Field not valid."], null)], null);
     try {
-      var values__2852__auto__ = new cljs.core.List(null, actual_reagent_field, new cljs.core.List(null, expected_reagent_field, null, 1, null), 2, null);
-      var result__2853__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto__);
-      if (cljs.core.truth_(result__2853__auto__)) {
+      var values__10316__auto__ = new cljs.core.List(null, actual_reagent_field, new cljs.core.List(null, expected_reagent_field, null, 1, null), 2, null);
+      var result__10317__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__10316__auto__);
+      if (cljs.core.truth_(result__10317__auto__)) {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-reagent-field", "actual-reagent-field", 1255328965, null), new cljs.core.Symbol(null, "expected-reagent-field", "expected-reagent-field", 
-        -651732110, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        -651732110, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__10316__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       } else {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-reagent-field", "actual-reagent-field", 1255328965, null), new cljs.core.Symbol(null, "expected-reagent-field", "expected-reagent-field", 
-        -651732110, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        -651732110, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__10316__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       }
-      return result__2853__auto__;
-    } catch (e7749) {
-      var t__2897__auto__ = e7749;
+      return result__10317__auto__;
+    } catch (e10603) {
+      var t__10361__auto__ = e10603;
       return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-reagent-field", "actual-reagent-field", 1255328965, null), new cljs.core.Symbol(null, "expected-reagent-field", "expected-reagent-field", 
-      -651732110, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      -651732110, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), t__10361__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
     }
   } finally {
     cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
@@ -59527,7 +59531,7 @@ sophitia.test.data.transformation.s_field__GT_reagent_field_test.cljs$lang$var =
   return sophitia.test.data.transformation.s_field__GT_reagent_field_test;
 }, new cljs.core.Symbol("sophitia.test.data.transformation", "s-field-\x3ereagent-field-test", "sophitia.test.data.transformation/s-field-\x3ereagent-field-test", -1400951203, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 
 2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "s-field-\x3ereagent-field-test", "s-field-\x3ereagent-field-test", 
--2025493499, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 37, 1, 59, 59, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.s_field__GT_reagent_field_test) ? sophitia.test.data.transformation.s_field__GT_reagent_field_test.cljs$lang$test : null]));
+-2025493499, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 37, 1, 70, 70, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.s_field__GT_reagent_field_test) ? sophitia.test.data.transformation.s_field__GT_reagent_field_test.cljs$lang$test : null]));
 sophitia.test.data.transformation.s_form__GT_reagent_form_test = function sophitia$test$data$transformation$s_form__GT_reagent_form_test() {
   return cljs.test.test_var.call(null, sophitia.test.data.transformation.s_form__GT_reagent_form_test.cljs$lang$var);
 };
@@ -59536,25 +59540,22 @@ sophitia.test.data.transformation.s_form__GT_reagent_form_test.cljs$lang$test = 
   try {
     var sophitia_form = sophitia.test.data.transformation.valid_malli_form;
     var actual_reagent_form = sophitia.data.transformation.s_form__GT_reagent_form.call(null, sophitia_form);
-    var expected_reagent_form = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), "name1"], null), new cljs.core.PersistentVector(null, 
-    2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input", "input", 556931961), new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id1", new cljs.core.Keyword(null, "class", "class", -2030961996), "class1", new cljs.core.Keyword(null, "type", "type", 1174270348), "text"], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), 
-    "Field not valid."], null)], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), "name2"], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input", "input", 556931961), new cljs.core.PersistentArrayMap(null, 
-    3, [new cljs.core.Keyword(null, "id", "id", -1388402092), "id2", new cljs.core.Keyword(null, "class", "class", -2030961996), "class2", new cljs.core.Keyword(null, "type", "type", 1174270348), "text"], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), "Field not valid."], null)], null)], null);
+    var expected_reagent_form = sophitia.test.data.transformation.reagent_expected_form_result;
     try {
-      var values__2852__auto__ = new cljs.core.List(null, actual_reagent_form, new cljs.core.List(null, expected_reagent_form, null, 1, null), 2, null);
-      var result__2853__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__2852__auto__);
-      if (cljs.core.truth_(result__2853__auto__)) {
+      var values__10316__auto__ = new cljs.core.List(null, actual_reagent_form, new cljs.core.List(null, expected_reagent_form, null, 1, null), 2, null);
+      var result__10317__auto__ = cljs.core.apply.call(null, cljs.core._EQ_, values__10316__auto__);
+      if (cljs.core.truth_(result__10317__auto__)) {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-reagent-form", "actual-reagent-form", -2070248932, null), new cljs.core.Symbol(null, "expected-reagent-form", "expected-reagent-form", 
-        -1423519252, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__2852__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        -1423519252, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), cljs.core.cons.call(null, cljs.core._EQ_, values__10316__auto__), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       } else {
         cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "fail", "fail", 1706214930), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-reagent-form", "actual-reagent-form", -2070248932, null), new cljs.core.Symbol(null, "expected-reagent-form", "expected-reagent-form", 
-        -1423519252, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__2852__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+        -1423519252, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), new cljs.core.List(null, new cljs.core.Symbol(null, "not", "not", 1044554643, null), new cljs.core.List(null, cljs.core.cons.call(null, new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), values__10316__auto__), null, 1, null), 2, null), new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
       }
-      return result__2853__auto__;
-    } catch (e7750) {
-      var t__2897__auto__ = e7750;
+      return result__10317__auto__;
+    } catch (e10604) {
+      var t__10361__auto__ = e10604;
       return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "error", "error", -978969032), new cljs.core.Keyword(null, "expected", "expected", 1583670997), cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1501502141, null), new cljs.core.Symbol(null, "actual-reagent-form", "actual-reagent-form", -2070248932, null), new cljs.core.Symbol(null, "expected-reagent-form", "expected-reagent-form", 
-      -1423519252, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), t__2897__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
+      -1423519252, null)), new cljs.core.Keyword(null, "actual", "actual", 107306363), t__10361__auto__, new cljs.core.Keyword(null, "message", "message", -406056002), null], null));
     }
   } finally {
     cljs.test.update_current_env_BANG_.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "testing-contexts", "testing-contexts", -1485646523)], null), cljs.core.rest);
@@ -59564,17 +59565,17 @@ sophitia.test.data.transformation.s_form__GT_reagent_form_test.cljs$lang$var = n
   return sophitia.test.data.transformation.s_form__GT_reagent_form_test;
 }, new cljs.core.Symbol("sophitia.test.data.transformation", "s-form-\x3ereagent-form-test", "sophitia.test.data.transformation/s-form-\x3ereagent-form-test", -2082068640, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 
 2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "s-form-\x3ereagent-form-test", "s-form-\x3ereagent-form-test", 
-1487430280, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 35, 1, 68, 68, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.s_form__GT_reagent_form_test) ? sophitia.test.data.transformation.s_form__GT_reagent_form_test.cljs$lang$test : null]));
+1487430280, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 35, 1, 79, 79, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.s_form__GT_reagent_form_test) ? sophitia.test.data.transformation.s_form__GT_reagent_form_test.cljs$lang$test : null]));
 cljs.test.run_block.call(null, function() {
-  var env7751 = cljs.test.empty_env.call(null);
-  var summary7752 = cljs.core.volatile_BANG_.call(null, new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "summary", "summary", 380847952), new cljs.core.Keyword(null, "fail", "fail", 1706214930), 0, new cljs.core.Keyword(null, "error", "error", -978969032), 0, new cljs.core.Keyword(null, "pass", "pass", 1574159993), 0, new cljs.core.Keyword(null, "test", "test", 577538877), 0], null));
+  var env10605 = cljs.test.empty_env.call(null);
+  var summary10606 = cljs.core.volatile_BANG_.call(null, new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "summary", "summary", 380847952), new cljs.core.Keyword(null, "fail", "fail", 1706214930), 0, new cljs.core.Keyword(null, "error", "error", -978969032), 0, new cljs.core.Keyword(null, "pass", "pass", 1574159993), 0, new cljs.core.Keyword(null, "test", "test", 577538877), 0], null));
   return cljs.core.concat.call(null, cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-    cljs.test.set_env_BANG_.call(null, env7751);
+    cljs.test.set_env_BANG_.call(null, env10605);
     cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "begin-test-ns", "begin-test-ns", -1701237033)], null));
     return cljs.test.block.call(null, function() {
-      var env__2965__auto__ = cljs.test.get_current_env.call(null);
+      var env__10429__auto__ = cljs.test.get_current_env.call(null);
       return cljs.core.concat.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-        if (env__2965__auto__ == null) {
+        if (env__10429__auto__ == null) {
           cljs.test.set_env_BANG_.call(null, cljs.test.empty_env.call(null));
         } else {
         }
@@ -59583,28 +59584,28 @@ cljs.test.run_block.call(null, function() {
         return sophitia.test.data.transformation.create_field_title_test;
       }, new cljs.core.Symbol("sophitia.test.data.transformation", "create-field-title-test", "sophitia.test.data.transformation/create-field-title-test", -572290949, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 2078222095), 
       new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "create-field-title-test", "create-field-title-test", 
-      883805075, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 31, 31, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_field_title_test) ? sophitia.test.data.transformation.create_field_title_test.cljs$lang$test : null])), new cljs.core.Var(function() {
+      883805075, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 42, 42, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_field_title_test) ? sophitia.test.data.transformation.create_field_title_test.cljs$lang$test : null])), new cljs.core.Var(function() {
         return sophitia.test.data.transformation.create_field_error_test;
       }, new cljs.core.Symbol("sophitia.test.data.transformation", "create-field-error-test", "sophitia.test.data.transformation/create-field-error-test", 1626325082, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 2078222095), 
       new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "create-field-error-test", "create-field-error-test", 
-      1176604194, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 38, 38, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_field_error_test) ? sophitia.test.data.transformation.create_field_error_test.cljs$lang$test : null])), new cljs.core.Var(function() {
+      1176604194, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 49, 49, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_field_error_test) ? sophitia.test.data.transformation.create_field_error_test.cljs$lang$test : null])), new cljs.core.Var(function() {
         return sophitia.test.data.transformation.collect_html_attrs_test;
       }, new cljs.core.Symbol("sophitia.test.data.transformation", "collect-html-attrs-test", "sophitia.test.data.transformation/collect-html-attrs-test", 1382605158, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 2078222095), 
       new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "collect-html-attrs-test", "collect-html-attrs-test", 
-      760292318, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 45, 45, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.collect_html_attrs_test) ? sophitia.test.data.transformation.collect_html_attrs_test.cljs$lang$test : null])), new cljs.core.Var(function() {
+      760292318, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 33, 1, 56, 56, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.collect_html_attrs_test) ? sophitia.test.data.transformation.collect_html_attrs_test.cljs$lang$test : null])), new cljs.core.Var(function() {
         return sophitia.test.data.transformation.create_input_test;
       }, new cljs.core.Symbol("sophitia.test.data.transformation", "create-input-test", "sophitia.test.data.transformation/create-input-test", 1931542980, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 2078222095), new cljs.core.Keyword(null, 
       "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "create-input-test", "create-input-test", 444319660, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 
-      27, 1, 52, 52, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_input_test) ? sophitia.test.data.transformation.create_input_test.cljs$lang$test : null])), new cljs.core.Var(function() {
+      27, 1, 63, 63, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.create_input_test) ? sophitia.test.data.transformation.create_input_test.cljs$lang$test : null])), new cljs.core.Var(function() {
         return sophitia.test.data.transformation.s_field__GT_reagent_field_test;
       }, new cljs.core.Symbol("sophitia.test.data.transformation", "s-field-\x3ereagent-field-test", "sophitia.test.data.transformation/s-field-\x3ereagent-field-test", -1400951203, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", 
       "column", 2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "s-field-\x3ereagent-field-test", 
-      "s-field-\x3ereagent-field-test", -2025493499, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 37, 1, 59, 59, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.s_field__GT_reagent_field_test) ? sophitia.test.data.transformation.s_field__GT_reagent_field_test.cljs$lang$test : null])), new cljs.core.Var(function() {
+      "s-field-\x3ereagent-field-test", -2025493499, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 37, 1, 70, 70, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.s_field__GT_reagent_field_test) ? sophitia.test.data.transformation.s_field__GT_reagent_field_test.cljs$lang$test : null])), new cljs.core.Var(function() {
         return sophitia.test.data.transformation.s_form__GT_reagent_form_test;
       }, new cljs.core.Symbol("sophitia.test.data.transformation", "s-form-\x3ereagent-form-test", "sophitia.test.data.transformation/s-form-\x3ereagent-form-test", -2082068640, null), cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "file", "file", -1269645878), new cljs.core.Keyword(null, "end-column", "end-column", 1425389514), new cljs.core.Keyword(null, "column", "column", 
       2078222095), new cljs.core.Keyword(null, "line", "line", 212345235), new cljs.core.Keyword(null, "end-line", "end-line", 1837326455), new cljs.core.Keyword(null, "arglists", "arglists", 1661989754), new cljs.core.Keyword(null, "doc", "doc", 1913296891), new cljs.core.Keyword(null, "test", "test", 577538877)], [new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Symbol(null, "s-form-\x3ereagent-form-test", "s-form-\x3ereagent-form-test", 
-      1487430280, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 35, 1, 68, 68, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.s_form__GT_reagent_form_test) ? sophitia.test.data.transformation.s_form__GT_reagent_form_test.cljs$lang$test : null]))], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-        if (env__2965__auto__ == null) {
+      1487430280, null), "test-cljs/sophitia/test/data/transformation_test.cljs", 35, 1, 79, 79, cljs.core.List.EMPTY, null, cljs.core.truth_(sophitia.test.data.transformation.s_form__GT_reagent_form_test) ? sophitia.test.data.transformation.s_form__GT_reagent_form_test.cljs$lang$test : null]))], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
+        if (env__10429__auto__ == null) {
           return cljs.test.clear_env_BANG_.call(null);
         } else {
           return null;
@@ -59614,11 +59615,11 @@ cljs.test.run_block.call(null, function() {
   }, function() {
     return cljs.test.do_report.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "ns", "ns", 441598760), new cljs.core.Symbol(null, "sophitia.test.data.transformation", "sophitia.test.data.transformation", -1549504505, null), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-test-ns", "end-test-ns", 1620675645)], null));
   }], null), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-    return cljs.core._vreset_BANG_.call(null, summary7752, cljs.core.partial.call(null, cljs.core.merge_with, cljs.core._PLUS_).call(null, cljs.core._deref.call(null, summary7752), (new cljs.core.Keyword(null, "report-counters", "report-counters", -1702609242)).cljs$core$IFn$_invoke$arity$1(cljs.test.get_and_clear_env_BANG_.call(null))));
+    return cljs.core._vreset_BANG_.call(null, summary10606, cljs.core.partial.call(null, cljs.core.merge_with, cljs.core._PLUS_).call(null, cljs.core._deref.call(null, summary10606), (new cljs.core.Keyword(null, "report-counters", "report-counters", -1702609242)).cljs$core$IFn$_invoke$arity$1(cljs.test.get_and_clear_env_BANG_.call(null))));
   }], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [function() {
-    cljs.test.set_env_BANG_.call(null, env7751);
-    cljs.test.do_report.call(null, cljs.core.deref.call(null, summary7752));
-    cljs.test.report.call(null, cljs.core.assoc.call(null, cljs.core.deref.call(null, summary7752), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-run-tests", "end-run-tests", 267300563)));
+    cljs.test.set_env_BANG_.call(null, env10605);
+    cljs.test.do_report.call(null, cljs.core.deref.call(null, summary10606));
+    cljs.test.report.call(null, cljs.core.assoc.call(null, cljs.core.deref.call(null, summary10606), new cljs.core.Keyword(null, "type", "type", 1174270348), new cljs.core.Keyword(null, "end-run-tests", "end-run-tests", 267300563)));
     return cljs.test.clear_env_BANG_.call(null);
   }], null));
 }());
